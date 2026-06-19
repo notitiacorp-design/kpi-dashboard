@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-19T23:05:00Z",
+  "updated": "2026-06-19T23:25:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -268,13 +268,13 @@ const DATA = {
   },
   "pipeline": {
     "detected": 29,
-    "contacted": 29,
-    "responded": 4,
-    "in_progress": 4,
+    "contacted": 28,
+    "responded": 0,
+    "in_progress": 0,
     "warm": 0,
     "closing_sent": 0,
     "signed": 0,
-    "dead": 2
+    "dead": 1
   },
   "agents": {
     "elliott": {
@@ -282,7 +282,8 @@ const DATA = {
       "new_this_week": 0,
       "obsolete": 0,
       "last_updated": null,
-      "status": "pending_first_run"
+      "status": "pending_first_run",
+      "first_run": "2026-06-20T06:00:00Z"
     },
     "mike_ross": {
       "discovered_this_week": 0,
@@ -294,11 +295,13 @@ const DATA = {
     },
     "don_draper": {
       "sent_this_week": 0,
-      "received": 4,
+      "sent_auto": 0,
+      "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
       "avg_time_to_response": 0,
-      "status": "active"
+      "status": "active",
+      "note": "28 messages envoyés manuellement par Quentin"
     },
     "harvey_specter": {
       "leads_processed": 0,
@@ -309,8 +312,9 @@ const DATA = {
     }
   },
   "alerts": [
-    {"level":"warn","text":"Mike Ross — pas encore exécuté. Premier run à 8h."},
-    {"level":"warn","text":"Elliott — pas encore exécuté. Premier run à 6h."}
+    {"level":"warn","text":"Mike Ross — 1er run demain 8h. 0 découverte à ce stade."},
+    {"level":"warn","text":"Elliott — 1er run demain 6h. Arsenal vide."},
+    {"level":"info","text":"Don Draper — actif mais n'a pas encore envoyé en autonomie."}
   ],
   "trends": {
     "contacts_vs_last_week": 0,
