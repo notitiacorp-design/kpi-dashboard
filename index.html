@@ -320,7 +320,10 @@ const DATA = {
     "contacts_vs_last_week": 0,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
-  }
+  },
+  "internal_comms": [
+    {"timestamp":"2026-06-19T23:20:00Z","from":"system","to":"all","type":"channel_open","subject":"Canal interne ouvert","message":"Les agents peuvent maintenant communiquer entre eux. Don peut demander de l'aide à Elliott, Harvey peut parler à Don, etc."}
+  ]
 };
 
 // ════════════════ RENDER ════════════════
@@ -417,6 +420,21 @@ ${[
 ${DATA.alerts.length ? `
 <div class="section-title">Alertes</div>
 ${DATA.alerts.map(a=>`<div class="alert${a.level==='warn'?' warn':''}">${a.text}</div>`).join('')}
+` : ''}
+
+${DATA.internal_comms && DATA.internal_comms.length ? `
+<div class="section-title">💬 Communication interne</div>
+${DATA.internal_comms.slice(-15).reverse().map(m=>`
+  <div style="border-left:2px solid ${m.type==='request_help'?'#ffaa00':m.type==='solution'?'#4caf50':m.type==='complaint'?'#ff4444':'#333'};padding:4px 0 4px 10px;margin-bottom:6px;font-size:11px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px">
+      <span><span style="color:#999">${m.from}</span> → <span style="color:#999">${m.to}</span></span>
+      <span style="color:#555;font-size:9px">${D(m.timestamp)}</span>
+    </div>
+    <div style="color:#888;font-size:9px;margin-bottom:1px">${m.type}</div>
+    <div style="font-weight:500">${m.subject||''}</div>
+    <div style="color:#aaa">${m.message.length>120?m.message.slice(0,120)+'…':m.message}</div>
+  </div>
+`).join('')}
 ` : ''}
 
 <div style="margin-top:32px;padding-top:12px;border-top:1px solid #1a1a1a;font-size:10px;color:#444">
