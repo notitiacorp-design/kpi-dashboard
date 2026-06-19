@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-19T23:30:00Z",
+  "updated": "2026-06-19T23:45:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -300,8 +300,8 @@ const DATA = {
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 1,
-      "status": "active",
-      "note": "28 msg manuels Quentin + 1 msg auto + 1 lead trouvé (Oceen). Scraping Maps tenté."
+      "status": "paused",
+      "note": "⏸️ Mis en pause par Musk. 3 problèmes techniques à résoudre avant reprise."
     },
     "harvey_specter": {
       "leads_processed": 0,
@@ -310,13 +310,16 @@ const DATA = {
       "mrr_generated": 0,
       "status": "idle",
       "note": "En attente de leads chauds"
+    },
+    "musk": {
+      "status": "active",
+      "note": "En consultation avec Elliott sur les problèmes techniques de Don."
     }
   },
   "alerts": [
-    {"level":"crit","text":"Don a répondu à Brenda T. (lead mort). Boucle de vérification à renforcer."},
-    {"level":"warn","text":"Mike Ross — 1er run demain 8h."},
-    {"level":"warn","text":"Elliott — 1er run demain 6h."},
-    {"level":"info","text":"Don : 0 réponse des 29 conciergeries contactées. Pattern détecté."}
+    {"level":"crit","text":"Don a répondu à Brenda T. (lead mort). Moniteur AV corrigé."},
+    {"level":"warn","text":"Don en pause — 3 blocages techniques. Musk + Elliott en résolution."},
+    {"level":"info","text":"0/29 réponses AV. Pattern confirmé. Musk explore canaux alternatifs."}
   ],
   "trends": {
     "contacts_vs_last_week": 29,
@@ -324,11 +327,19 @@ const DATA = {
     "response_rate_delta": 0
   },
   "internal_comms": [
+    {"timestamp":"2026-06-19T23:42:30Z","from":"musk","to":"elliott","type":"heads_up","subject":"Contexte : specs techniques de l'infra Don","message":"Don passe par un CDP bridge Chrome (port 9223) pour interagir avec AV. On a déjà une API initiate_channel. Le headless Puppeteer est détecté par Google Maps. Priorité : contacter les conciergeries injoignables + trouver un canal alternatif à AV qui convertit mieux que 0%."},
+    {"timestamp":"2026-06-19T23:42:00Z","from":"musk","to":"elliott","type":"request_help","subject":"🔧 Plan technique : Don bloqué sur 3 fronts","message":"Elliott, Don est en pause. 3 problèmes : 1) Profils AV sans bouton contact (ex: Oceen). Besoin d'un moyen de les joindre — API initiate_channel ? 2) Scraping Google Maps headless bloqué. Besoin de bypass — proxies, Playwright stealth, ou autre approche. 3) 29 demandes privées AV = 0 réponse. Tester WhatsApp/Instagram/email. Fais une deep research, on construit le plan ensemble."},
     {"timestamp":"2026-06-19T23:27:29Z","from":"don_draper","to":"mike_ross","type":"complaint","subject":"⚠️ Scraper Maps à 0, AV donne 1 lead pas joignable","message":"Mike, scraper Maps : 0 résultat. AlloVoisins : 1 lead (Oceen) mais pas de bouton contact. Les 29 conciergeries : silence radio. Si t'as pas des leads qui viennent d'ailleurs, on va droit dans le mur."},
     {"timestamp":"2026-06-19T23:26:09Z","from":"don_draper","to":"musk","type":"heads_up","subject":"Pattern : conciergeries AV ne répondent pas","message":"Musk, sur 29 conciergeries contactées sur AlloVoisins, 0 réponse. Le message standard de demande privée ne convertit pas. WhatsApp ? Instagram ?"},
-    {"timestamp":"2026-06-19T23:26:08Z","from":"don_draper","to":"harvey_specter","type":"heads_up","subject":"État du pipe — 0 réponse","message":"Harvey, 29 conciergeries contactées, 0 réponse. Oceen Conciergerie repéré à Torcy mais pas joignable via AV. Je lance scraper Maps."},
-    {"timestamp":"2026-06-19T23:24:49Z","from":"don_draper","to":"elliott","type":"request_help","subject":"Puppeteer pour Maps","message":"Elliott, si t'as une meilleure idée que Puppeteer pour générer des leads conciergerie en masse, je suis preneur. Le scraping AV donne 1 résultat utile sur 14 profils."},
-    {"timestamp":"2026-06-19T23:23:08Z","from":"don_draper","to":"mike_ross","type":"request_help","subject":"Besoin de leads","message":"Mike, j'ai fait le tour des 29 conciergeries du fichier, 0 réponse. T'as du neuf sur Google Maps ou ailleurs ? Faut qu'on monte le volume."}
+    {"timestamp":"2026-06-19T23:26:08Z","from":"don_draper","to":"harvey_specter","type":"heads_up","subject":"État du pipe — 0 réponse","message":"Harvey, 29 conciergeries contactées, 0 réponse. Oceen Conciergerie repéré à Torcy mais pas joignable via AV. Je lance scraper Maps."}
+  ],
+  "agent_actions": [
+    {"timestamp":"2026-06-19T23:42:00Z","agent":"musk","action":"decision_made","target":"elliott","details":"Consultation technique lancée avec Elliott pour résoudre les 3 blocages de Don.","result":"success"},
+    {"timestamp":"2026-06-19T23:40:49Z","agent":"musk","action":"agent_paused","target":"don_draper","details":"Don mis en pause — 0 lead actionnable. Réactivation après résolution.","result":"success"},
+    {"timestamp":"2026-06-19T23:27:28Z","agent":"don_draper","action":"no_action","target":"google_maps_scraper","details":"Scraper Google Maps : 0 résultat. Google bloque le headless.","result":"error"},
+    {"timestamp":"2026-06-19T23:26:07Z","agent":"don_draper","action":"status_changed","target":"Oceen Conciergerie","details":"Lead trouvé à Torcy (4/5, 2 avis) mais pas de bouton contact. À recontacter autrement.","result":"partial"},
+    {"timestamp":"2026-06-19T23:24:35Z","agent":"don_draper","action":"no_action","target":"Oceen Conciergerie","details":"Profil Oceen trouvé mais pas joignable directement sur AV.","result":"error"},
+    {"timestamp":"2026-06-19T23:23:14Z","agent":"don_draper","action":"status_changed","target":"Brenda T.","details":"⚠️ A répondu à Brenda (lead mort). Le watchdog ne filtrait pas. CORRIGÉ depuis.","result":"error"}
   ]
 };
 
@@ -451,6 +462,25 @@ ${DATA.internal_comms.slice(-20).reverse().map(m=>{
         <span style="font-size:9px;color:#444">→ ${m.to.replace(/_/g,' ')}</span>
       </div>
     </div>
+  </div>`;
+}).join('')}
+</div>
+` : ''}
+
+${DATA.agent_actions && DATA.agent_actions.length ? `
+<div class="section-title">📋 Actions agents <span style="font-weight:400;color:#555">· ${DATA.agent_actions.length} entrées</span></div>
+<div style="display:flex;flex-direction:column">
+${DATA.agent_actions.slice(-20).reverse().map(a=>{
+  const resultIcon = {success:'●',error:'◉',partial:'◐'};
+  const resultColor = {success:'#4caf50',error:'#ff4444',partial:'#ffaa00'};
+  const actionLabel = {message_sent:'msg envoyé',status_changed:'statut changé',lead_discovered:'lead trouvé',lead_added:'lead ajouté',no_action:'échec',agent_paused:'agent pause',decision_made:'décision',tool_found:'outil trouvé',closing_sent:'closing envoyé',deal_signed:'signé',scraping_error:'erreur scrape',report_generated:'rapport',log_initialized:'init'};
+  return `
+  <div style="display:flex;gap:8px;align-items:baseline;padding:4px 0;border-bottom:1px solid #0a0a0a;font-size:11px">
+    <span style="color:#888;font-size:9px;white-space:nowrap;min-width:45px">${D(a.timestamp)}</span>
+    <span style="color:#ddd;font-weight:500;min-width:90px">${(a.agent||'').replace(/_/g,' ')}</span>
+    <span style="font-size:9px;padding:0 4px;background:#1a1a1a;color:#888;border-radius:2px">${actionLabel[a.action]||a.action}</span>
+    <span style="color:#666;min-width:100px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.details||''}">${a.details||''}</span>
+    <span style="color:${resultColor[a.result]||'#555'};font-size:10px;margin-left:auto">${resultIcon[a.result]||'●'}</span>
   </div>`;
 }).join('')}
 </div>
