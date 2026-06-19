@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notitia KPI</title>
+<style>
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/GeistMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/GeistMono-Medium.woff2') format('woff2');
+    font-weight: 500;
+  }
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-mono/GeistMono-Bold.woff2') format('woff2');
+    font-weight: 700;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid #333;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+  .header .updated {
+    font-size: 11px;
+    color: #666;
+  }
+
+  .mrr-box {
+    border: 1px solid #333;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .mrr-box .label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .mrr-box .value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .mrr-box .sub {
+    font-size: 11px;
+    color: #555;
+    text-align: right;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    border: 1px solid #333;
+    padding: 14px 16px;
+  }
+  .card.full {
+    grid-column: 1 / -1;
+  }
+  .card-title {
+    font-size: 10px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .card-value {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .card-sub {
+    font-size: 11px;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  .pipeline-bar {
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+    display: flex;
+  }
+  .pipeline-bar span {
+    height: 100%;
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  td {
+    padding: 3px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  td:last-child {
+    text-align: right;
+    font-weight: 500;
+  }
+
+  .funnel {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+    align-items: flex-end;
+  }
+  .funnel-step {
+    flex: 1;
+    text-align: center;
+  }
+  .funnel-bar {
+    width: 100%;
+    min-height: 8px;
+    background: #333;
+  }
+  .funnel-label {
+    font-size: 9px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .funnel-count {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .alert {
+    border-left: 2px solid #ff4444;
+    padding: 6px 0 6px 12px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .alert.warn {
+    border-left-color: #ffaa00;
+  }
+
+  .trend-up { color: #4caf50; }
+  .trend-down { color: #ff4444; }
+  .muted { color: #555; }
+
+  .section-title {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 20px 0 10px;
+    padding-top: 12px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .agent-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .agent-row:last-child { border: none; }
+  .agent-name {
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .agent-role {
+    font-size: 10px;
+    color: #555;
+  }
+  .agent-metrics {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+  }
+  .agent-metric {
+    font-size: 12px;
+  }
+  .agent-metric small {
+    display: block;
+    font-size: 9px;
+    color: #555;
+  }
+
+  .bar-chart {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 80px;
+    padding-top: 8px;
+  }
+  .bar-col {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .bar {
+    width: 100%;
+    background: #333;
+    min-height: 2px;
+    transition: height 0.3s;
+  }
+  .bar-col .bar-label {
+    font-size: 8px;
+    color: #555;
+    margin-top: 4px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  @media (max-width: 700px) {
+    .grid { grid-template-columns: 1fr; }
+    .agent-metrics { gap: 12px; }
+    body { padding: 12px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<script>
+// ═══════════════════════════════════════
+// DATA — updated by Louis Litt at 9h/21h
+// ═══════════════════════════════════════
+const DATA = {
+  "updated": "2026-06-19T22:00:00Z",
+  "mrr": 0,
+  "pipeline": {
+    "detected": 29,
+    "contacted": 29,
+    "responded": 4,
+    "in_progress": 4,
+    "warm": 0,
+    "closing_sent": 0,
+    "signed": 0,
+    "dead": 2
+  },
+  "agents": {
+    "elliott": {
+      "tools_in_arsenal": 0,
+      "new_this_week": 0,
+      "obsolete": 0,
+      "last_updated": null
+    },
+    "mike_ross": {
+      "discovered_this_week": 29,
+      "discovered_total": 29,
+      "converted_by_don": 29,
+      "conversion_rate": 100
+    },
+    "don_draper": {
+      "sent_this_week": 0,
+      "received": 4,
+      "response_rate": 0,
+      "warm_handoffs": 0,
+      "avg_time_to_response": 0
+    },
+    "harvey_specter": {
+      "leads_processed": 0,
+      "signed": 0,
+      "closing_rate": 0,
+      "mrr_generated": 0
+    }
+  },
+  "alerts": [
+  ],
+  "trends": {
+    "contacts_vs_last_week": 0,
+    "responses_vs_last_week": 0,
+    "response_rate_delta": 0
+  }
+};
+
+// ════════════════ RENDER ════════════════
+const F = (n) => n != null ? n.toLocaleString() : '—';
+const P = (n) => (n != null ? n : 0) + '%';
+const D = (d) => d ? new Date(d).toLocaleString('fr-FR', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+
+const p = DATA.pipeline;
+const total = p.detected || 1;
+const pipelines = [
+  {k:'detected',label:'DÉTECTÉ',v:p.detected,w:(p.detected/total)*100},
+  {k:'contacted',label:'CONTACTÉ',v:p.contacted,w:(p.contacted/total)*100},
+  {k:'responded',label:'RÉPONDU',v:p.responded,w:(p.responded/total)*100},
+  {k:'in_progress',label:'EN COURS',v:p.in_progress,w:(p.in_progress/total)*100},
+  {k:'warm',label:'CHAUD',v:p.warm,w:(p.warm/total)*100},
+  {k:'signed',label:'SIGNÉ',v:p.signed,w:(p.signed/total)*100}
+];
+
+document.title = 'Notitia KPI — ' + D(DATA.updated);
+
+const h = `
+<div class="header">
+  <h1>NOTITIA KPI</h1>
+  <span class="updated">${D(DATA.updated)}</span>
+</div>
+
+<div class="mrr-box">
+  <div>
+    <div class="label">MRR</div>
+    <div class="value">${F(DATA.mrr)} €</div>
+  </div>
+  <div class="sub">${p.signed} client${p.signed>1?'s':''}<br>${DATA.mrr?Math.round(DATA.mrr/(p.signed||1))+'€/client':''}</div>
+</div>
+
+<div class="section-title">Pipeline</div>
+<div style="display:flex;gap:4px;margin-bottom:12px">
+  ${pipelines.map(s=>`
+    <div style="flex:${Math.max(s.w,2)};text-align:center">
+      <div style="font-size:14px;font-weight:700">${F(s.v)}</div>
+      <div style="height:4px;background:#333;margin:4px 0"><div style="width:100%;height:100%;background:#fff"></div></div>
+      <div style="font-size:9px;color:#666">${s.label}</div>
+    </div>
+  `).join('')}
+</div>
+
+<div style="height:1px;background:#1a1a1a;margin:16px 0"></div>
+
+<div class="section-title">Agents</div>
+${[
+  {name:'Elliott',role:'Arsenal',m:[
+    {v:F(DATA.agents.elliott.tools_in_arsenal),l:'Outils'},
+    {v:F(DATA.agents.elliott.new_this_week),l:'Nouveaux'},
+    {v:D(DATA.agents.elliott.last_updated),l:'MàJ'}
+  ]},
+  {name:'Mike Ross',role:'Ciblage',m:[
+    {v:F(DATA.agents.mike_ross.discovered_total),l:'Détectés'},
+    {v:F(DATA.agents.mike_ross.converted_by_don),l:'→ Don'},
+    {v:P(DATA.agents.mike_ross.conversion_rate),l:'Conversion'}
+  ]},
+  {name:'Don Draper',role:'Contact',m:[
+    {v:F(DATA.agents.don_draper.sent_this_week),l:'Envoyés'},
+    {v:P(DATA.agents.don_draper.response_rate),l:'Taux rép.'},
+    {v:F(DATA.agents.don_draper.warm_handoffs),l:'→ Harvey'}
+  ]},
+  {name:'Harvey Specter',role:'Closing',m:[
+    {v:F(DATA.agents.harvey_specter.leads_processed),l:'Traités'},
+    {v:P(DATA.agents.harvey_specter.closing_rate),l:'Closing'},
+    {v:F(DATA.agents.harvey_specter.mrr_generated)+'€',l:'MRR généré'}
+  ]}
+].map(a=>`
+  <div class="agent-row">
+    <div>
+      <div class="agent-name">${a.name}</div>
+      <div class="agent-role">${a.role}</div>
+    </div>
+    <div class="agent-metrics">
+      ${a.m.map(m=>`<div class="agent-metric">${m.v}<small>${m.l}</small></div>`).join('')}
+    </div>
+  </div>
+`).join('')}
+
+${DATA.alerts.length ? `
+<div class="section-title">Alertes</div>
+${DATA.alerts.map(a=>`<div class="alert${a.level==='warn'?' warn':''}">${a.text}</div>`).join('')}
+` : ''}
+
+<div style="margin-top:32px;padding-top:12px;border-top:1px solid #1a1a1a;font-size:10px;color:#444">
+  Notitia Corp. Pipeline automatisé. Mis à jour par Louis Litt.
+</div>
+`;
+
+document.body.innerHTML = h;
+</script>
+
+</body>
+</html>
