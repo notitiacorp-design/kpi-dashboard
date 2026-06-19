@@ -259,8 +259,13 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-19T22:00:00Z",
+  "updated": "2026-06-19T23:05:00Z",
   "mrr": 0,
+  "source": {
+    "quentin_manual": 29,
+    "mike_ross": 0,
+    "elliott_tools": 0
+  },
   "pipeline": {
     "detected": 29,
     "contacted": 29,
@@ -276,29 +281,36 @@ const DATA = {
       "tools_in_arsenal": 0,
       "new_this_week": 0,
       "obsolete": 0,
-      "last_updated": null
+      "last_updated": null,
+      "status": "pending_first_run"
     },
     "mike_ross": {
-      "discovered_this_week": 29,
-      "discovered_total": 29,
-      "converted_by_don": 29,
-      "conversion_rate": 100
+      "discovered_this_week": 0,
+      "discovered_total": 0,
+      "converted_by_don": 0,
+      "conversion_rate": 0,
+      "status": "pending_first_run",
+      "first_run": "2026-06-20T08:00:00Z"
     },
     "don_draper": {
       "sent_this_week": 0,
       "received": 4,
       "response_rate": 0,
       "warm_handoffs": 0,
-      "avg_time_to_response": 0
+      "avg_time_to_response": 0,
+      "status": "active"
     },
     "harvey_specter": {
       "leads_processed": 0,
       "signed": 0,
       "closing_rate": 0,
-      "mrr_generated": 0
+      "mrr_generated": 0,
+      "status": "active"
     }
   },
   "alerts": [
+    {"level":"warn","text":"Mike Ross — pas encore exécuté. Premier run à 8h."},
+    {"level":"warn","text":"Elliott — pas encore exécuté. Premier run à 6h."}
   ],
   "trends": {
     "contacts_vs_last_week": 0,
@@ -352,24 +364,36 @@ const h = `
 
 <div style="height:1px;background:#1a1a1a;margin:16px 0"></div>
 
+<div class="section-title">Source des leads</div>
+<div style="display:flex;gap:16px;margin-bottom:12px">
+  <div style="flex:1;border:1px solid #333;padding:10px 12px">
+    <div style="font-size:18px;font-weight:700">${F(DATA.source.quentin_manual)}</div>
+    <div style="font-size:10px;color:#666">Quentin (manuel)</div>
+  </div>
+  <div style="flex:1;border:1px solid #333;padding:10px 12px">
+    <div style="font-size:18px;font-weight:700;color:${DATA.source.mike_ross?'#fff':'#555'}">${F(DATA.source.mike_ross)}</div>
+    <div style="font-size:10px;color:#666">Mike Ross</div>
+  </div>
+</div>
+
 <div class="section-title">Agents</div>
 ${[
-  {name:'Elliott',role:'Arsenal',m:[
+  {name:'Elliott',role:'Arsenal',status:DATA.agents.elliott.status,m:[
     {v:F(DATA.agents.elliott.tools_in_arsenal),l:'Outils'},
     {v:F(DATA.agents.elliott.new_this_week),l:'Nouveaux'},
     {v:D(DATA.agents.elliott.last_updated),l:'MàJ'}
   ]},
-  {name:'Mike Ross',role:'Ciblage',m:[
+  {name:'Mike Ross',role:'Ciblage',status:DATA.agents.mike_ross.status,m:[
     {v:F(DATA.agents.mike_ross.discovered_total),l:'Détectés'},
     {v:F(DATA.agents.mike_ross.converted_by_don),l:'→ Don'},
     {v:P(DATA.agents.mike_ross.conversion_rate),l:'Conversion'}
   ]},
-  {name:'Don Draper',role:'Contact',m:[
+  {name:'Don Draper',role:'Contact',status:DATA.agents.don_draper.status,m:[
     {v:F(DATA.agents.don_draper.sent_this_week),l:'Envoyés'},
     {v:P(DATA.agents.don_draper.response_rate),l:'Taux rép.'},
     {v:F(DATA.agents.don_draper.warm_handoffs),l:'→ Harvey'}
   ]},
-  {name:'Harvey Specter',role:'Closing',m:[
+  {name:'Harvey Specter',role:'Closing',status:DATA.agents.harvey_specter.status,m:[
     {v:F(DATA.agents.harvey_specter.leads_processed),l:'Traités'},
     {v:P(DATA.agents.harvey_specter.closing_rate),l:'Closing'},
     {v:F(DATA.agents.harvey_specter.mrr_generated)+'€',l:'MRR généré'}
@@ -377,8 +401,8 @@ ${[
 ].map(a=>`
   <div class="agent-row">
     <div>
-      <div class="agent-name">${a.name}</div>
-      <div class="agent-role">${a.role}</div>
+      <div class="agent-name">${a.name} <span style="font-size:9px;color:${a.status==='active'?'#4caf50':'#ffaa00'}">${a.status==='active'?'●':'○'}</span></div>
+      <div class="agent-role">${a.role} ${a.status!=='active'?`· ${a.status==='pending_first_run'?'en attente':a.status}`:''}</div>
     </div>
     <div class="agent-metrics">
       ${a.m.map(m=>`<div class="agent-metric">${m.v}<small>${m.l}</small></div>`).join('')}
