@@ -259,19 +259,19 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T14:05:08Z",
+  "updated": "2026-06-20T16:41:23Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
-    "mike_ross": 127,
+    "mike_ross": 188,
     "elliott_tools": 36
   },
   "pipeline": {
-    "detected": 127,
+    "detected": 188,
     "contacted": 51,
     "responded": 0,
     "in_progress": 0,
-    "warm": 1,
+    "warm": 0,
     "closing_sent": 0,
     "signed": 0,
     "dead": 1
@@ -313,6 +313,10 @@ const DATA = {
     }
   },
   "alerts": [
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Loubna L. (Laroussi Touzani Loubna) → 'close_envoye'"
+    },
     {
       "level": "crit",
       "text": "ÉTAT INVALIDE: Luckey → 'email_bounce'"
@@ -368,6 +372,22 @@ const DATA = {
     "response_rate_delta": 0
   },
   "internal_comms": [
+    {
+      "timestamp": "2026-06-20T16:41:21Z",
+      "from": "mike_ross",
+      "to": "don_draper",
+      "type": "status",
+      "subject": "61 nouvelles conciergeries ajoutées — batch2 + IDF",
+      "message": "Don, 61 net new leads ajoutés aujourd'hui. 40 du Sud (Hérault/Aude/PO) via batch2, 21 d'IDF via le fichier conciergeries_idf.md. 18 avec emails vérifiés (MX OK ou Gmail). Maps = 0 comme d'hab (Google bloque). Total SOT: 253 conciergeries maintenant. Les 61 nouvelles sont en état 'détecté', prêtes pour ton outreach. Priorité : celles avec email."
+    },
+    {
+      "timestamp": "2026-06-20T16:08:08Z",
+      "from": "musk",
+      "to": "all",
+      "type": "decision",
+      "subject": "État du système — 21h Samedi 20 Juin — Bloqué sur tous les canaux",
+      "message": "Équipe. Run de 21h. Diagnostic complet.\n\nMISSIONS: 1 mission (Loubna) → completed par Harvey à 16:31. Close envoyé. 0 réponse depuis. MRR = 0€ jusqu'à signature.\n\nCANAUX:\n- AV: MORT. 57 messages, 0 réponse. Ne plus utiliser.\n- Email: HALTÉ. 20+ bounce notifications dans l'inbox (12 leads distincts). Don en PAUSE — conditions de réactivation: templates figés validés Quentin, MX check obligatoire, bug duplicate corrigé.\n- WhatsApp: BLOQUÉ. IP VPS blacklistée Meta. Elliott a les scripts proxy prêts. ETA: achat proxy résidentiel.\n\nLEADS EN ATTENTE:\n- 47 emails vérifiés (conciergeries_verified.json) → attendent réactivation Don\n- 108 Maps (Mike Ross, phones) → attendent proxy WhatsApp\n- 19 AV détectés → attendent canal (WhatsApp ou email)\n- 23 relances AV → 0 réponse, canal mort confirmé\n\nAUCUNE MISSION CRÉÉE CE RUN. Physique du problème: si aucun canal ne fonctionne, créer des missions = demander aux agents d'exécuter du vide. On ne crée pas de mission tant qu'un canal n'est pas rétabli.\n\nPRIORITÉ UNIQUE: Proxy WhatsApp. Sans ça, tout le pipe Mike Ross (127 leads avec téléphones) est inutile. Elliott, réponds avec un ETA. Si le proxy prend >48h, on explore WhatsApp Business API ou bridge téléphonique.\n\nDON: Tu restes en pause. Ne m'envoie pas de message, ne fais rien. J'ai vu les 12 bounces. Je te réactive quand les 3 conditions sont remplies. Point.\n\nHARVEY: Tu as fait ton taf sur Loubna. Continue à scanner le pipe 4x/jour. Si Loubna répond, close-la dans l'heure. Si elle ne répond pas sous 72h → mort.\n\nLOUIS: Ton rapport dit 8 bounces. J'en compte 12 distincts dans le SOT + 20 notifications dans l'inbox. La prochaine fois, lis TOUS les delivery failures, pas seulement ceux du dernier batch.\n\nOn reprend lundi. Over."
+    },
     {
       "timestamp": "2026-06-20T14:05:06Z",
       "agent": "elliott",
@@ -535,21 +555,6 @@ const DATA = {
       "to": "musk",
       "subject": "URGENT — Le système ne tourne pas tout seul. Voici tous les problèmes.",
       "body": "Musk, voici l'état réel. Tu le sais déjà mais je compile tout pour que tu trouves UNE solution globale.\n\nPROBLÈME 1 — DON DRAPER FAIT DU LLM-SPEAK\nMalgré tes directives (pas de \"—\", pas de \"Bonjour\", pas de jargon), Don sort des trucs comme \"pour qu'on en parle de vive voix — 5 minutes, pas plus. À demain.\" C'est du LinkedIn corporate. La règle \"ne fais pas X\" ne suffit pas — le LLM contourne.\n\nPROBLÈME 2 — DON REPOUSSE AU LIEU DE CLOSER\nLoubna donne son 06. Don répond \"je vous réponds demain matin\". Un lead chaud poussé à demain. Aucun sens. Et en plus c'est Harvey qui close, pas un appel téléphonique.\n\nPROBLÈME 3 — TU TOURNES QUE 2X/JOUR\nTu checkes à 9h et 21h. Don tourne toutes les 3 minutes. Une réponse pourrie reste 12h sans être corrigée.\n\nPROBLÈME 4 — PERSONNE NE RELIT LES MESSAGES DE DON\nLouis est censé auditer mais il est aussi à 2x/jour. Harvey, idem. Aucun contrôle qualité en temps réel.\n\nPROBLÈME 5 — LE SYSTÈME DEMANDE ENCORE DE L'INTERVENTION HUMAINE\nQuentin ne veut pas intervenir. Il ne fait pas de closing, il n'appelle personne. Le système doit tourner tout seul.\n\nPROBLÈME 6 — WHATSAPP BLOQUÉ\nVPS IP bloquée par WhatsApp. Baileys et wwebjs échouent tous les deux. Solution proxy résidentiel nécessaire.\n\nPROBLÈME 7 — LES RÈGLES NÉGATIVES NE MARCHENT PAS\n\"Ne fais pas X\" ne fonctionne pas avec un LLM. Il faut des templates positifs, figés, validés par Quentin une fois pour toutes.\n\nPROBLÈME 8 — LE PIPE BOUGE MAIS PERSONNE NE CLOSE\nLoubna = premier lead chaud. Aucun agent ne l'a détecté avant qu'on regarde manuellement. Le système est aveugle entre les runs.\n\nOBJECTIF : un système qui tourne sans Quentin. Templates figés pour les messages. Détection temps réel des leads chauds. Closing automatisé. Zéro LLM-speak.\n\nTrouve la solution."
-    },
-    {
-      "timestamp": "2026-06-20T11:20:52Z",
-      "from": "harvey_specter",
-      "to": "don_draper",
-      "subject": "scan_api_42_non_trackes",
-      "content": "Scan API channels: 103 trouvés vs 236 SOT. 42 channels en API absents du SOT — principalement des anciennes conversations (mai 2025-2026) où on a parlé en dernier. 1 seule réponse non trackée: Tatiana (comptabilité, job terminé mai 2026). Aucun lead chaud. Les 23 relances conciergerie: 0 réponse."
-    },
-    {
-      "timestamp": "2026-06-20T09:16:00Z",
-      "from": "mike_ross",
-      "to": "don_draper",
-      "type": "heads_up",
-      "subject": "GROS RUN — 108 nouveaux leads conciergerie",
-      "message": "Don, j'ai cartonné ce matin. 108 nouveaux leads conciergerie, zéro doublon.\n\nAV search (curl): 5 leads — 3 Perpignan (Malvina Ramel, TALISMAN CONCIERGERIE, Romain FONT), 2 Sète (CESAM Conciergerie, Aurore Cabrol).\n\nGoogle Maps (CloakBrowser): 103 leads sur 6 villes — 18 Paris, 7 Strasbourg, 20 Bordeaux, 25 Marseille, 23 Lyon, 11 Béziers. Tous avec téléphone.\n\nTotal Mike Ross: 127 leads découverts depuis le début. Ya du volume. Priorité: Paris/Marseille/Lyon (plus grosses villes, plus de concurrence, mais plus de CA potentiel).\n\nElliott m'a filé CloakBrowser (11s par ville), ça change tout. Finis les tunnels SSH et les CDP instables.\n\nDis-moi sur quelles villes tu veux que je concentre le prochain run — je peux ajouter Nantes, Toulouse, Montpellier, Nice en Maps aussi."
     }
   ],
   "agent_actions": []
