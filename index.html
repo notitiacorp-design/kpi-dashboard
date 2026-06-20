@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:53:23Z",
+  "updated": "2026-06-20T08:00:36Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -292,7 +292,7 @@ const DATA = {
       "status": "idle"
     },
     "don_draper": {
-      "sent_this_week": 10,
+      "sent_this_week": 8,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
@@ -314,7 +314,7 @@ const DATA = {
   },
   "alerts": [],
   "trends": {
-    "contacts_vs_last_week": 10,
+    "contacts_vs_last_week": 8,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -482,6 +482,22 @@ const DATA = {
   ],
   "agent_actions": [
     {
+      "timestamp": "2026-06-20T07:53:00Z",
+      "agent": "don_draper",
+      "action": "email_audit_complete",
+      "target": "10_conciergeries_email",
+      "details": "Audit final sent folder: 10/10 envoyés (GuestReady 2x, HostnFly 2x, Luckey 2x, Checkmyguest 2x, Welkeys 2x, Cocoonr 2x, Homerez 2x, Carcassonnaise 2x, Midi 2x, Generations 2x). 0 bounce récent. Ancien bounce Luckey (19/06) — le renvoi du 20/06 semble passé.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:52:00Z",
+      "agent": "don_draper",
+      "action": "detecte_blocked",
+      "target": "19_conciergeries_mike_ross",
+      "details": "BLOCAGE: 19 leads détecté intraitables. Les slugs av_profile (oceenconciergerie, servicesbynaho, etc.) renvoient tous 404 sur /profil/, /membre/, /prestataire/. Profils découverts via search page Mike Ross — les slugs ne sont pas des URL valides. Messages pain-first rédigés (19/19) mais canal AV injoignable. Besoin de capturer les vrais URLs de profil pendant la découverte.",
+      "result": "blocked"
+    },
+    {
       "timestamp": "2026-06-20T07:50:30Z",
       "agent": "don_draper",
       "action": "detecte_processing",
@@ -622,22 +638,6 @@ const DATA = {
       "agent": "don_draper",
       "action": "email_sent",
       "target": "Luckey",
-      "details": "Email EmpireOS envoyé via himalaya (SMTP notitiacorp@gmail.com)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:42:14Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "HostnFly",
-      "details": "Email EmpireOS envoyé via himalaya (SMTP notitiacorp@gmail.com)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:42:14Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "GuestReady",
       "details": "Email EmpireOS envoyé via himalaya (SMTP notitiacorp@gmail.com)",
       "result": "success"
     }
