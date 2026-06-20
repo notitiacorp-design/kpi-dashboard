@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:42:45Z",
+  "updated": "2026-06-20T07:45:11Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -292,7 +292,7 @@ const DATA = {
       "status": "idle"
     },
     "don_draper": {
-      "sent_this_week": 15,
+      "sent_this_week": 11,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
@@ -391,7 +391,7 @@ const DATA = {
     }
   ],
   "trends": {
-    "contacts_vs_last_week": 15,
+    "contacts_vs_last_week": 11,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -559,6 +559,70 @@ const DATA = {
   ],
   "agent_actions": [
     {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "detecte_blocked",
+      "target": "14_conciergeries_detecte",
+      "details": "14 profils detecte restants (Berenice, Saphia, Karine, Isabelle M., Maghnia, Amira, Rebecca, Yannick, Dmitri, CASANOVA, Francesca, Chrystelle, Stephanie, Mystralia) — pas de canal de contact direct AV",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "relance_needed",
+      "target": "5_conciergeries",
+      "details": "Fred C., Hostavea, Guillaume S., Randy N., Katya O. — message_envoye sans réponse, probablement +7j, relance AV nécessaire (canal CDP/Playwright requis)",
+      "result": "pending"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_failed",
+      "target": "Soren Seri (Les Cles Nantaises)",
+      "details": "Bouton Contacter redirige vers support.allovoisins.com (Zendesk) — pas de messagerie directe possible",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_failed",
+      "target": "Angele Rezzik (Osty)",
+      "details": "Bouton Contacter redirige vers support.allovoisins.com (Zendesk) — pas de messagerie directe possible",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_failed",
+      "target": "Jonathan Apolis (OCLEZIA)",
+      "details": "Bouton Contacter redirige vers support.allovoisins.com (Zendesk) — pas de messagerie directe possible",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_failed",
+      "target": "Nahomie Charles (Services By Naho)",
+      "details": "Bouton Contacter redirige vers support.allovoisins.com (Zendesk) — pas de messagerie directe possible",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:45:06Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_failed",
+      "target": "Oceen Conciergerie",
+      "details": "Bouton Contacter redirige vers support.allovoisins.com (Zendesk) — pas de messagerie directe possible",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:43:58Z",
+      "agent": "don_draper",
+      "action": "cold_outreach_started",
+      "target": "5_conciergeries_detecte",
+      "details": "Cold outreach Playwright vers 5 profils 'detecte': Oceen, Services By Naho, OCLEZIA, Osty, Les Cles Nantaises",
+      "result": "pending"
+    },
+    {
       "timestamp": "2026-06-20T07:42:14Z",
       "agent": "don_draper",
       "action": "email_sent",
@@ -654,70 +718,6 @@ const DATA = {
       "details": "Pipeline scan: 0 chaud, 0 en_cours, 0 repondu. 23 relances envoyees par Don a 07:34. 103 canaux API verifies, 1 reponse non-SOT (Tatiana, tutorat clos). Pipeline silencieux.",
       "result": "success",
       "mrr": 0
-    },
-    {
-      "timestamp": "2026-06-20T07:34:19Z",
-      "agent": "don_draper",
-      "action": "no_action",
-      "target": "19 nouveaux leads detectes Mike Ross",
-      "details": "19 conciergeries detectees (Mike Ross 07:00). Repartition: 1 Torcy, 3 Montpellier, 2 Lille, 3 Nantes, 4 Toulouse, 6 Nice. Non actionnables API (pas de channel ID). Necessitent Playwright pour initier conversation.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:34:19Z",
-      "agent": "don_draper",
-      "action": "verification",
-      "target": "10 conciergeries email",
-      "details": "10 emails verifies dans Gmail Sent (envoyes 20/06 00:18-00:20 UTC). GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys, Cocoonr, Homerez, Carcassonnaise, Midi, Generations. Doublons detectes: 20 sent items = 2 copies par destinataire.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:34:19Z",
-      "agent": "don_draper",
-      "action": "relance_pain_first",
-      "target": "23 conciergeries AV",
-      "details": "23 relances pain-first via API AV (correction message interdit). Batch1(10): CHECK IN PARIS, Paris Stayhouse, maysha house, TAIR Conciergerie, ATK CONSULTING, Casarelax, Staya Residences, CONCIERGERIE SOARES, T2R CONCIERGERIE, AST SERVICES CONCIERGERIE. Batch2(13): Arman H., Efelia, Debih H., SO'CLEAN, Riviera Homecare, HomeEase, Sun-Tropez, Virginie W., A.M clean, OCSILETI, Loubna L., Balai magique, Alexis T. Toutes verifiees: 23/23 last_uid=7836662 confirme.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:21:00Z",
-      "agent": "don_draper",
-      "action": "no_action",
-      "target": "19 detecte AV leads",
-      "details": "19 leads detecte par Mike Ross non contactables : Playwright headless masque bouton Contacter, pont SSH down, API initiate_channel exige search_id numerique. Bloquant technique.",
-      "result": "blocked"
-    },
-    {
-      "timestamp": "2026-06-20T07:20:09Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Generations Conciergerie",
-      "details": "Email pain-first envoyé à generations.conciergerie@gmail.com. Béziers.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:20:08Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "La Conciergerie du Midi",
-      "details": "Email pain-first envoyé à contact@laconciergeriedumidi.com. Port-La-Nouvelle/Sigean.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:20:07Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Conciergerie Carcassonnaise",
-      "details": "Email pain-first envoyé à contact@conciergerie-carcassonnaise.fr. Carcassonne.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:20:06Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Homerez",
-      "details": "Email pain-first envoyé à welcome@homerez.com. 100-500 biens IDF/national.",
-      "result": "success"
     }
   ]
 };
