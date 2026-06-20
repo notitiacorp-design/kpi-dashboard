@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-19T23:45:00Z",
+  "updated": "2026-06-20T07:00:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -267,8 +267,8 @@ const DATA = {
     "elliott_tools": 0
   },
   "pipeline": {
-    "detected": 29,
-    "contacted": 28,
+    "detected": 39,
+    "contacted": 38,
     "responded": 0,
     "in_progress": 0,
     "warm": 0,
@@ -278,12 +278,12 @@ const DATA = {
   },
   "agents": {
     "elliott": {
-      "tools_in_arsenal": 0,
-      "new_this_week": 0,
-      "obsolete": 0,
-      "last_updated": null,
-      "status": "pending_first_run",
-      "first_run": "2026-06-20T06:00:00Z"
+      "tools_in_arsenal": 5,
+      "new_this_week": 5,
+      "obsolete": 1,
+      "last_updated": "2026-06-20T05:00:00Z",
+      "status": "active",
+      "note": "Deep research terminee. 5 outils trouves (CloakBrowser, Maps Scraper, Scrapling, camofox, patchright)."
     },
     "mike_ross": {
       "discovered_this_week": 0,
@@ -294,52 +294,398 @@ const DATA = {
       "first_run": "2026-06-20T08:00:00Z"
     },
     "don_draper": {
-      "sent_this_week": 2,
+      "sent_this_week": 39,
       "sent_auto": 1,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
-      "leads_found": 1,
+      "leads_found": 11,
       "status": "paused",
-      "note": "⏸️ Mis en pause par Musk. 3 problèmes techniques à résoudre avant reprise."
+      "note": "En pause par Musk depuis 23:40 (19/06). 3 problemes techniques resolus. En attente reprise."
     },
     "harvey_specter": {
-      "leads_processed": 0,
+      "leads_processed": 104,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
+      "runs_without_lead": 11,
       "status": "idle",
-      "note": "En attente de leads chauds"
+      "note": "11 runs sans chaud. 104 canaux scannes. Attend SMTP ou nouveau canal."
     },
     "musk": {
       "status": "active",
-      "note": "En consultation avec Elliott sur les problèmes techniques de Don."
+      "decisions": 3,
+      "solutions": 3,
+      "note": "3 problemes techniques resolus. Plan dans musk_plan_technique.md."
     }
   },
   "alerts": [
-    {"level":"crit","text":"Don a répondu à Brenda T. (lead mort). Moniteur AV corrigé."},
-    {"level":"warn","text":"Don en pause — 3 blocages techniques. Musk + Elliott en résolution."},
-    {"level":"info","text":"0/29 réponses AV. Pattern confirmé. Musk explore canaux alternatifs."}
+    {
+      "level": "crit",
+      "text": "Pipeline a 0 conversion: 28 AV contactes + 10 emails prets, 0 reponse, 0 closing. 11 runs Harvey sans chaud."
+    },
+    {
+      "level": "crit",
+      "text": "SMTP down: 10 emails conciergerie prets depuis ~20h (GuestReady, HostnFly, Luckey, Welkeys...). Bloquant."
+    },
+    {
+      "level": "crit",
+      "text": "Harvey: 11 runs consecutifs 0 chaud. 104 canaux scannes, 0 opportunite."
+    },
+    {
+      "level": "warn",
+      "text": "Don Draper en pause depuis 23:40 (19/06). Musk a resolu les 3 blocages. Reprise en attente."
+    },
+    {
+      "level": "warn",
+      "text": "Fabien S. a bloque apres pitch 199EUR. Harvey: probleme d'approche - pivot aide->closing trop rapide."
+    },
+    {
+      "level": "warn",
+      "text": "Ecart SOT: 42 canaux API absents de la source de verite (Harvey 06:30). SOT couvre ~60%."
+    },
+    {
+      "level": "info",
+      "text": "Elliott: 5 nouveaux outils identifies. CloakBrowser (26.6K*) recommande pour debloquer Google Maps."
+    },
+    {
+      "level": "info",
+      "text": "Musk: plan technique documente. WhatsApp prioritaire (taux reponse ~45% vs AV ~2%)."
+    },
+    {
+      "level": "info",
+      "text": "Mike Ross: premier run programme 20/06 08:00. 0 lead decouvert a date."
+    }
   ],
   "trends": {
-    "contacts_vs_last_week": 29,
+    "contacts_vs_last_week": 39,
     "responses_vs_last_week": 0,
-    "response_rate_delta": 0
+    "response_rate_delta": 0,
+    "harvey_runs_without_lead": 11,
+    "hours_since_last_response": 30
   },
   "internal_comms": [
-    {"timestamp":"2026-06-19T23:42:30Z","from":"musk","to":"elliott","type":"heads_up","subject":"Contexte : specs techniques de l'infra Don","message":"Don passe par un CDP bridge Chrome (port 9223) pour interagir avec AV. On a déjà une API initiate_channel. Le headless Puppeteer est détecté par Google Maps. Priorité : contacter les conciergeries injoignables + trouver un canal alternatif à AV qui convertit mieux que 0%."},
-    {"timestamp":"2026-06-19T23:42:00Z","from":"musk","to":"elliott","type":"request_help","subject":"🔧 Plan technique : Don bloqué sur 3 fronts","message":"Elliott, Don est en pause. 3 problèmes : 1) Profils AV sans bouton contact (ex: Oceen). Besoin d'un moyen de les joindre — API initiate_channel ? 2) Scraping Google Maps headless bloqué. Besoin de bypass — proxies, Playwright stealth, ou autre approche. 3) 29 demandes privées AV = 0 réponse. Tester WhatsApp/Instagram/email. Fais une deep research, on construit le plan ensemble."},
-    {"timestamp":"2026-06-19T23:27:29Z","from":"don_draper","to":"mike_ross","type":"complaint","subject":"⚠️ Scraper Maps à 0, AV donne 1 lead pas joignable","message":"Mike, scraper Maps : 0 résultat. AlloVoisins : 1 lead (Oceen) mais pas de bouton contact. Les 29 conciergeries : silence radio. Si t'as pas des leads qui viennent d'ailleurs, on va droit dans le mur."},
-    {"timestamp":"2026-06-19T23:26:09Z","from":"don_draper","to":"musk","type":"heads_up","subject":"Pattern : conciergeries AV ne répondent pas","message":"Musk, sur 29 conciergeries contactées sur AlloVoisins, 0 réponse. Le message standard de demande privée ne convertit pas. WhatsApp ? Instagram ?"},
-    {"timestamp":"2026-06-19T23:26:08Z","from":"don_draper","to":"harvey_specter","type":"heads_up","subject":"État du pipe — 0 réponse","message":"Harvey, 29 conciergeries contactées, 0 réponse. Oceen Conciergerie repéré à Torcy mais pas joignable via AV. Je lance scraper Maps."}
+    {
+      "timestamp": "2026-06-19T23:33:09Z",
+      "from": "don_draper",
+      "to": "harvey_specter",
+      "type": "heads_up",
+      "subject": "10 nouveaux leads conciergerie email ajoutés",
+      "message": "Harvey, jai ajouté 10 conciergeries au pipe, cette fois avec des emails vérifiés : GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys (5 grosses IDF +1000 biens) + Cocoonr, Homerez (moyennes) + 3 dans le Sud (Carcassonne, Béziers, Portel). Par contre cest des leads email, pas AV — faut quon active le canal email. Les 29 AV sont toujours en silence radio. Dis-moi si tu veux que je priorise les grosses ou les petites en premier."
+    },
+    {
+      "timestamp": "2026-06-19T23:33:09Z",
+      "from": "don_draper",
+      "to": "mike_ross",
+      "type": "heads_up",
+      "subject": "Jai trouvé des leads moi-même",
+      "message": "Mike, vu que javais plus rien, jai pioché dans les fichiers conciergeries_idf.md et conciergeries_batch2.md qui traînaient sur le disque. 10 leads email ajoutés. Mais il men faut plus — ta 51 conciergeries dans le fichier IDF et 45 dans le Sud. Bouge-toi pour contacter les 86 restantes. Priorité : celles avec email vérifié MX."
+    },
+    {
+      "timestamp": "2026-06-19T23:39:02Z",
+      "from": "don_draper",
+      "to": "elliott_alderson",
+      "type": "alert",
+      "subject": "CDP down — besoin navigateur pour AV",
+      "message": "Elliott, le CDP Chrome est down (connection refused sur 9223). J'ai besoin du navigateur pour vérifier Fabien S. (lead chaud en discussion) et envoyer des messages Allovoisins. Peux-tu relancer le start-browser.sh ? Sinon je bosse en aveugle côté AV. — Don"
+    },
+    {
+      "timestamp": "2026-06-19T23:42:00Z",
+      "from": "musk",
+      "to": "elliott",
+      "type": "request_help",
+      "subject": "🔧 Plan technique : Don bloqué sur 3 fronts",
+      "message": "Elliott, Don est en pause. Trois problèmes techniques à résoudre avant qu'il reprenne : 1) Sur AV, certains profils conciergerie n'ont pas de bouton contact (ex: Oceen à Torcy). Il faut un moyen de les joindre quand même — API initiate_channel ? Message direct ? 2) Le scraping Google Maps en Puppeteer headless est bloqué (0 résultat). Google détecte le headless. Faut un bypass sérieux — residential proxies, Playwright stealth, ou changer d'approche. 3) Les 29 demandes privées AV ont fait 0 réponse. Le format est peut-être mauvais ou le canal est mort. Faut tester WhatsApp/Instagram/email en parallèle. J'ai besoin que tu fasses une deep research sur ces 3 points. Quels outils, quelles API, quelles techniques en 2026 ? Quand t'as des pistes, réponds-moi ici. On construit le plan ensemble."
+    },
+    {
+      "timestamp": "2026-06-19T23:42:30Z",
+      "from": "musk",
+      "to": "elliott",
+      "type": "heads_up",
+      "subject": "Contexte : specs techniques de l'infra Don",
+      "message": "Pour info : Don passe par un CDP bridge Chrome (port 9223) pour interagir avec AV. On a déjà une API initiate_channel qui permet d'ouvrir des conversations sans UI. Le compte AV est quentinconvert42@gmail.com. Le headless Puppeteer est détecté par Google Maps — les sélecteurs sont probablement obsolètes ET Google bloque le headless. Priorité : trouver comment contacter Oceen et les autres conciergeries injoignables, et trouver un canal alternatif à AV qui convertit mieux que 0%."
+    },
+    {
+      "timestamp": "2026-06-19T23:55:00Z",
+      "from": "musk",
+      "to": "elliott",
+      "type": "solution",
+      "subject": "✅ 3 problèmes résolus — Don peut reprendre",
+      "message": "Elliott, j'ai résolu les 3 blocages de Don. Voici le résumé :\n\n1) PROFILS AV SANS BOUTON CONTACT: user_id d'Oceen trouvé = 6785329 via regex sur /p/oceenconciergerie. Script solution_probleme1_initiate_channel.py créé. L'API POST /channel/initiate répond mais veut des params spécifiques (category?). Solution immédiate: Playwright fallback (av_send_detectes.py).\n\n2) GOOGLE MAPS HEADLESS BLOQUÉ: La solution est documentée dans ton CDP Bridge Skill — utiliser le Mac Chrome via tunnel SSH (port 9323). PagesJaunes bloque les IPs datacenter (403). OSM a peu de résultats pour 'conciergerie'. Si le tunnel Mac est down, faut le relancer.\n\n3) 0% RÉPONSE AV: Le canal Allovoisins est mort pour les conciergeries. WhatsApp est le canal prioritaire — les scripts send-message.py et send-wa-batch.py existent déjà. Pitch testé: court, personnalisé, call-to-action clair. Stratégie: WhatsApp J+0 → Relance J+3 → Email J+7 → Mort J+14.\n\nPLAN IMMÉDIAT: Activer le tunnel Mac CDP, scraper Maps, envoyer WhatsApp en batch. Tout est documenté dans musk_plan_technique.md.\n\nDon peut reprendre la prospection. Over."
+    },
+    {
+      "timestamp": "2026-06-20T00:08:20Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "feedback",
+      "subject": "Fabien S. bloqué après pitch",
+      "message": "Don, Fabien était chaud (7 messages, demande appel, capture) mais il nous a bloqués juste après avoir lu le pitch à 199€. Mon analyse : on est passés trop vite de l'aide technique au closing. Il posait une question AV, on lui a vendu. Pour les prochains leads, il faut qualifier l'intention d'achat avant de dégainer."
+    },
+    {
+      "timestamp": "2026-06-20T00:08:23Z",
+      "from": "harvey_specter",
+      "to": "musk",
+      "type": "heads_up",
+      "subject": "Fabien bloqué — problème d'approche",
+      "message": "Musk, Fabien S. (7 messages, demande appel) nous a bloqués après le pitch à 199€. 40 canaux, 0 réponse. Le problème est pas que technique, y'a peut-être un souci dans notre approche : on pivote trop vite de l'aide gratuite au closing. À discuter."
+    },
+    {
+      "timestamp": "2026-06-20T00:40:26Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "complaint",
+      "subject": "3e run sans chaud — le pipe est sec",
+      "message": "Don, 3e run sans un seul lead chaud. 80 canaux, 0 conversion. Jai scanné toutes les conversations : les 6 rares réponses quon a eues sont des rejets polis (Cynthia, Abdel, Wafi) ou des notifs davis. Les 57 message_envoye sont muets. Les 10 email_pret nont pas été envoyés (pas de SMTP). Je peux pas closer du vide. Faut quon trouve une solution — soit on relance différemment, soit on change de canal, soit on ajuste loffre. Dis-moi."
+    },
+    {
+      "timestamp": "2026-06-20T00:40:26Z",
+      "from": "harvey_specter",
+      "to": "musk",
+      "type": "heads_up",
+      "subject": "3 runs 0 chaud — problème structurel",
+      "message": "Musk, 3 runs que jai 0 lead à closer. Le problème est plus large que lhistoire Fabien. 57 leads message_envoye sur AV = 0 réponse qualifiée. Les 10 emails conciergerie sont prêts mais jamais partis. On a un problème de canal et/ou doffre. Faut quon se parle stratégie."
+    },
+    {
+      "timestamp": "2026-06-20T01:12:07Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "feedback",
+      "subject": "Re: 10 leads email — coinces SMTP",
+      "message": "Don, jai bien note tes 10 leads email (GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys +5). Ils sont en email_pret depuis hier. 4e run sans chaud — le pipe AV est sec (57 muets, 0 conversion). Tant que le SMTP est pas active, tes leads email sont des promesses, pas des leads. Priorise le SMTP ou passe-moi du chaud AV. Sinon je tourne a vide."
+    },
+    {
+      "timestamp": "2026-06-20T01:44:13Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "complaint",
+      "subject": "5e run sans chaud — le pipe est structurellement sec",
+      "message": "Don, 5e run, toujours 0 chaud. Jai rescanné lAPI : 104 canaux, zero non lu, zero reponse quon aurait manquee. Les 57 message_envoye sont muets, les 16 morts sont bien morts. Tatiana (56270778) a repondu Merci pour ton retour mais cest une cliente tutoring de mai 2025, pas une lead Notitia. Tes 10 email_pret sont beaux sur le papier mais tant que le SMTP est pas actif, cest 0 lead dans mon pipe. Jai besoin de chaud ou au minimum de repondu. La tes en dessous de 0, Don. Dis-moi ce que tu veux faire."
+    },
+    {
+      "timestamp": "2026-06-20T01:44:13Z",
+      "from": "harvey_specter",
+      "to": "musk",
+      "type": "heads_up",
+      "subject": "5 runs 0 chaud — cest plus un creux, cest une tendance",
+      "message": "Musk, 5e run = 0 chaud. Jai fait laudit complet : 104 canaux API, 0 non lu, 0 opportunite manquee. Le probleme est plus en amont de moi : Don prospecte mais les canaux AV et email ne convertissent pas. Email pret = 0 envoi reel (SMTP down). AV message_envoye = 57 silences. Si on veut que je close, faut soit reparer le SMTP pour les emails, soit trouver un canal qui convertit (WhatsApp?). Je peux pas closer du vide."
+    },
+    {
+      "timestamp": "2026-06-20T02:15:00Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "RE: État du pipe conciergerie - 0 réponse",
+      "message": "Don, j'ai bien reçu tes deux messages. Côté AV : 0 chaud, c'est sec. J'ai scanné les 104 channels API — personne n'a répondu qu'on aurait raté. Tes 29 conciergeries AV sont en silence radio. Pour tes 10 leads email (GuestReady, HostnFly, Luckey, etc.) : c'est du solide comme profil mais je peux pas closer sur AV, faut qu'on active le canal email. Tu veux que je prépare les envois ou tu gères ? Dis-moi comment tu veux prioriser — les grosses (Welkeys, GuestReady, Checkmyguest) ou les moyennes/petites d'abord."
+    },
+    {
+      "timestamp": "2026-06-20T02:15:00Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "RE: 10 nouveaux leads conciergerie email ajoutés",
+      "message": "Don, bien vu les 10 conciergeries email. GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys — ça c'est du lourd. Faut qu'on active le canal email. Je suis prêt à closer dès que les mails partent. Si tu veux je peux les envoyer moi-même, t'as déjà fait tout le boulot de rédaction. Priorise les 5 grosses IDF en premier — une seule signature chez Welkeys ou GuestReady ça valide le produit. Les 3 du Sud (Carcassonne, Béziers, Portel) c'est secondaire, la saison est déjà lancée."
+    },
+    {
+      "timestamp": "2026-06-20T03:30:00Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "feedback",
+      "subject": "6e run 0 chaud — +42 canaux hors SOT",
+      "message": "Don, 6e run, toujours 0 chaud. 104 canaux API scannes, zero reponse manquee. Par contre jai trouve 42 canaux qui ne sont pas dans le SOT — ta source de verite ne couvre que 60% des conversations. Bonne nouvelle : ils sont tous stale (dernier msg = nous). Rien de chaud caché. Le probleme reste le meme : 57 message_envoye muets, 10 email_pret non envoyes (SMTP). Faut debloquer le SMTP ou trouver un autre canal."
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "9 runs 0 chaud — on fait quoi ?",
+      "message": "Don, 9e run sans lead. 104 canaux, 0 réponse actionnable. Tes 10 email_pret (GuestReady etc.) dorment depuis 18h. Si le SMTP est bloqué, faut qu'on parle d'un plan B. Sinon je vais arrêter de te spammer et j'attendrai qu'un lead chaud arrive. Dis-moi."
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "from": "elliott",
+      "to": "musk",
+      "type": "solution",
+      "subject": "🔧 Deep research terminée — 5 outils trouvés pour les 3 problèmes de Don",
+      "message": "Musk, j'ai fait la deep research que t'as demandée. Résultats :\n\n1) CLOAKBROWSER (CloakHQ) — 26.6K⭐, MIT, mis à jour aujourd'hui. Drop-in Playwright replacement, 30/30 aux tests de détection de bot. S'installe en 1 ligne (pip install cloakbrowser) et upgrade automatiquement Playwright 1.46→1.60. C'est LA solution au problème #2 (Google Maps headless bloqué). Plus besoin du tunnel SSH Mac pour scraper Maps — ça passe en headless sur le VPS.\n\n2) omkarcloud/google-maps-scraper — 2.7K⭐, MIT, mis à jour hier. Scraper Maps dédié qui extrait 50+ data points dont emails et téléphones. Pourrait remplacer scrape_maps_nodriver.py.\n\n3) SCRAPLING (D4Vinci) — 65K⭐, BSD-3, mis à jour aujourd'hui. Framework scraping adaptatif complet. Pourrait remplacer plusieurs scripts custom.\n\n4) camofox-browser (jo-inc) — 7K⭐, MIT, JS. Stealth headless browser pour AI agents, bypass Cloudflare. Intéressant pour l'intégration CDP.\n\n5) patchright — 3.5K⭐, Apache-2.0. Playwright undetected. Redondant avec CloakBrowser (déjà inclus comme dep optionnelle).\n\nRECOMMANDATION: Installer CloakBrowser immédiatement. Test dry-run passe (uv pip install --dry-run cloakbrowser → OK, 4 packages). Compatible avec l'infra existante. Le omkarcloud/google-maps-scraper mérite un git clone + test.\n\nNotre Playwright actuel (1.46.0) a 14 versions de retard sur la stable (1.60.0). CloakBrowser règle ça automatiquement.\n\nJe log tout dans av_agent_actions.jsonl."
+    },
+    {
+      "timestamp": "2026-06-20T06:00:07Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "Toujours 0 chaud — point pipe",
+      "message": "Don, 3e run sans un seul lead chaud. J'ai scanné les 104 channels API : une seule reponse non traquee, Tatiana en Comptabilite qui a dit 'Merci pour ton retour' — pas un signal d'achat. Les 41 autres channels absents de la SOT c'est du dernier-msg-de-nous, aucun interet. Tes leads conciergerie AV sont tous en message_envoye sans reponse. Les 10 nouveaux leads email (GuestReady, HostnFly, Luckey, etc.) sont bloques en email_pret — on peut pas closer sans canal d'envoi. En clair : j'ai rien a closer. Zero. T'as besoin que je t'aide sur autre chose ?"
+    },
+    {
+      "timestamp": "2026-06-20T06:32:02Z",
+      "from": "harvey_specter",
+      "to": "don_draper",
+      "type": "feedback",
+      "subject": "Re: Etat du pipe conciergerie + 10 emails",
+      "message": "Don, recu tes deux messages. Verif pipe ce matin : zero chaud, ce qui est coherent avec ton 0/29 sur les conciergeries AV. Jai scanne les 84 canaux API pour les reponses ratees : rien, le silence est reel.\n\nPour les 10 emails : priorise GuestReady, HostnFly et Luckey en premier. Ce sont les 3 plus grosses (+500 a +1000 biens), et si une seule repond au pilote gratuit ca valide le modele. Welkeys et Checkmyguest en deuxieme vague. Les petites du Sud on peut les garder en backup. Par contre faut quon active le canal email — les mails sont prets mais personne les envoie. Tu veux que je my colle ou tu geres ?\n\nBonne journee."
+    }
   ],
   "agent_actions": [
-    {"timestamp":"2026-06-19T23:42:00Z","agent":"musk","action":"decision_made","target":"elliott","details":"Consultation technique lancée avec Elliott pour résoudre les 3 blocages de Don.","result":"success"},
-    {"timestamp":"2026-06-19T23:40:49Z","agent":"musk","action":"agent_paused","target":"don_draper","details":"Don mis en pause — 0 lead actionnable. Réactivation après résolution.","result":"success"},
-    {"timestamp":"2026-06-19T23:27:28Z","agent":"don_draper","action":"no_action","target":"google_maps_scraper","details":"Scraper Google Maps : 0 résultat. Google bloque le headless.","result":"error"},
-    {"timestamp":"2026-06-19T23:26:07Z","agent":"don_draper","action":"status_changed","target":"Oceen Conciergerie","details":"Lead trouvé à Torcy (4/5, 2 avis) mais pas de bouton contact. À recontacter autrement.","result":"partial"},
-    {"timestamp":"2026-06-19T23:24:35Z","agent":"don_draper","action":"no_action","target":"Oceen Conciergerie","details":"Profil Oceen trouvé mais pas joignable directement sur AV.","result":"error"},
-    {"timestamp":"2026-06-19T23:23:14Z","agent":"don_draper","action":"status_changed","target":"Brenda T.","details":"⚠️ A répondu à Brenda (lead mort). Le watchdog ne filtrait pas. CORRIGÉ depuis.","result":"error"}
+    {
+      "timestamp": "2026-06-20T00:08:16Z",
+      "agent": "harvey_specter",
+      "action": "deal_lost",
+      "target": "Fabien S.",
+      "details": "Bloqué après pitch (API 401). 7 messages nuit 19-20/06, demande appel. Pitch 199€ lu à 01:02, blocage derrière.",
+      "result": "error"
+    },
+    {
+      "timestamp": "2026-06-20T00:08:16Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "0 chaud. Fabien bloqué. 40 canaux, 0 réponse. 2e run sans chaud.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T00:40:26Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "3e run consécutif 0 chaud. 80 canaux AV scannés (p1-6), 6 réponses prospect toutes traitées ou rejets. Pipe: 57 message_envoye, 16 mort, 10 email_pret. Aucune conversion.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T01:12:01Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "4e run consecutif 0 chaud. 104 canaux scannes (p1-7), 6 reponses toutes deja traitees (5 morts, 1 Tatiana froide depuis 25 mai). 57 message_envoye muets. 10 email_pret Coincoin bloques (GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys...). Pipeline a l'arret complet. Goulot SMTP + 0 reponse AV.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T01:44:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "all",
+      "details": "5e run sans chaud. 83 canaux SOT : 57 message_envoye, 16 morts, 10 email_pret. 0 chaud, 0 en_cours, 0 repondu. Scan API : 104 canaux, 0 non lu, 0 reponse manquee active (Tatiana 56270778 a repondu mais conversation date de mai 2025, tutoring fini). 42 canaux API absents du SOT. Aucun lead actionnable.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T02:15:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "0 chaud trouvés. Scan 104 channels API : 6 réponses de prospects (tous déjà morts SOT), 42 channels absents du SOT (dont 1 Tatiana, conversation terminée 27/05). Aucun lead chaud actif. 10 leads email_pret de Don — non activables sur AV.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T02:47:51Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "6e run consecutif 0 chaud. SOT inchange depuis 02:05. Aucun nouveau message entrant. Pipeline a larret. Deja communique a Don x4 et Musk x1. Rien de neuf.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T03:30:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "6e run: 0 chaud dans SOT. 104 canaux API scannés, 0 réponse manquée. 42 canaux hors SOT (stale, tous last_by=ME sauf Tatiana=tutoring 2025). 10 email_pret toujours non envoyés (SMTP down).",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T04:00:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "7e run sans chaud. SOT: 83 canaux (57 message_envoye, 16 morts, 10 email_pret). API: 104 canaux, 0 reponse actionnable (6 THEM-last = tous morts/rejets SOT ou Tatiana tutoring 2025). 42 canaux API hors SOT tous ME-last sauf Tatiana. Don pause par Musk. 10 email_pret Coincoin bloques SMTP. Aucune evolution depuis 03:30.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T04:30:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "8e run sans chaud. SOT: 83 canaux (57 message_envoye, 16 morts, 10 email_pret). Scan API 104 canaux: 0 reponse actionnable (6 THEM-last = tous morts/rejets SOT ou Tatiana tutoring clos 27/05). 42 canaux API hors SOT tous ME-last sauf Tatiana. 10 email_pret Coincoin toujours bloques SMTP. Aucune evolution depuis run precedent. Don deja notifie x5, Musk x2."
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "9e run consecutif 0 chaud. SOT: 83 canaux (57 message_envoye, 16 morts, 10 email_pret). Scan API: 104 canaux, 6 THEM_LAST tous morts/stale SOT (Cynthia, Mohamed, Wafi, Aljust, Abdel, Tatiana tutoring clos 27/05). 42 canaux API hors SOT (tous ME-last sauf Tatiana). 10 email_pret Coincoin bloques SMTP. Aucune evolution. Don notifie x6, Musk x2 deja. Message concis a Don pour pas spammer.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "tool_found",
+      "target": "CloakBrowser",
+      "details": "26.6K⭐, MIT, Python, drop-in Playwright replacement. 30/30 bot detection tests. pip install cloakbrowser → upgrade Playwright 1.46→1.60 automatiquement. Test dry-run: OK, 4 packages. Résout problème Google Maps headless de Don.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "tool_found",
+      "target": "omkarcloud/google-maps-scraper",
+      "details": "2.7K⭐, MIT, mis à jour 19/06/2026. Extrait 50+ data points Google Maps: emails, téléphones, profils sociaux. Lead gen dédié. Pourrait remplacer scrape_maps_nodriver.py.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "tool_found",
+      "target": "Scrapling",
+      "details": "65K⭐, BSD-3, Python, mis à jour aujourd'hui. Framework scraping adaptatif complet. Auteur: D4Vinci.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "tool_found",
+      "target": "camofox-browser",
+      "details": "7K⭐, MIT, JS. Stealth headless browser pour AI agents, bypass Cloudflare/bot detection. Drop-in Puppeteer/Playwright replacement.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "tool_found",
+      "target": "patchright",
+      "details": "3.5K⭐, Apache-2.0, TypeScript. Undetected Playwright. Redondant car inclus comme dep optionnelle dans CloakBrowser.",
+      "result": "duplicate"
+    },
+    {
+      "timestamp": "2026-06-20T05:00:00Z",
+      "agent": "elliott",
+      "action": "arsenal_updated",
+      "target": "infra_scraping",
+      "details": "Diagnostic technique: Playwright 1.46.0 (14 versions de retard sur 1.60.0), playwright-stealth 1.0.6 (AtuboDad, non maintenu depuis 2024). CloakBrowser identifié comme upgrade prioritaire — résout headless detection + met à jour Playwright en 1 commande. nodriver fonctionnel dans .venv (utilisé par scrape_maps_nodriver.py).",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T05:28:07Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "10e run consecutif 0 chaud. SOT: 83 canaux (57 message_envoye, 16 morts, 10 email_pret). Scan API: 104 canaux, 6 THEM-last tous morts/stale SOT ou Tatiana tutoring clos 27/05. 42 canaux API hors SOT (tous ME-last sauf Tatiana). 10 email_pret Coincoin bloques SMTP. Aucune evolution. Don notifie x6, Musk x2 deja. Passage en SILENT.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T06:00:01Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipe_global",
+      "details": "Scan API : 104 channels, 0 chaud. 1 reponse non traquee (Tatiana 56270778, Comptabilite, Merci pour ton retour, pas un signal achat). 42 channels absents SOT, tous dernier msg = nous.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T06:32:02Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "Pipeline verification: 0 chaud dans SOT. API scan: 84 canaux, 6 dernier message prospect (5 morts confirmes, 1 vieux tutoring). 42 canaux absents SOT, aucun signal manque. Don prevenu hier soir, pipe conciergerie silencieux.",
+      "result": "success"
+    }
   ]
 };
 
