@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:07:34Z",
+  "updated": "2026-06-20T07:10:36Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -728,3 +728,157 @@ const DATA = {
     }
   ]
 };
+
+// ════════════════ RENDER ════════════════
+const F = (n) => n != null ? n.toLocaleString() : '—';
+const P = (n) => (n != null ? n : 0) + '%';
+const D = (d) => d ? new Date(d).toLocaleString('fr-FR', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
+
+const p = DATA.pipeline;
+const total = p.detected || 1;
+const pipelines = [
+  {k:'detected',label:'DÉTECTÉ',v:p.detected,w:(p.detected/total)*100},
+  {k:'contacted',label:'CONTACTÉ',v:p.contacted,w:(p.contacted/total)*100},
+  {k:'responded',label:'RÉPONDU',v:p.responded,w:(p.responded/total)*100},
+  {k:'in_progress',label:'EN COURS',v:p.in_progress,w:(p.in_progress/total)*100},
+  {k:'warm',label:'CHAUD',v:p.warm,w:(p.warm/total)*100},
+  {k:'signed',label:'SIGNÉ',v:p.signed,w:(p.signed/total)*100}
+];
+
+document.title = 'Notitia KPI — ' + D(DATA.updated);
+
+const h = `
+<div class="header">
+  <h1>NOTITIA KPI</h1>
+  <span class="updated">${D(DATA.updated)}</span>
+</div>
+
+<div class="mrr-box">
+  <div>
+    <div class="label">MRR</div>
+    <div class="value">${F(DATA.mrr)} €</div>
+  </div>
+  <div class="sub">${p.signed} client${p.signed>1?'s':''}<br>${DATA.mrr?Math.round(DATA.mrr/(p.signed||1))+'€/client':''}</div>
+</div>
+
+<div class="section-title">Pipeline</div>
+<div style="display:flex;gap:4px;margin-bottom:12px">
+  ${pipelines.map(s=>`
+    <div style="flex:${Math.max(s.w,2)};text-align:center">
+      <div style="font-size:14px;font-weight:700">${F(s.v)}</div>
+      <div style="height:4px;background:#333;margin:4px 0"><div style="width:100%;height:100%;background:#fff"></div></div>
+      <div style="font-size:9px;color:#666">${s.label}</div>
+    </div>
+  `).join('')}
+</div>
+
+<div style="height:1px;background:#1a1a1a;margin:16px 0"></div>
+
+<div class="section-title">Source des leads</div>
+<div style="display:flex;gap:16px;margin-bottom:12px">
+  <div style="flex:1;border:1px solid #333;padding:10px 12px">
+    <div style="font-size:18px;font-weight:700">${F(DATA.source.quentin_manual)}</div>
+    <div style="font-size:10px;color:#666">Quentin (manuel)</div>
+  </div>
+  <div style="flex:1;border:1px solid #333;padding:10px 12px">
+    <div style="font-size:18px;font-weight:700;color:${DATA.source.mike_ross?'#fff':'#555'}">${F(DATA.source.mike_ross)}</div>
+    <div style="font-size:10px;color:#666">Mike Ross</div>
+  </div>
+</div>
+
+<div class="section-title">Agents</div>
+${[
+  {name:'Elliott',role:'Arsenal',status:DATA.agents.elliott.status,m:[
+    {v:F(DATA.agents.elliott.tools_in_arsenal),l:'Outils'},
+    {v:F(DATA.agents.elliott.new_this_week),l:'Nouveaux'},
+    {v:D(DATA.agents.elliott.last_updated),l:'MàJ'}
+  ]},
+  {name:'Mike Ross',role:'Ciblage',status:DATA.agents.mike_ross.status,m:[
+    {v:F(DATA.agents.mike_ross.discovered_total),l:'Détectés'},
+    {v:F(DATA.agents.mike_ross.converted_by_don),l:'→ Don'},
+    {v:P(DATA.agents.mike_ross.conversion_rate),l:'Conversion'}
+  ]},
+  {name:'Don Draper',role:'Contact',status:DATA.agents.don_draper.status,m:[
+    {v:F(DATA.agents.don_draper.sent_this_week),l:'Envoyés'},
+    {v:P(DATA.agents.don_draper.response_rate),l:'Taux rép.'},
+    {v:F(DATA.agents.don_draper.warm_handoffs),l:'→ Harvey'}
+  ]},
+  {name:'Harvey Specter',role:'Closing',status:DATA.agents.harvey_specter.status,m:[
+    {v:F(DATA.agents.harvey_specter.leads_processed),l:'Traités'},
+    {v:P(DATA.agents.harvey_specter.closing_rate),l:'Closing'},
+    {v:F(DATA.agents.harvey_specter.mrr_generated)+'€',l:'MRR généré'}
+  ]}
+].map(a=>`
+  <div class="agent-row">
+    <div>
+      <div class="agent-name">${a.name} <span style="font-size:9px;color:${a.status==='active'?'#4caf50':'#ffaa00'}">${a.status==='active'?'●':'○'}</span></div>
+      <div class="agent-role">${a.role} ${a.status!=='active'?`· ${a.status==='pending_first_run'?'en attente':a.status}`:''}</div>
+    </div>
+    <div class="agent-metrics">
+      ${a.m.map(m=>`<div class="agent-metric">${m.v}<small>${m.l}</small></div>`).join('')}
+    </div>
+  </div>
+`).join('')}
+
+${DATA.alerts.length ? `
+<div class="section-title">Alertes</div>
+${DATA.alerts.map(a=>`<div class="alert${a.level==='warn'?' warn':''}">${a.text}</div>`).join('')}
+` : ''}
+
+${DATA.internal_comms && DATA.internal_comms.length ? `
+<div class="section-title">💬 Communication interne <span style="font-weight:400;color:#555">· ${DATA.internal_comms.length} messages</span></div>
+<div style="display:flex;flex-direction:column;gap:3px">
+${DATA.internal_comms.slice(-20).reverse().map(m=>{
+  const colors = {don_draper:'#c4a265',harvey_specter:'#6b8fa3',mike_ross:'#7eb87e',elliott:'#c47272',musk:'#888',louis_litt:'#9b8ec4',system:'#555'};
+  const icons = {don_draper:'DD',harvey_specter:'HS',mike_ross:'MR',elliott:'EL',musk:'EM',louis_litt:'LL',system:'◆'};
+  const typeLabel = {request_help:'demande aide',complaint:'alerte',heads_up:'info',solution:'solution',feedback:'feedback',status:'statut',channel_open:'système'};
+  const typeColor = {request_help:'#ffaa00',complaint:'#ff5555',heads_up:'#5599ff',solution:'#4caf50',feedback:'#8888cc',status:'#666',channel_open:'#444'};
+  return `
+  <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #111">
+    <div style="width:28px;height:28px;border-radius:2px;background:${colors[m.from]||'#333'};color:#000;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0" title="${m.from}">${icons[m.from]||'?'}</div>
+    <div style="flex:1;min-width:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1px">
+        <span style="font-size:12px;font-weight:500;color:#ddd">${m.from.replace(/_/g,' ')}</span>
+        <span style="font-size:9px;color:#444">${D(m.timestamp)}</span>
+      </div>
+      <div style="font-size:11px;font-weight:500;color:#fff;margin-bottom:2px">${m.subject||''}</div>
+      <div style="font-size:11px;color:#999;line-height:1.4">${m.message.length>180?m.message.slice(0,180)+'…':m.message}</div>
+      <div style="margin-top:3px;display:flex;gap:6px">
+        <span style="font-size:9px;padding:1px 5px;background:${typeColor[m.type]||'#333'};color:#000;border-radius:2px">${typeLabel[m.type]||m.type}</span>
+        <span style="font-size:9px;color:#444">→ ${m.to.replace(/_/g,' ')}</span>
+      </div>
+    </div>
+  </div>`;
+}).join('')}
+</div>
+` : ''}
+
+${DATA.agent_actions && DATA.agent_actions.length ? `
+<div class="section-title">📋 Actions agents <span style="font-weight:400;color:#555">· ${DATA.agent_actions.length} entrées</span></div>
+<div style="display:flex;flex-direction:column">
+${DATA.agent_actions.slice(-20).reverse().map(a=>{
+  const resultIcon = {success:'●',error:'◉',partial:'◐'};
+  const resultColor = {success:'#4caf50',error:'#ff4444',partial:'#ffaa00'};
+  const actionLabel = {message_sent:'msg envoyé',status_changed:'statut changé',lead_discovered:'lead trouvé',lead_added:'lead ajouté',no_action:'échec',agent_paused:'agent pause',decision_made:'décision',tool_found:'outil trouvé',closing_sent:'closing envoyé',deal_signed:'signé',scraping_error:'erreur scrape',report_generated:'rapport',log_initialized:'init'};
+  return `
+  <div style="display:flex;gap:8px;align-items:baseline;padding:4px 0;border-bottom:1px solid #0a0a0a;font-size:11px">
+    <span style="color:#888;font-size:9px;white-space:nowrap;min-width:45px">${D(a.timestamp)}</span>
+    <span style="color:#ddd;font-weight:500;min-width:90px">${(a.agent||'').replace(/_/g,' ')}</span>
+    <span style="font-size:9px;padding:0 4px;background:#1a1a1a;color:#888;border-radius:2px">${actionLabel[a.action]||a.action}</span>
+    <span style="color:#666;min-width:100px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.details||''}">${a.details||''}</span>
+    <span style="color:${resultColor[a.result]||'#555'};font-size:10px;margin-left:auto">${resultIcon[a.result]||'●'}</span>
+  </div>`;
+}).join('')}
+</div>
+` : ''}
+
+<div style="margin-top:32px;padding-top:12px;border-top:1px solid #1a1a1a;font-size:10px;color:#444">
+  Notitia Corp. Pipeline automatisé. Mis à jour par Louis Litt.
+</div>
+`;
+
+document.body.innerHTML = h;
+</script>
+
+</body>
+</html>
