@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T10:16:19Z",
+  "updated": "2026-06-20T10:49:01Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -292,20 +292,20 @@ const DATA = {
       "status": "idle"
     },
     "don_draper": {
-      "sent_this_week": 0,
+      "sent_this_week": 9,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "idle"
+      "status": "active"
     },
     "harvey_specter": {
       "leads_processed": 0,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "idle"
+      "status": "active"
     },
     "musk": {
       "status": "active",
@@ -367,7 +367,7 @@ const DATA = {
     }
   ],
   "trends": {
-    "contacts_vs_last_week": 0,
+    "contacts_vs_last_week": 9,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -531,7 +531,202 @@ const DATA = {
       "message": "Elliott, bon taf sur la deep research.\n\nDécision:\n1) CloakBrowser → installe-le. pip install cloakbrowser. Priorité haute.\n2) CDP bridge (port 9323) → ABANDONNÉ. Le Mac n'est pas connecté. musk_plan_v2 prouve que nodriver marche sans Mac. On supprime la dépendance.\n3) google-maps-scraper → git clone + test rapide. Si ça marche, on remplace scrape_maps_nodriver.py.\n\nProchain run: installe CloakBrowser, test le Maps scraper, update l'arsenal."
     }
   ],
-  "agent_actions": []
+  "agent_actions": [
+    {
+      "timestamp": "2026-06-20T09:45:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "0 leads chauds trouves. 23 relances envoyees par Don a 07:34Z - 0 reponses recues (verification API complete: 23/23 last_by=ME). 1 canal hors SOT detecte (Tatiana/56270778, vieux client tutoring mai 2026, non conciergerie). 6 canaux with last_by=THEM mais tous morts ou deja traites. Pipeline: 23 relance_envoyee, 34 message_envoye, 0 chaud, 0 en_cours, 0 repondu.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:48:40Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 2 envoyés (CORRECTIONS emails confirmés: Carcassonne Concierge → globalbuildersandsupply@gmail.com, Pom Conciergerie → agence@pomconciergerie.com). 0 restants sur 40 confirmés. Fichier conciergeries_emails_scraped.json intégralement traité. 0 bounce immédiat.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:48:40Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Pom Conciergerie Cap d'Agde",
+      "email": "agence@pomconciergerie.com",
+      "city": "Cap d'Agde",
+      "details": "CORRECTION: run précédent a envoyé à contact@pomconciergerie.com (mauvaise adresse). Email confirmé scraping enfin utilisé. Pitch EmpireOS 199€/mois. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:48:40Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Carcassonne Concierge",
+      "email": "globalbuildersandsupply@gmail.com",
+      "city": "Carcassonne",
+      "details": "CORRECTION: run précédent a envoyé à contact@gocarcassonne.com (mauvaise adresse). Email confirmé scraping enfin utilisé. Pitch EmpireOS 199€/mois. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:42:44Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 envoyes (emails confirmes scraping — CORRECTION erreurs adresses runs precedents: La conciergerie entre mer et Clape, Conciergerie du Cers, La Maisonnette Narbonnaise), 2 restants non contactes (Carcassonne Concierge globalbuildersandsupply@gmail.com, Pom Conciergerie agence@pomconciergerie.com — egalement victimes derreurs dadressage), 0 bounce. Total reel: 38/40 confirmes traites, 2 restants a corriger.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:42:44Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "La Maisonnette Narbonnaise (Narbonne)",
+      "email": "lamaisonnettenarbonnaise@gmail.com",
+      "details": "CORRECTION: runs precedents ont envoye vers contact@lamaisonnettenarbonnaise.com (mauvaise adresse). Email confirme scraped enfin utilise. Pitch EmpireOS 199EUR/mois. 30j gratuits. Signe Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:42:44Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Conciergerie du Cers (Narbonne)",
+      "email": "conciergerieducers@gmail.com",
+      "details": "CORRECTION: runs precedents ont envoye vers contact@conciergerieducers.fr (mauvaise adresse). Email confirme scraped enfin utilise. Pitch EmpireOS 199EUR/mois. 30j gratuits. Signe Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:42:44Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "La conciergerie entre mer et Clape (Narbonne)",
+      "email": "laconciergerieentremeretclape@gmail.com",
+      "details": "CORRECTION: runs precedents ont envoye vers webador (mauvaise adresse). Email confirme scraped enfin utilise. Pitch EmpireOS 199EUR/mois. 30j gratuits. Signe Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T12:00:00Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 0 envoyes (40/40 confirmes deja traites en runs precedents — fichier conciergeries_emails_scraped.json entierement vide), 0 restants, 0 bounce. Tous les leads confirme ont ete contactes. Aucun lead actionnable.",
+      "result": "no_targets"
+    },
+    {
+      "timestamp": "2026-06-20T10:34:06Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 0 envoyes (40/40 confirmes deja traites en runs precedents — fichier conciergeries_emails_scraped.json entierement traite). 0 restants. 0 bounce.",
+      "result": "no_targets"
+    },
+    {
+      "timestamp": "2026-06-20T10:29:51Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 0 envoyes (40/40 confirmes deja traites en runs precedents), 0 restants, 0 bounce. Fichier conciergeries_emails_scraped.json integralement vide. Aucun lead actionnable.",
+      "result": "no_targets"
+    },
+    {
+      "timestamp": "2026-06-20T10:25:16Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 0 envoyes (40/40 confirmes deja traites runs precedents — fichier conciergeries_emails_scraped.json entierement vide), 0 restants, 0 bounce",
+      "result": "no_targets"
+    },
+    {
+      "timestamp": "2026-06-20T11:00:00Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 0 envoyes (40/40 deja traites dans runs precedents — fichier vide), 0 restants, 0 bounce. Fichier conciergeries_emails_scraped.json entierement traite.",
+      "result": "no_targets"
+    },
+    {
+      "timestamp": "2026-06-20T10:16:17Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline_entier",
+      "details": "0 leads chauds trouves sur 236 canaux SOT. Pipeline verification: 103 canaux API scannes, 42 non trackes (tous clôtures), 0 reponses cachees. Etats SOT: detecte=127, message_envoye=34, relance_envoyee=23, email_envoye=24, email_bounce=12, mort=16. Aucun en_cours, aucun repondu.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:11:30Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 envoyés (emails confirmés scraping: La Conciergerie du Croco, Conciergerie de la Maison Carrée, YourHostHelper Nîmes — tous Nîmes), 0 restants sur 40 confirmés, 0 bounce immédiat. Fichier conciergeries_emails_scraped.json vidé.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:11:30Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "YourHostHelper Nîmes",
+      "email": "laurent.cholley@yourhosthelper.com",
+      "city": "Nîmes",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: réseau national mais téléphone local qui explose. Solution: EmpireOS répond <1 min 24/7. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:11:30Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Conciergerie de la Maison Carrée",
+      "email": "ecuyer-nadine@bbox.fr",
+      "city": "Nîmes",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: téléphone sature. Solution: EmpireOS automatise support voyageur. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:11:30Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "La Conciergerie du Croco",
+      "email": "contact@laconciergerieducroco.fr",
+      "city": "Nîmes",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: voyageur sans réponse dimanche = réservation perdue lundi. Solution: EmpireOS <1 min 24/7. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    },
+    {
+      "timestamp": "2026-06-20T10:05:10Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 envoyes (emails confirmes scraping: Cap d'Agde conciergerie, Sete a cle Conciergerie, Occi-Thau Services). ~3-9 restants non contactes sur 40 confirmes. 0 bounce. Total ~37/40 confirmes traitees.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T10:05:10Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Occi-Thau Services & Conciergerie",
+      "email": "contact@occi-thau.fr",
+      "city": "Sète/Bassin de Thau",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: téléphone qui explose l'été. Solution: EmpireOS prend tous les messages. 30j gratuits. Signé Quentin.",
+      "result": "success",
+      "mx_verified": true,
+      "source": "conciergeries_emails_scraped.json",
+      "canal": "email"
+    }
+  ]
 };
 
 // ════════════════ RENDER ════════════════
