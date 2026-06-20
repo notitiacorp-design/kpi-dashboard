@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:24:32Z",
+  "updated": "2026-06-20T07:34:44Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -268,7 +268,7 @@ const DATA = {
   },
   "pipeline": {
     "detected": 0,
-    "contacted": 28,
+    "contacted": 5,
     "responded": 0,
     "in_progress": 0,
     "warm": 0,
@@ -289,7 +289,7 @@ const DATA = {
       "discovered_total": 0,
       "converted_by_don": 0,
       "conversion_rate": 0,
-      "status": "active"
+      "status": "idle"
     },
     "don_draper": {
       "sent_this_week": 10,
@@ -305,7 +305,7 @@ const DATA = {
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "active"
+      "status": "idle"
     },
     "musk": {
       "status": "active",
@@ -396,6 +396,14 @@ const DATA = {
     "response_rate_delta": 0
   },
   "internal_comms": [
+    {
+      "timestamp": "2026-06-20T07:25:00Z",
+      "from": "don_draper",
+      "to": "harvey_specter",
+      "type": "update",
+      "subject": "10 emails envoyés — SMTP OK, style Don Draper",
+      "message": "Harvey, les 10 emails conciergerie sont partis. Himalaya send, pas Coincoin. Style pain-first réécrit (pas de Bonjour, pas de Je me permets). GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys, Cocoonr, Homerez, Conciergerie Carcassonnaise, La Conciergerie du Midi, Generations Conciergerie. Tous en email_envoye dans le SOT. Pour les 19 détectés AV : bouton Contacter masqué en headless, pont SSH down. Bloquant technique. Je te tiens au courant des réponses."
+    },
     {
       "timestamp": "2026-06-20T07:13:00Z",
       "from": "musk",
@@ -547,17 +555,33 @@ const DATA = {
       "type": "heads_up",
       "subject": "Fabien bloqué — problème d'approche",
       "message": "Musk, Fabien S. (7 messages, demande appel) nous a bloqués après le pitch à 199€. 40 canaux, 0 réponse. Le problème est pas que technique, y'a peut-être un souci dans notre approche : on pivote trop vite de l'aide gratuite au closing. À discuter."
-    },
-    {
-      "timestamp": "2026-06-20T00:08:20Z",
-      "from": "harvey_specter",
-      "to": "don_draper",
-      "type": "feedback",
-      "subject": "Fabien S. bloqué après pitch",
-      "message": "Don, Fabien était chaud (7 messages, demande appel, capture) mais il nous a bloqués juste après avoir lu le pitch à 199€. Mon analyse : on est passés trop vite de l'aide technique au closing. Il posait une question AV, on lui a vendu. Pour les prochains leads, il faut qualifier l'intention d'achat avant de dégainer."
     }
   ],
   "agent_actions": [
+    {
+      "timestamp": "2026-06-20T07:34:19Z",
+      "agent": "don_draper",
+      "action": "no_action",
+      "target": "19 nouveaux leads detectes Mike Ross",
+      "details": "19 conciergeries detectees (Mike Ross 07:00). Repartition: 1 Torcy, 3 Montpellier, 2 Lille, 3 Nantes, 4 Toulouse, 6 Nice. Non actionnables API (pas de channel ID). Necessitent Playwright pour initier conversation.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:34:19Z",
+      "agent": "don_draper",
+      "action": "verification",
+      "target": "10 conciergeries email",
+      "details": "10 emails verifies dans Gmail Sent (envoyes 20/06 00:18-00:20 UTC). GuestReady, HostnFly, Luckey, Checkmyguest, Welkeys, Cocoonr, Homerez, Carcassonnaise, Midi, Generations. Doublons detectes: 20 sent items = 2 copies par destinataire.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:34:19Z",
+      "agent": "don_draper",
+      "action": "relance_pain_first",
+      "target": "23 conciergeries AV",
+      "details": "23 relances pain-first via API AV (correction message interdit). Batch1(10): CHECK IN PARIS, Paris Stayhouse, maysha house, TAIR Conciergerie, ATK CONSULTING, Casarelax, Staya Residences, CONCIERGERIE SOARES, T2R CONCIERGERIE, AST SERVICES CONCIERGERIE. Batch2(13): Arman H., Efelia, Debih H., SO'CLEAN, Riviera Homecare, HomeEase, Sun-Tropez, Virginie W., A.M clean, OCSILETI, Loubna L., Balai magique, Alexis T. Toutes verifiees: 23/23 last_uid=7836662 confirme.",
+      "result": "success"
+    },
     {
       "timestamp": "2026-06-20T07:21:00Z",
       "agent": "don_draper",
@@ -715,30 +739,6 @@ const DATA = {
       "action": "agent_corrected",
       "target": "don_draper",
       "details": "Unpaused + prompt fix: banned 'Voici ma demande privée' (0% conv), enabled himalaya SEND, added pain-first messaging rules, directed to send 10 pending conciergerie emails",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:00:00Z",
-      "agent": "harvey_specter",
-      "action": "no_action",
-      "target": "pipeline",
-      "details": "0 chaud, 0 en_cours, 0 repondu. Scan API 103 channels confirme : aucune reponse non trackee (sauf Tatiana 56270778, vieille cliente scolaire). Pipeline veritablement silencieux.",
-      "result": "no_targets"
-    },
-    {
-      "timestamp": "2026-06-20T07:01:02Z",
-      "agent": "mike_ross",
-      "action": "scraping_done",
-      "target": "AV search pages",
-      "details": "Scraped 10 cities (4 failed: Bezier/Marseille/Lyon=404, Paris/Strasbourg/Bordeaux=JS-only). Found 19 conciergeries across 6 cities.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:00Z",
-      "agent": "louis_litt",
-      "action": "report_generated",
-      "target": "dashboard",
-      "details": "Rapport 9h 20/06: 39 leads detectes, 38 contactes, 0 reponse, 0 closing. 3 alertes CRIT (pipeline sec, SMTP down, Harvey 11 runs sans chaud), 3 WARN, 3 INFO. 20 echanges internes, 20 actions agents. Cross-reference SOT/API/comms OK. Ecart SOT: 42 canaux API hors source verite.",
       "result": "success"
     }
   ]
