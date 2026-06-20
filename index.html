@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:18:28Z",
+  "updated": "2026-06-20T07:24:32Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -267,7 +267,7 @@ const DATA = {
     "elliott_tools": 10
   },
   "pipeline": {
-    "detected": 10,
+    "detected": 0,
     "contacted": 28,
     "responded": 0,
     "in_progress": 0,
@@ -281,24 +281,24 @@ const DATA = {
       "tools_in_arsenal": 0,
       "new_this_week": 0,
       "obsolete": 0,
-      "last_updated": null,
-      "status": "idle"
+      "last_updated": "2026-06-20T07:18:37.386119+00:00",
+      "status": "active"
     },
     "mike_ross": {
       "discovered_this_week": 0,
-      "discovered_total": 12,
+      "discovered_total": 0,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active"
     },
     "don_draper": {
-      "sent_this_week": 0,
+      "sent_this_week": 10,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "idle"
+      "status": "active"
     },
     "harvey_specter": {
       "leads_processed": 0,
@@ -391,7 +391,7 @@ const DATA = {
     }
   ],
   "trends": {
-    "contacts_vs_last_week": 0,
+    "contacts_vs_last_week": 10,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -559,6 +559,125 @@ const DATA = {
   ],
   "agent_actions": [
     {
+      "timestamp": "2026-06-20T07:21:00Z",
+      "agent": "don_draper",
+      "action": "no_action",
+      "target": "19 detecte AV leads",
+      "details": "19 leads detecte par Mike Ross non contactables : Playwright headless masque bouton Contacter, pont SSH down, API initiate_channel exige search_id numerique. Bloquant technique.",
+      "result": "blocked"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:09Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Generations Conciergerie",
+      "details": "Email pain-first envoyé à generations.conciergerie@gmail.com. Béziers.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:08Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "La Conciergerie du Midi",
+      "details": "Email pain-first envoyé à contact@laconciergeriedumidi.com. Port-La-Nouvelle/Sigean.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:07Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Conciergerie Carcassonnaise",
+      "details": "Email pain-first envoyé à contact@conciergerie-carcassonnaise.fr. Carcassonne.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:06Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Homerez",
+      "details": "Email pain-first envoyé à welcome@homerez.com. 100-500 biens IDF/national.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:05Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Cocoonr",
+      "details": "Email pain-first envoyé à contact@cocoonr.fr. 100-300 biens IDF.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:04Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Welkeys",
+      "details": "Email pain-first envoyé à communication@welkeys.com. +1000 biens IDF.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:03Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Checkmyguest",
+      "details": "Email pain-first envoyé à contact@checkmyguest.fr. +800 biens IDF.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:02Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Luckey",
+      "details": "Email pain-first envoyé à contact@luckey.fr. +1000 biens IDF.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:01Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "HostnFly",
+      "details": "Email pain-first envoyé à client@hostnfly.com. +500 biens IDF.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:20:00Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "GuestReady",
+      "details": "Email pain-first envoyé à contact@guestready.com. +1000 biens IDF. Pitch EmpireOS pilote gratuit 30j.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T07:18:37.386119+00:00",
+      "agent": "elliott",
+      "action": "arsenal_build",
+      "files_created": 9,
+      "total_lines": 1269,
+      "components": {
+        "email_himalaya": {
+          "status": "operational",
+          "scripts": 3,
+          "lines": 422,
+          "test_send": "OK"
+        },
+        "whatsapp_cdp": {
+          "status": "standby_bridge_down",
+          "scripts": 4,
+          "lines": 464
+        },
+        "cloakbrowser": {
+          "status": "standby_bridge_down",
+          "scripts": 2,
+          "lines": 383
+        },
+        "cron_inbox": {
+          "status": "updated",
+          "file": "check-inbox.sh"
+        }
+      },
+      "bridge_status": "down",
+      "dashboard_pushed": true
+    },
+    {
       "timestamp": "2026-06-20T07:13:00Z",
       "agent": "musk",
       "action": "verification_done",
@@ -620,102 +739,6 @@ const DATA = {
       "action": "report_generated",
       "target": "dashboard",
       "details": "Rapport 9h 20/06: 39 leads detectes, 38 contactes, 0 reponse, 0 closing. 3 alertes CRIT (pipeline sec, SMTP down, Harvey 11 runs sans chaud), 3 WARN, 3 INFO. 20 echanges internes, 20 actions agents. Cross-reference SOT/API/comms OK. Ecart SOT: 42 canaux API hors source verite.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Mystralia Conciergerie",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Stephanie Bartoli",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Chrystelle NILLES",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Francesca LA FAUCI",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "CASANOVA CLEAN",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Dmitri Chmyrev (La cloche d'or)",
-      "details": "AV search page: Nice (06)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Yannick R",
-      "details": "AV search page: Toulouse (31)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Rebecca LENOIR",
-      "details": "AV search page: Toulouse (31)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Amira Hadj ali (Nettwa)",
-      "details": "AV search page: Toulouse (31)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Maghnia Zerai",
-      "details": "AV search page: Toulouse (31)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Isabelle Mansuy",
-      "details": "AV search page: Nantes (44)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:00:45Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Karine Baude (Home'ponopono)",
-      "details": "AV search page: Nantes (44)",
       "result": "success"
     }
   ]
