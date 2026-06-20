@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T08:34:28Z",
+  "updated": "2026-06-20T08:40:26Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -286,13 +286,13 @@ const DATA = {
     },
     "mike_ross": {
       "discovered_this_week": 0,
-      "discovered_total": 5,
+      "discovered_total": 3,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active"
     },
     "don_draper": {
-      "sent_this_week": 3,
+      "sent_this_week": 6,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
@@ -305,7 +305,7 @@ const DATA = {
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "idle"
+      "status": "active"
     },
     "musk": {
       "status": "active",
@@ -314,7 +314,7 @@ const DATA = {
   },
   "alerts": [],
   "trends": {
-    "contacts_vs_last_week": 3,
+    "contacts_vs_last_week": 6,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -480,6 +480,46 @@ const DATA = {
   ],
   "agent_actions": [
     {
+      "timestamp": "2026-06-20T10:30:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "pipeline",
+      "details": "0 leads chauds, 0 repondus, 0 en_cours. 103 canaux API. 6 reponses prospect (tous refus/close). Verifie par API scan 6 pages.",
+      "result": "no_leads"
+    },
+    {
+      "timestamp": "2026-06-20T08:38:57Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 verifiés MX, 3 envoyés (Haussmann Conciergerie, Ma conciergerie 34, Première Conciergerie — tous Montpellier), 0 rejetés MX, 0 bounce. 38 restantes dans conciergeries_verified.json (4 déjà envoyées précédemment, 2 @instagram.com skip).",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:38:57Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Première Conciergerie (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@conciergerie-montpellier.net. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:38:57Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Ma conciergerie 34 (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@meilleur-concierge.com. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:38:57Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Haussmann Conciergerie (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@haussmannconciergerie.fr. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
       "timestamp": "2026-06-20T09:16:00Z",
       "agent": "mike_ross",
       "action": "run_summary",
@@ -597,46 +637,6 @@ const DATA = {
       "action": "lead_discovered",
       "target": "Romain FONT",
       "details": "Conciergerie/Petits Travaux Perpignan, découverte via AV search /v/conciergerie/perpignan",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Tania Guerrero (TALISMAN CONCIERGERIE)",
-      "details": "Conciergerie Airbnb Perpignan/Cabestany, découverte via AV search /v/conciergerie/perpignan",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Malvina Ramel",
-      "details": "Conciergerie Perpignan, découverte via AV search /v/conciergerie/perpignan",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T19:00:00Z",
-      "agent": "louis_litt",
-      "action": "report_generated",
-      "target": "dashboard",
-      "details": "Rapport 21h 20/06: 77 leads contactés (57 AV + 20 email), 0 réponse, 0 closing, MRR=0. BOUNCES: 8 aujourdhui (batch Mad Men: Conciergerie 360, Sezam, Paris Address, BnB Groom, Check and Visit, Conciergerie de France, Flatlooker, WeHost). 2 hier (Luckey, Amenitiz). Total 10 bounces cumulés. 8/10 bounce sur derniere vague = 80%. 23 relances AV muettes. WhatsApp installé pas activé. CloakBrowser OK. 3 alertes CRIT, 3 WARN, 3 INFO. Pipeline à larrêt complet.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:24:59Z",
-      "agent": "don_draper",
-      "action": "run_summary",
-      "target": "cron_run_08h23",
-      "details": "Run complet. 10 emails IDF envoyes (Mad Men, 199€). 8 bounces batch precedent audites. 0 reponses. 20 emails IDF total envoyes ce jour (10 format corrige + 10 nouveaux). 14 conciergeries IDF restantes avec email. 19 leads AV incontactables. Pipe sec. MRR 0€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:41Z",
-      "agent": "don_draper",
-      "action": "batch_sent",
-      "target": "10_conciergeries_idf_restantes",
-      "details": "10 nouveaux emails Mad Men envoyes: Hostly Prestige, M et Vous Conciergerie, Sweet Inn, Hostify, BnB Host, Mon Gustave, My Flat in Paris, Paris Conciergerie, R and A Prestige, Keylys Conciergerie. Tous 199€. Style pain-first sans Bonjour ni tirets.",
       "result": "success"
     }
   ]
