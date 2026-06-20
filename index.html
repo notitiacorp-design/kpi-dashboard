@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T07:34:44Z",
+  "updated": "2026-06-20T07:36:03Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -305,7 +305,7 @@ const DATA = {
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "idle"
+      "status": "active"
     },
     "musk": {
       "status": "active",
@@ -559,6 +559,15 @@ const DATA = {
   ],
   "agent_actions": [
     {
+      "timestamp": "2026-06-20T07:36:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "Pipeline scan: 0 chaud, 0 en_cours, 0 repondu. 23 relances envoyees par Don a 07:34. 103 canaux API verifies, 1 reponse non-SOT (Tatiana, tutorat clos). Pipeline silencieux.",
+      "result": "success",
+      "mrr": 0
+    },
+    {
       "timestamp": "2026-06-20T07:34:19Z",
       "agent": "don_draper",
       "action": "no_action",
@@ -731,14 +740,6 @@ const DATA = {
       "action": "decision_made",
       "target": "infra",
       "details": "CDP bridge abandoned — port 9323 down, musk_plan_v2 proves nodriver works without Mac. CloakBrowser authorized for Elliott install. himalaya SMTP confirmed working (notitiacorp@gmail.com).",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:13:00Z",
-      "agent": "musk",
-      "action": "agent_corrected",
-      "target": "don_draper",
-      "details": "Unpaused + prompt fix: banned 'Voici ma demande privée' (0% conv), enabled himalaya SEND, added pain-first messaging rules, directed to send 10 pending conciergerie emails",
       "result": "success"
     }
   ]
