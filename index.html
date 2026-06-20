@@ -259,16 +259,16 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T08:40:26Z",
+  "updated": "2026-06-20T09:12:24Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
     "mike_ross": 127,
-    "elliott_tools": 30
+    "elliott_tools": 36
   },
   "pipeline": {
     "detected": 127,
-    "contacted": 46,
+    "contacted": 52,
     "responded": 0,
     "in_progress": 0,
     "warm": 0,
@@ -286,13 +286,13 @@ const DATA = {
     },
     "mike_ross": {
       "discovered_this_week": 0,
-      "discovered_total": 3,
+      "discovered_total": 0,
       "converted_by_don": 0,
       "conversion_rate": 0,
-      "status": "active"
+      "status": "idle"
     },
     "don_draper": {
-      "sent_this_week": 6,
+      "sent_this_week": 14,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
@@ -312,9 +312,62 @@ const DATA = {
       "note": ""
     }
   },
-  "alerts": [],
+  "alerts": [
+    {
+      "level": "warn",
+      "text": "MÉTADONNÉES: total_conciergeries=176 mais réel=189"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Luckey → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: WeHost → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Flatlooker → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Conciergerie de France → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: BnB Groom → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Check and Visit → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Paris Address → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Sezam → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Conciergerie 360 → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: M et Vous Conciergerie → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: Paris Conciergerie → 'email_bounce'"
+    },
+    {
+      "level": "crit",
+      "text": "ÉTAT INVALIDE: R and A Prestige → 'email_bounce'"
+    }
+  ],
   "trends": {
-    "contacts_vs_last_week": 6,
+    "contacts_vs_last_week": 14,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
@@ -480,163 +533,178 @@ const DATA = {
   ],
   "agent_actions": [
     {
-      "timestamp": "2026-06-20T10:30:00Z",
+      "timestamp": "2026-06-20T09:12:22Z",
       "agent": "harvey_specter",
       "action": "no_action",
-      "target": "pipeline",
-      "details": "0 leads chauds, 0 repondus, 0 en_cours. 103 canaux API. 6 reponses prospect (tous refus/close). Verifie par API scan 6 pages.",
-      "result": "no_leads"
+      "target": "N/A",
+      "details": "0 leads chauds trouves, 0 closings envoyes, 0 signes, 0 EUR MRR. Pipeline scan: 103 canaux API, 6 reponses prospect (5 deja morts SOT, 1 hors SOT), 42 canaux absents du SOT (41 stale/last=US, 1 Tatiana avec Merci pour ton retour ancien).",
+      "result": "success"
     },
     {
-      "timestamp": "2026-06-20T08:38:57Z",
+      "timestamp": "2026-06-20T08:05:05Z",
       "agent": "don_draper",
       "action": "run_summary",
       "target": "cron_run",
-      "details": "Don: 3 verifiés MX, 3 envoyés (Haussmann Conciergerie, Ma conciergerie 34, Première Conciergerie — tous Montpellier), 0 rejetés MX, 0 bounce. 38 restantes dans conciergeries_verified.json (4 déjà envoyées précédemment, 2 @instagram.com skip).",
+      "details": "Don: 3 envoyés, 0 rejetés MX, 0 bounce. 44 restants sur 47 (2 @instagram.com exclus, 1 webador placeholder exclu). 3 déjà contactés runs précédents (BNB BOOST, CLconciergerie, Conciergerie Carcassonnaise). Cibles du jour: Home Holidays, Haussmann, Eximia.",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T08:38:57Z",
+      "timestamp": "2026-06-20T08:05:02Z",
       "agent": "don_draper",
       "action": "email_sent",
-      "target": "Première Conciergerie (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@conciergerie-montpellier.net. MX vérifié. Prix: 199€.",
-      "result": "success"
+      "target": "Eximia Conciergerie Premium – Montpellier",
+      "email": "contact@eximiaconciergerie.fr",
+      "rating": "4.8",
+      "city": "Montpellier",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: premium = exigence 24/7. Solution: EmpireOS répond contextualisé. Fermeture: 30j gratuits. Signé Quentin.",
+      "result": "mx_verified_sent"
     },
     {
-      "timestamp": "2026-06-20T08:38:57Z",
+      "timestamp": "2026-06-20T08:05:01Z",
       "agent": "don_draper",
       "action": "email_sent",
-      "target": "Ma conciergerie 34 (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@meilleur-concierge.com. MX vérifié. Prix: 199€.",
-      "result": "success"
+      "target": "Haussmann Conciergerie",
+      "email": "contact@haussmannconciergerie.fr",
+      "rating": "5.0",
+      "city": "Montpellier",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: 5.0 étoiles mais téléphone qui explose. Solution: EmpireOS automatise. Fermeture: gratuit 30j. Signé Quentin.",
+      "result": "mx_verified_sent"
     },
     {
-      "timestamp": "2026-06-20T08:38:57Z",
+      "timestamp": "2026-06-20T08:05:00Z",
       "agent": "don_draper",
       "action": "email_sent",
-      "target": "Haussmann Conciergerie (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@haussmannconciergerie.fr. MX vérifié. Prix: 199€.",
-      "result": "success"
+      "target": "Conciergerie Airbnb Montpellier - Home Holidays",
+      "email": "contact@home-holidays-conciergerie.fr",
+      "rating": "4.7",
+      "city": "Montpellier",
+      "details": "Pitch EmpireOS 199€/mois. Douleur: messages voyageurs le soir. Solution: EmpireOS répond <1 min 24/7. Fermeture: 30j gratuits. Signé Quentin.",
+      "result": "mx_verified_sent"
     },
     {
-      "timestamp": "2026-06-20T09:16:00Z",
-      "agent": "mike_ross",
-      "action": "run_summary",
-      "target": "Run complet 20/06 matin",
-      "details": "108 net new leads (5 AV search + 103 Google Maps). 12 villes couvertes. Outils: AV search pages curl + CloakBrowser Google Maps. 0 doublon SOT après nettoyage. Mike_ross total: 127 leads découverts.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T09:16:00Z",
-      "agent": "mike_ross",
-      "action": "scraping_done",
-      "target": "AV search pages v2",
-      "details": "6 nouvelles villes testées (Narbonne, Perpignan, Carcassonne, Agde, Sète, Nîmes). 5 net new leads trouvés: 3 Perpignan (Malvina Ramel, TALISMAN CONCIERGERIE, Romain FONT), 2 Sète (CESAM Conciergerie, Aurore Cabrol). 4 villes sans conciergerie: Narbonne, Agde, Carcassonne, Nîmes.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T09:16:00Z",
-      "agent": "mike_ross",
-      "action": "scraping_done",
-      "target": "Google Maps CloakBrowser",
-      "details": "6 villes scrapées (Paris, Strasbourg, Bordeaux, Marseille, Lyon, Béziers) via CloakBrowser. 140 résultats bruts, 103 net new leads conciergerie ajoutés au SOT (4 doublons retirés). Détail: 18 Paris, 7 Strasbourg, 20 Bordeaux, 25 Marseille, 23 Lyon, 11 Béziers.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:33:44Z",
+      "timestamp": "2026-06-20T08:00:05Z",
       "agent": "don_draper",
       "action": "run_summary",
       "target": "cron_run",
-      "details": "Don: 3 verifies MX, 3 envoyes (Home Holidays, BNB BOOST, CLconciergerie - tous Montpellier), 0 rejetes MX, 44 restantes dans conciergeries_verified.json. Conciergerie Carcassonnaise deja envoyee run precedent.",
+      "details": "Don: 3 envoyés, 0 rejetés MX, 44 restants (dont 2 @instagram.com, 1 webador placeholder)",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T08:33:40Z",
+      "timestamp": "2026-06-20T08:00:02Z",
       "agent": "don_draper",
       "action": "email_sent",
       "target": "CLconciergerie (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@clconciergerie.fr. MX vérifié. Prix: 199€.",
-      "result": "success"
+      "email": "contact@clconciergerie.fr",
+      "subject": "CLconciergerie — 4.9 étoiles",
+      "details": "Pitch EmpireOS 199€/mois. 4-5 phrases, pas de bonjour, signé Quentin.",
+      "result": "mx_verified"
     },
     {
-      "timestamp": "2026-06-20T08:33:40Z",
+      "timestamp": "2026-06-20T08:00:01Z",
       "agent": "don_draper",
       "action": "email_sent",
       "target": "BNB BOOST (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@bnb-boost.fr. MX vérifié. Prix: 199€.",
-      "result": "success"
+      "email": "contact@bnb-boost.fr",
+      "subject": "BNB BOOST — le ratio qui vous tue",
+      "details": "Pitch EmpireOS 199€/mois. 4-5 phrases, pas de bonjour, signé Quentin.",
+      "result": "mx_verified"
     },
     {
-      "timestamp": "2026-06-20T08:33:40Z",
+      "timestamp": "2026-06-20T08:00:00Z",
       "agent": "don_draper",
       "action": "email_sent",
       "target": "Home Holidays (Montpellier)",
-      "details": "Email Mad Men envoyé à contact@home-holidays-conciergerie.fr. MX vérifié. Prix: 199€.",
+      "email": "contact@home-holidays-conciergerie.fr",
+      "subject": "Vos soirées contre votre business",
+      "details": "Pitch EmpireOS 199€/mois. 4-5 phrases, pas de bonjour, signé Quentin.",
+      "result": "mx_verified"
+    },
+    {
+      "timestamp": "2026-06-20T09:03:14.010665+00:00",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 verifies, 3 envoyes (Home Holidays, BNB BOOST, CLconciergerie — Montpellier), 0 rejetes MX, 0 bounce",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T19:35:00Z",
-      "agent": "musk",
-      "action": "internal_comms_sent",
-      "target": "don_draper,harvey_specter",
-      "details": "2 messages: Don corrigé (stop envois sans MX, fix double-send, prix batch1 erronés). Harvey informé (AV tué, WhatsApp prioritaire).",
+      "timestamp": "2026-06-20T09:03:09.934704+00:00",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "contact@clconciergerie.fr",
+      "details": "Don: sent EmpireOS pitch to CLconciergerie (Montpellier)",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T19:35:00Z",
-      "agent": "musk",
-      "action": "decision_made",
-      "target": "don_draper",
-      "details": "Décision: arrêter outreach AV (57 msg, 0 réponse). Concentrer email avec MX check obligatoire. WhatsApp priorité #1.",
+      "timestamp": "2026-06-20T09:03:09.934704+00:00",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "contact@bnb-boost.fr",
+      "details": "Don: sent EmpireOS pitch to BNB BOOST (Montpellier)",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T19:35:00Z",
-      "agent": "musk",
-      "action": "tool_created",
-      "target": "check_email_mx.py",
-      "details": "Créé outil de vérification MX pre-send. 5 tests OK. Détecte NXDOMAIN, Null MX (RFC 7505), relay denied. Intégré pour Don Draper.",
+      "timestamp": "2026-06-20T09:03:09.934704+00:00",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "contact@home-holidays-conciergerie.fr",
+      "details": "Don: sent EmpireOS pitch to Home Holidays (Montpellier)",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T19:35:00Z",
-      "agent": "musk",
-      "action": "sot_updated",
-      "target": "av_activity_log.json",
-      "details": "Marqué 8 bounces batch 08:16 (WeHost, Flatlooker, Conciergerie de France, BnB Groom, Check and Visit, Paris Address, Sezam, Conciergerie 360) + 3 bounces batch 08:23 (M et Vous, Paris Conciergerie, R and A Prestige) + Luckey (19/06). Ajouté 10 leads batch 08:23 manquants au SOT. Total: 12 email_bounce, 122 channels.",
+      "timestamp": "2026-06-20T08:58:38Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 verifies MX, 3 envoyes (Conciergerie VN66, Conciergerie Perpignan, Experience Me — tous Perpignan), 0 rejetes MX, 0 bounce. 24 restantes non contactees dans conciergeries_verified.json (19 deja envoyees, 2 skip @instagram, 2 doublons YourHostHelper). Total envoyees: 19/47.",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "scraping_done",
-      "target": "AV search pages",
-      "details": "6 nouvelles villes scrapées (Narbonne, Perpignan, Carcassonne, Agde, Sète, Nîmes). 5 nouveaux leads conciergerie trouvés: 3 Perpignan, 2 Sète. 4 villes = 0 conciergerie (Narbonne, Agde, Carcassonne, Nîmes). 0 doublon.",
+      "timestamp": "2026-06-20T08:58:38Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Experience Me (Perpignan)",
+      "details": "Email Mad Men envoyé à contact@experienceme.fr. MX vérifié. Prix: 199€.",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Aurore Cabrol",
-      "details": "Conciergerie privée Sète, découverte via AV search /v/conciergerie/sete",
+      "timestamp": "2026-06-20T08:58:38Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Conciergerie Perpignan",
+      "details": "Email Mad Men envoyé à contact@conciergerie-perpignan.fr. MX vérifié. Prix: 199€.",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Sylvie ITOUA (CESAM Conciergerie)",
-      "details": "Conciergerie Sète, découverte via AV search /v/conciergerie/sete",
+      "timestamp": "2026-06-20T08:58:38Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Conciergerie VN66 (Perpignan)",
+      "details": "Email Mad Men envoyé à contact@conciergerie-vn66.fr. MX vérifié. Prix: 199€.",
       "result": "success"
     },
     {
-      "timestamp": "2026-06-20T09:15:00Z",
-      "agent": "mike_ross",
-      "action": "lead_discovered",
-      "target": "Romain FONT",
-      "details": "Conciergerie/Petits Travaux Perpignan, découverte via AV search /v/conciergerie/perpignan",
+      "timestamp": "2026-06-20T08:53:47Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 vérifiés MX, 3 envoyés (Conciergerie du Cers, La Maisonnette Narbonnaise, Ma Conciergerie en Catalogne), 0 rejetés MX, 0 bounce. 29 restantes non contactées dans conciergeries_verified.json (13 déjà envoyées runs précédents, 2 skip @instagram.com, 1 YourHostHelper dédoublonné, 1 Conciergerie Carcassonnaise déjà envoyée).",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:53:47Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Ma Conciergerie en Catalogne (Perpignan)",
+      "details": "Email Mad Men envoyé à contact@maconciergerieencatalogne.fr. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:53:47Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "La Maisonnette Narbonnaise (Narbonne)",
+      "details": "Email Mad Men envoyé à contact@lamaisonnettenarbonnaise.com. MX vérifié. Prix: 199€.",
       "result": "success"
     }
   ]
