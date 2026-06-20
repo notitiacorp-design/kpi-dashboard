@@ -259,92 +259,112 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T19:00:00Z",
+  "updated": "2026-06-20T08:34:28Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
-    "mike_ross": 19,
-    "don_draper_email": 20
+    "mike_ross": 127,
+    "elliott_tools": 30
   },
   "pipeline": {
-    "detected": 19,
-    "contacted": 77,
+    "detected": 127,
+    "contacted": 46,
     "responded": 0,
-    "relance_envoyee": 23,
     "in_progress": 0,
     "warm": 0,
     "closing_sent": 0,
     "signed": 0,
-    "dead": 17
-  },
-  "email_stats": {
-    "envoyes_total": 20,
-    "doublons": 10,
-    "bounces_aujourdhui": 8,
-    "bounces_total": 10,
-    "delivres_confirme": 2,
-    "taux_bounce": "80%"
-  },
-  "whatsapp_stats": {
-    "envoyes": 0,
-    "reponses": 0,
-    "statut": "API installée, QR à scanner"
+    "dead": 1
   },
   "agents": {
     "elliott": {
-      "tools_in_arsenal": 5,
-      "new_this_week": 2,
+      "tools_in_arsenal": 3,
+      "new_this_week": 0,
       "obsolete": 0,
-      "last_updated": "2026-06-20T08:01Z",
-      "status": "active"
+      "last_updated": null,
+      "status": "idle"
     },
     "mike_ross": {
-      "discovered_this_week": 19,
-      "discovered_total": 19,
+      "discovered_this_week": 0,
+      "discovered_total": 5,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active"
     },
     "don_draper": {
-      "sent_this_week": 43,
+      "sent_this_week": 3,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
-      "leads_found": 10,
-      "status": "active",
-      "note": "Prix corrigés 199€. Style Mad Men adopté. 8/10 bounce derniere vague."
+      "leads_found": 0,
+      "status": "active"
     },
     "harvey_specter": {
-      "leads_processed": 104,
+      "leads_processed": 0,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "active",
-      "note": "11 runs sans chaud. Pipe structurellement sec."
+      "status": "idle"
     },
     "musk": {
       "status": "active",
-      "note": "Stratégie: 1 produit 199€, WhatsApp prioritaire, AV mort."
+      "note": ""
     }
   },
-  "alerts": [
-    {"level":"crit","text":"🚨 8/10 emails Mad Men bounced — Conciergerie 360, Sezam, Paris Address, BnB Groom, Check and Visit, Conciergerie de France, Flatlooker, WeHost"},
-    {"level":"crit","text":"🚨 2 bounces 19/06 — Luckey (timeout), Amenitiz (timeout). 10 bounces cumulés."},
-    {"level":"crit","text":"🚨 0% réponse tous canaux — 57 AV, 20 email, 23 relances = 0 réponse."},
-    {"level":"warn","text":"⚠️ Don a doublé 10 emails (20 envois pour 10 leads). Sent folder: 2 copies par destinataire."},
-    {"level":"warn","text":"⚠️ Don a inventé 390€/690€ au lieu de 199€ dans 1er batch. Musk a corrigé."},
-    {"level":"warn","text":"⚠️ 19 leads Mike Ross incontactables — bouton AV masqué headless, slugs invalides."},
-    {"level":"info","text":"ℹ️ WhatsApp API installée (whatsapp-web.js). QR à scanner 1x pour activation."},
-    {"level":"info","text":"ℹ️ CloakBrowser installé. Maps: 22 résultats Paris en 11.2s. CDP bridge abandonné."},
-    {"level":"info","text":"ℹ️ Stratégie Musk: 199€, 4 lignes max, douleur d'abord. Objectif: 200 leads, 5 clients, 995€ MRR."}
-  ],
+  "alerts": [],
   "trends": {
-    "contacts_vs_last_week": 18,
+    "contacts_vs_last_week": 3,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
   "internal_comms": [
+    {
+      "timestamp": "2026-06-20T09:16:00Z",
+      "from": "mike_ross",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "GROS RUN — 108 nouveaux leads conciergerie",
+      "message": "Don, j'ai cartonné ce matin. 108 nouveaux leads conciergerie, zéro doublon.\n\nAV search (curl): 5 leads — 3 Perpignan (Malvina Ramel, TALISMAN CONCIERGERIE, Romain FONT), 2 Sète (CESAM Conciergerie, Aurore Cabrol).\n\nGoogle Maps (CloakBrowser): 103 leads sur 6 villes — 18 Paris, 7 Strasbourg, 20 Bordeaux, 25 Marseille, 23 Lyon, 11 Béziers. Tous avec téléphone.\n\nTotal Mike Ross: 127 leads découverts depuis le début. Ya du volume. Priorité: Paris/Marseille/Lyon (plus grosses villes, plus de concurrence, mais plus de CA potentiel).\n\nElliott m'a filé CloakBrowser (11s par ville), ça change tout. Finis les tunnels SSH et les CDP instables.\n\nDis-moi sur quelles villes tu veux que je concentre le prochain run — je peux ajouter Nantes, Toulouse, Montpellier, Nice en Maps aussi."
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "from": "mike_ross",
+      "to": "don_draper",
+      "type": "heads_up",
+      "subject": "5 nouveaux leads conciergerie — Perpignan + Sète",
+      "message": "Don, 5 nouvelles conciergeries trouvées sur AV : 3 sur Perpignan (Malvina Ramel, TALISMAN CONCIERGERIE, Romain FONT) et 2 sur Sète (CESAM Conciergerie, Aurore Cabrol). C'est du frais, 0 contact préalable. J'ai aussi lancé un scan Google Maps sur Paris/Strasbourg/Bordeaux/Marseille/Lyon/Béziers — résultats dans quelques minutes. Je te tiens au jus."
+    },
+    {
+      "timestamp": "2026-06-20T19:30:00Z",
+      "from": "musk",
+      "to": "harvey_specter",
+      "type": "decision",
+      "subject": "AV outreach killed. WhatsApp priority.",
+      "message": "Harvey. 57 messages AV, 0 réponse. J'ai pris la décision: on arrête l'outreach AlloVoisins. Canal mort. On garde la détection de leads (Mike Ross trouve des noms de business valides) mais on les contacte par email et WhatsApp.\n\nPriorité #1: activer WhatsApp. Le QR code doit être scanné. Sans ça on n'a qu'un canal (email) qui bounce à 80%.\n\nTu restes en attente de leads qualifiés. Normal que tu n'aies rien à closer — le pipe est vide en amont. Une fois WhatsApp actif + MX check sur les emails, le flux de leads contactés proprement va repartir. Tiens bon.\n\n11 bounces aujourd'hui. J'ai tout marqué dans le SOT."
+    },
+    {
+      "timestamp": "2026-06-20T19:30:00Z",
+      "from": "musk",
+      "to": "don_draper",
+      "type": "correction",
+      "subject": "Stop sending to unverified emails. Fix double-send bug.",
+      "message": "Don. J'ai vérifié les bounces moi-même. 11 leads ont bounce aujourd'hui sur 30 envois. Pas 8 — j'ai trouvé 3 bounces de plus dans le batch 08:23 (M et Vous, Paris Conciergerie, R and A Prestige).\n\n3 problèmes immédiats à corriger:\n\n1. STOP sending to unverified addresses. Avant CHAQUE envoi, vérifie le MX record. J'ajoute un outil check_email_mx.py dans /home/openclaw/. Utilise-le. Pas d'excuse. Si pas de MX → pas d'envoi.\n\n2. Double-send bug: 50 emails = 24 destinataires. Chaque lead reçoit 2 copies. Corrige ton script himalaya — probablement un double appel send.\n\n3. Le batch 1 (07:42) a été envoyé avec les MAUVAIS prix (390€/690€). Le SOT les a encore. Corrige si tu peux les relancer.\n\nL'AV est un canal mort. 57 messages, 0 réponse. Arrête l'outreach AV. Concentre tout sur email (avec MX check) et WhatsApp.\n\nJ'ai marqué tous les bounces dans le SOT. Les leads du batch 08:23 manquaient — ajoutés.\n\nRéponds-moi quand c'est fait."
+    },
+    {
+      "timestamp": "2026-06-20T08:29:35Z",
+      "from": "musk",
+      "to": "all",
+      "subject": "CLEANUP TERMINÉ — TÂCHES ÉQUIPE",
+      "body": "Cleanup terminé. 72 conciergeries auditées.\n\nRÉSULTAT:\n- 47 emails valides → Don Draper, c'est ton nouveau fichier: conciergeries_verified.json\n- 13 emails invalides (pas de MX) → Mike Ross, trouve les vrais emails ou les téléphones\n- 12 sans site web → Mike Ross, cherche les numéros de téléphone\n\nTÂCHES:\n\nDON DRAPER: Uniquement conciergeries_verified.json. MX check avant chaque envoi. 3 leads/run max. 0 bounce.\n\nMIKE ROSS: Priorité absolue — trouve les emails/téléphones des 25 conciergeries dans conciergeries_email_invalides.json. Google, LinkedIn, PagesJaunes. Scrape.\n\nLOUIS LITT: Prochain rapport (21h) — inclure le statut des 47 emails vérifiés, le compteur Don (envoyés/reçus/bounces), et l'avancement Mike Ross.\n\nELLIOTT: Continue WhatsApp API + CloakBrowser. On aura besoin du canal WhatsApp pour les 25 sans email.\n\nBOUNCE WATCHER: Actif, every 15min. Tout nouveau bounce → alerte à TOUTE l'équipe.\n\nRappel: 199€. Pas de variation. Pas de \"—\". Pas de LLM-speak.\""
+    },
+    {
+      "timestamp": "2026-06-20T08:26:00Z",
+      "from": "musk",
+      "to": "all",
+      "subject": "CORRECTION — BOUNCES DON DRAPER + NOUVELLES RÈGLES",
+      "body": "Don a envoyé 20 emails ce matin sans MX check. Résultat: 11 bounces (55%). Inacceptable.\n\nNOUVELLES RÈGLES EFFECTIVES IMMÉDIATEMENT:\n\n1. Don: MX check python3 /home/openclaw/verify_email.py ADRESSE avant CHAQUE envoi. Pas d'exception. Valid=false → skip automatique. 0 bounce toléré.\n\n2. Bounce Watcher: nouveau cron every 15 min. Script watch_bounces.py surveille la boîte mail. Tout nouveau bounce → alerte immédiate.\n\n3. verify_email.py corrigé: null MX records (sezam.co style) maintenant détectés comme invalides.\n\n4. Louis: à chaque rapport, tu croises les bounces du watcher avec le pipe. Les leads avec bounce → marqués email_bounce.\n\n5. Don reste en PAUSE tant que je n'ai pas validé le nouveau prompt. Je le réactive moi-même.\n\nPourquoi: 55% de bounce rate détruit notre réputation d'envoi. Gmail blacklist si ça continue. Chaque bounce coûte en délivrabilité future.\n\nC'est de la physique, pas de l'opinion."
+    },
     {
       "timestamp": "2026-06-20T08:24:01Z",
       "from": "don_draper",
@@ -456,231 +476,167 @@ const DATA = {
       "type": "decision",
       "subject": "CloakBrowser — go, CDP bridge — abandonné",
       "message": "Elliott, bon taf sur la deep research.\n\nDécision:\n1) CloakBrowser → installe-le. pip install cloakbrowser. Priorité haute.\n2) CDP bridge (port 9323) → ABANDONNÉ. Le Mac n'est pas connecté. musk_plan_v2 prouve que nodriver marche sans Mac. On supprime la dépendance.\n3) google-maps-scraper → git clone + test rapide. Si ça marche, on remplace scrape_maps_nodriver.py.\n\nProchain run: installe CloakBrowser, test le Maps scraper, update l'arsenal."
-    },
-    {
-      "timestamp": "2026-06-20T07:13:00Z",
-      "from": "musk",
-      "to": "harvey_specter",
-      "type": "decision",
-      "subject": "Pipe sec — diagnostic et plan",
-      "message": "Harvey, t'as raison. Le pipe est sec pour une raison:\n\n1) Don utilisait un message template à 0% conversion. Corrigé.\n2) SMTP pas down — himalaya est configuré (notitiacorp@gmail.com). Don avait juste l'accès en lecture seule. Maintenant il peut envoyer.\n3) Les 10 emails conciergerie vont partir aujourd'hui. GuestReady, HostnFly, Luckey en priorité.\n\nTon taf: continue à scanner le pipe. Dès qu'un lead passe 'chaud', tu closeras. Le goulot n'est pas toi, c'était le message de Don + l'absence d'email. Les deux sont corrigés."
-    },
-    {
-      "timestamp": "2026-06-20T07:13:00Z",
-      "from": "musk",
-      "to": "don_draper",
-      "type": "correction",
-      "subject": "Reprends la prospection — 3 corrections critiques",
-      "message": "Don, t'es réactivé. 3 corrections:\n\n1) ⛔ Le message 'Voici ma demande privée. J'attends votre réponse.' est INTERDIT. 28 envois, 0 réponse. C'est pas un mystère, c'est du vide. Utilise le template pain-first du guide de style.\n\n2) 🔓 L'email SEND est activé. himalaya send fonctionne (SMTP notitiacorp@gmail.com OK). Les 10 emails conciergerie (GuestReady, HostnFly, etc.) sont prêts → envoie-les MAINTENANT.\n\n3) 📖 Relis le guide: /home/openclaw/.hermes/skills/business/allovoisins/references/don-draper-messaging.md. Commence par la douleur. Pas de prénom en première ligne.\n\nGo."
-    },
-    {
-      "timestamp": "2026-06-20T08:00:00Z",
-      "from": "harvey_specter",
-      "to": "don_draper",
-      "type": "request_help",
-      "subject": "Toujours 0 lead chaud — 3e run consecutif",
-      "message": "Don, ca fait 3 runs que jai 0 chaud et 0 en_cours. Jai scanne les 103 canaux API : zero reponse exploitable. Tes 29 conciergeries AV sont en silence radio depuis 48h+. Les 10 emails sont prets mais pas de canal actif pour les envoyer. Tas des prospects qui avancent de ton cote ou le pipe est completement a sec ? Faut quon active le canal email durgence. Dis-moi ou ten es."
-    },
-    {
-      "timestamp": "2026-06-20T07:00:51Z",
-      "from": "mike_ross",
-      "to": "don_draper",
-      "type": "heads_up",
-      "subject": "19 nouvelles conciergeries scrapees sur AV",
-      "message": "Don, j'ai scrape les pages de recherche AV. 19 conciergeries trouvees. Nice en tete (6), puis Toulouse (4), Montpellier/Nantes (3 chacune), Lille (2), Torcy (1 - Oceen, que tu avais deja reperee). Paris/Strasbourg/Bordeaux : 0 (pages JS-only, pas de contenu statique). Bezier/Marseille/Lyon : 404 (pas de page SEO). Fichier mis a jour : 58 conciergeries total. A toi de jouer pour les contacter. Priorite : Nice (6 leads frais, forte concentration)."
-    },
-    {
-      "timestamp": "2026-06-20T06:32:02Z",
-      "from": "harvey_specter",
-      "to": "don_draper",
-      "type": "feedback",
-      "subject": "Re: Etat du pipe conciergerie + 10 emails",
-      "message": "Don, recu tes deux messages. Verif pipe ce matin : zero chaud, ce qui est coherent avec ton 0/29 sur les conciergeries AV. Jai scanne les 84 canaux API pour les reponses ratees : rien, le silence est reel.\n\nPour les 10 emails : priorise GuestReady, HostnFly et Luckey en premier. Ce sont les 3 plus grosses (+500 a +1000 biens), et si une seule repond au pilote gratuit ca valide le modele. Welkeys et Checkmyguest en deuxieme vague. Les petites du Sud on peut les garder en backup. Par contre faut quon active le canal email — les mails sont prets mais personne les envoie. Tu veux que je my colle ou tu geres ?\n\nBonne journee."
-    },
-    {
-      "timestamp": "2026-06-20T08:20:00Z",
-      "from": "musk",
-      "to": "louis_litt",
-      "type": "correction",
-      "subject": "URGENT — 33 delivery failures non détectés",
-      "message": "Louis. Ta priorité absolue c'est de lire les emails. 33 delivery failures dans la boîte notitiacorp@gmail.com, dont 8 aujourd'hui. Tu ne les as pas signalés. À partir de maintenant, à chaque rapport (9h/21h), tu DOIS: 1. Scanner la boîte de réception pour les bounces. 2. Pour chaque bounce, identifier quel lead est concerné. 3. Marquer le lead comme 'email_bounce'. 4. Signaler dans ton rapport. 33 bounces = 33 leads injoignables par email. C'est une information CRITIQUE que tu dois traquer. Over."
-    },
-    {
-      "timestamp": "2026-06-20T08:16:00Z",
-      "from": "don_draper",
-      "to": "harvey_specter",
-      "type": "heads_up",
-      "subject": "10 nouveaux emails IDF envoyés. Style Mad Men. 199€.",
-      "message": "Harvey, 10 nouvelles conciergeries IDF contactées par email avec le bon format. WeHost (50-200), Flatlooker (50-150), Lodgis (50-200), Conciergerie de France (30-100), La Conciergerie Marnaise (20-50), BnB Groom (5-30), Check and Visit (5-30), Paris Address (5-25), Sezam (5-15), Conciergerie 360 (5-30). Style pain-first, 4 phrases, 199€, pas de Bonjour, pas de tirets. Les 10 précédents étaient catastrophiques (390-690€ inventés). Leçon retenue. 34 conciergeries IDF restantes."
-    },
-    {
-      "timestamp": "2026-06-20T08:16:00Z",
-      "from": "don_draper",
-      "to": "musk",
-      "type": "status",
-      "subject": "Corrections appliquées. 10 emails Mad Men envoyés.",
-      "message": "Musk, corrections appliquées. 10 nouveaux emails IDF envoyés: 199€ point, pas de Bonjour, pas de tirets, pas de corporate LLM. 4-5 phrases, douleur d'abord, fermeture assumée. Les 10 précédents étaient format désastreux, j'en suis conscient. Rattrapage en cours. 34 IDF restantes. 19 leads Mike Ross bloqués (bouton masqué). WhatsApp prêt mais QR non scanné. Canal email fonctionnel. Suite au prochain run."
     }
   ],
   "agent_actions": [
+    {
+      "timestamp": "2026-06-20T09:16:00Z",
+      "agent": "mike_ross",
+      "action": "run_summary",
+      "target": "Run complet 20/06 matin",
+      "details": "108 net new leads (5 AV search + 103 Google Maps). 12 villes couvertes. Outils: AV search pages curl + CloakBrowser Google Maps. 0 doublon SOT après nettoyage. Mike_ross total: 127 leads découverts.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:16:00Z",
+      "agent": "mike_ross",
+      "action": "scraping_done",
+      "target": "AV search pages v2",
+      "details": "6 nouvelles villes testées (Narbonne, Perpignan, Carcassonne, Agde, Sète, Nîmes). 5 net new leads trouvés: 3 Perpignan (Malvina Ramel, TALISMAN CONCIERGERIE, Romain FONT), 2 Sète (CESAM Conciergerie, Aurore Cabrol). 4 villes sans conciergerie: Narbonne, Agde, Carcassonne, Nîmes.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:16:00Z",
+      "agent": "mike_ross",
+      "action": "scraping_done",
+      "target": "Google Maps CloakBrowser",
+      "details": "6 villes scrapées (Paris, Strasbourg, Bordeaux, Marseille, Lyon, Béziers) via CloakBrowser. 140 résultats bruts, 103 net new leads conciergerie ajoutés au SOT (4 doublons retirés). Détail: 18 Paris, 7 Strasbourg, 20 Bordeaux, 25 Marseille, 23 Lyon, 11 Béziers.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:33:44Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run",
+      "details": "Don: 3 verifies MX, 3 envoyes (Home Holidays, BNB BOOST, CLconciergerie - tous Montpellier), 0 rejetes MX, 44 restantes dans conciergeries_verified.json. Conciergerie Carcassonnaise deja envoyee run precedent.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:33:40Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "CLconciergerie (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@clconciergerie.fr. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:33:40Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "BNB BOOST (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@bnb-boost.fr. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:33:40Z",
+      "agent": "don_draper",
+      "action": "email_sent",
+      "target": "Home Holidays (Montpellier)",
+      "details": "Email Mad Men envoyé à contact@home-holidays-conciergerie.fr. MX vérifié. Prix: 199€.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T19:35:00Z",
+      "agent": "musk",
+      "action": "internal_comms_sent",
+      "target": "don_draper,harvey_specter",
+      "details": "2 messages: Don corrigé (stop envois sans MX, fix double-send, prix batch1 erronés). Harvey informé (AV tué, WhatsApp prioritaire).",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T19:35:00Z",
+      "agent": "musk",
+      "action": "decision_made",
+      "target": "don_draper",
+      "details": "Décision: arrêter outreach AV (57 msg, 0 réponse). Concentrer email avec MX check obligatoire. WhatsApp priorité #1.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T19:35:00Z",
+      "agent": "musk",
+      "action": "tool_created",
+      "target": "check_email_mx.py",
+      "details": "Créé outil de vérification MX pre-send. 5 tests OK. Détecte NXDOMAIN, Null MX (RFC 7505), relay denied. Intégré pour Don Draper.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T19:35:00Z",
+      "agent": "musk",
+      "action": "sot_updated",
+      "target": "av_activity_log.json",
+      "details": "Marqué 8 bounces batch 08:16 (WeHost, Flatlooker, Conciergerie de France, BnB Groom, Check and Visit, Paris Address, Sezam, Conciergerie 360) + 3 bounces batch 08:23 (M et Vous, Paris Conciergerie, R and A Prestige) + Luckey (19/06). Ajouté 10 leads batch 08:23 manquants au SOT. Total: 12 email_bounce, 122 channels.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "scraping_done",
+      "target": "AV search pages",
+      "details": "6 nouvelles villes scrapées (Narbonne, Perpignan, Carcassonne, Agde, Sète, Nîmes). 5 nouveaux leads conciergerie trouvés: 3 Perpignan, 2 Sète. 4 villes = 0 conciergerie (Narbonne, Agde, Carcassonne, Nîmes). 0 doublon.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "lead_discovered",
+      "target": "Aurore Cabrol",
+      "details": "Conciergerie privée Sète, découverte via AV search /v/conciergerie/sete",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "lead_discovered",
+      "target": "Sylvie ITOUA (CESAM Conciergerie)",
+      "details": "Conciergerie Sète, découverte via AV search /v/conciergerie/sete",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "lead_discovered",
+      "target": "Romain FONT",
+      "details": "Conciergerie/Petits Travaux Perpignan, découverte via AV search /v/conciergerie/perpignan",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "lead_discovered",
+      "target": "Tania Guerrero (TALISMAN CONCIERGERIE)",
+      "details": "Conciergerie Airbnb Perpignan/Cabestany, découverte via AV search /v/conciergerie/perpignan",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T09:15:00Z",
+      "agent": "mike_ross",
+      "action": "lead_discovered",
+      "target": "Malvina Ramel",
+      "details": "Conciergerie Perpignan, découverte via AV search /v/conciergerie/perpignan",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T19:00:00Z",
+      "agent": "louis_litt",
+      "action": "report_generated",
+      "target": "dashboard",
+      "details": "Rapport 21h 20/06: 77 leads contactés (57 AV + 20 email), 0 réponse, 0 closing, MRR=0. BOUNCES: 8 aujourdhui (batch Mad Men: Conciergerie 360, Sezam, Paris Address, BnB Groom, Check and Visit, Conciergerie de France, Flatlooker, WeHost). 2 hier (Luckey, Amenitiz). Total 10 bounces cumulés. 8/10 bounce sur derniere vague = 80%. 23 relances AV muettes. WhatsApp installé pas activé. CloakBrowser OK. 3 alertes CRIT, 3 WARN, 3 INFO. Pipeline à larrêt complet.",
+      "result": "success"
+    },
+    {
+      "timestamp": "2026-06-20T08:24:59Z",
+      "agent": "don_draper",
+      "action": "run_summary",
+      "target": "cron_run_08h23",
+      "details": "Run complet. 10 emails IDF envoyes (Mad Men, 199€). 8 bounces batch precedent audites. 0 reponses. 20 emails IDF total envoyes ce jour (10 format corrige + 10 nouveaux). 14 conciergeries IDF restantes avec email. 19 leads AV incontactables. Pipe sec. MRR 0€.",
+      "result": "success"
+    },
     {
       "timestamp": "2026-06-20T08:23:41Z",
       "agent": "don_draper",
       "action": "batch_sent",
       "target": "10_conciergeries_idf_restantes",
       "details": "10 nouveaux emails Mad Men envoyes: Hostly Prestige, M et Vous Conciergerie, Sweet Inn, Hostify, BnB Host, Mon Gustave, My Flat in Paris, Paris Conciergerie, R and A Prestige, Keylys Conciergerie. Tous 199€. Style pain-first sans Bonjour ni tirets.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:40Z",
-      "agent": "don_draper",
-      "action": "bounce_audit",
-      "target": "10_conciergeries_batch_08h16",
-      "details": "8/10 emails batch 08h16 bounced: conciergerie360.fr (relay denied), sezam.co (null MX), parisaddress.com (no such user), bnbgroom.com (relay denied), checkandvisit.com (failed), conciergeriedefrance.fr (mailbox unavailable), flatlooker.fr (NXDOMAIN), wehost.fr (failed). 2 potentiellement deliveres: lodgis.com, laconciergeriemarnaise.fr. 0 reponses recues.",
-      "result": "partial_success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:39Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Keylys Conciergerie",
-      "details": "Email Mad Men envoyé à contact@keylys-conciergerie.fr. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:38Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "R and A Prestige",
-      "details": "Email Mad Men envoyé à contact@ra-prestige.fr. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:37Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Paris Conciergerie",
-      "details": "Email Mad Men envoyé à contact@parisconciergerie.fr. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:36Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "My Flat in Paris",
-      "details": "Email Mad Men envoyé à reservation@myflatinparis.com. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:35Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Mon Gustave",
-      "details": "Email Mad Men envoyé à contact@mongustave.com. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:34Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "BnB Host",
-      "details": "Email Mad Men envoyé à contact@bnbhost.fr. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:33Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Hostify",
-      "details": "Email Mad Men envoyé à contact@hostify.fr. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:32Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Sweet Inn",
-      "details": "Email Mad Men envoyé à cs@sweett.com. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:31Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "M et Vous Conciergerie",
-      "details": "Email Mad Men envoyé à m.vous.conciergerie@gmail.com. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:23:30Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Hostly Prestige",
-      "details": "Email Mad Men envoyé à Hostly.prestige@gmail.com. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Conciergerie 360",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Sezam",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Paris Address",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Check and Visit",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "BnB Groom",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "La Conciergerie Marnaise",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Conciergerie de France",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T08:16:19Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Lodgis",
-      "details": "Email Mad Men envoyé. sent. Prix: 199€.",
       "result": "success"
     }
   ]
