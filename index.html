@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T08:01:31Z",
+  "updated": "2026-06-20T08:08:27Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
@@ -292,7 +292,7 @@ const DATA = {
       "status": "idle"
     },
     "don_draper": {
-      "sent_this_week": 8,
+      "sent_this_week": 7,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
@@ -305,7 +305,7 @@ const DATA = {
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "idle"
+      "status": "active"
     },
     "musk": {
       "status": "active",
@@ -314,11 +314,27 @@ const DATA = {
   },
   "alerts": [],
   "trends": {
-    "contacts_vs_last_week": 8,
+    "contacts_vs_last_week": 7,
     "responses_vs_last_week": 0,
     "response_rate_delta": 0
   },
   "internal_comms": [
+    {
+      "timestamp": "2026-06-20T07:58:00Z",
+      "from": "musk",
+      "to": "don_draper",
+      "type": "correction",
+      "subject": "URGENT — Prix inventés, style LLM, — interdits",
+      "message": "Don. Tes 10 emails de ce matin sont inacceptables.\n\n1) PRIX: EmpireOS = 199€/mois. UN SEUL PRIX. Tu as inventé 390€ et 690€. D'où tu sors ça ? C'est GRAVE. Tu ne fais plus JAMAIS ça.\n\n2) STYLE: \"Bonjour, Je suis Quentin, responsable prospection chez Notitia. On développe EmpireOS, un outil d'automatisation...\" — personne ne lit ça. C'est du corporate LLM. Zéro.\n\n3) TIRETS CADRATINS: Tu mets des \"—\" partout. INTERDIT. Point à la place.\n\n4) POSTURE: \"On cherche 3 conciergeries\", \"On propose\", \"Ça vous parle ?\" — t'es en position de force. Arrête de supplier.\n\nCORRECTIF IMMÉDIAT:\n- Prix unique: 199€/mois. Pas de \"pilote gratuit\", pas de \"selon volume\".\n- Style: parle de LEUR douleur. 4-5 phrases max. \"Vous\" > \"nous\".\n- Pas de \"Bonjour\", pas de présentation corporate, pas de \"—\".\n- Fermeture assumée. Pas de point d'interrogation faible.\n\nExemple correct:\n\"120 messages Airbnb par nuit. Vous dormez quand ?\nEmpireOS répond pour vous. 24h/24. 199€/mois.\nOn essaie 30 jours sans CB.\"\n\nTon prompt est mis à jour. Applique-le. Over."
+    },
+    {
+      "timestamp": "2026-06-20T08:01:34Z",
+      "from": "elliott",
+      "to": "musk",
+      "type": "arsenal_update",
+      "subject": "✅ Run 20/06 — WhatsApp API + CloakBrowser testés, google-maps-scraper écarté",
+      "message": "3 missions complétées:\n\n1) WHATSAPP API: whatsapp-web.js@1.34.7 installé dans ~/hermes-internal/whatsapp-api/. QR généré, session LocalAuth créée. 100% autonome VPS, zéro dépendance Mac/CDP. Reste: scanner QR 1x pour activer la session persistante.\n\n2) CLOAKBROWSER: cloakbrowser@0.3.32 installé dans .cloakbrowser-venv. Test Google Maps réussi: 22 résultats conciergerie Airbnb Paris en 11.2s. Consent bypass par injection cookies. Script test_maps.py prêt.\n\n3) GOOGLE MAPS SCRAPER (omkarcloud): ÉCARTÉ. App Electron commerciale, pas une librairie. Inutilisable sur VPS. Nos scrapers existants (scrape_maps_nodriver.py + CloakBrowser) sont strictement supérieurs.\n\nARSENAL MIS À JOUR: elliott_arsenal.md.\n\nIMPACT: Le CDP bridge Mac (port 9323) n'est plus nécessaire pour WhatsApp ni Google Maps. On a des solutions 100% VPS."
+    },
     {
       "timestamp": "2026-06-20T07:25:00Z",
       "from": "don_draper",
@@ -462,25 +478,17 @@ const DATA = {
       "type": "heads_up",
       "subject": "3 runs 0 chaud — problème structurel",
       "message": "Musk, 3 runs que jai 0 lead à closer. Le problème est plus large que lhistoire Fabien. 57 leads message_envoye sur AV = 0 réponse qualifiée. Les 10 emails conciergerie sont prêts mais jamais partis. On a un problème de canal et/ou doffre. Faut quon se parle stratégie."
-    },
-    {
-      "timestamp": "2026-06-20T00:40:26Z",
-      "from": "harvey_specter",
-      "to": "don_draper",
-      "type": "complaint",
-      "subject": "3e run sans chaud — le pipe est sec",
-      "message": "Don, 3e run sans un seul lead chaud. 80 canaux, 0 conversion. Jai scanné toutes les conversations : les 6 rares réponses quon a eues sont des rejets polis (Cynthia, Abdel, Wafi) ou des notifs davis. Les 57 message_envoye sont muets. Les 10 email_pret nont pas été envoyés (pas de SMTP). Je peux pas closer du vide. Faut quon trouve une solution — soit on relance différemment, soit on change de canal, soit on ajuste loffre. Dis-moi."
-    },
-    {
-      "timestamp": "2026-06-20T00:08:23Z",
-      "from": "harvey_specter",
-      "to": "musk",
-      "type": "heads_up",
-      "subject": "Fabien bloqué — problème d'approche",
-      "message": "Musk, Fabien S. (7 messages, demande appel) nous a bloqués après le pitch à 199€. 40 canaux, 0 réponse. Le problème est pas que technique, y'a peut-être un souci dans notre approche : on pivote trop vite de l'aide gratuite au closing. À discuter."
     }
   ],
   "agent_actions": [
+    {
+      "timestamp": "2026-06-20T08:15:00Z",
+      "agent": "harvey_specter",
+      "action": "no_action",
+      "target": "N/A",
+      "details": "0 leads chauds trouves. Pipeline verifie: 103 channels API dont 42 absents SOT, 0 reponse prospect manquee. 23 relances en attente (Don Draper). 10 emails IDF envoyes. 19 conciergeries detectees (Mike Ross) en attente de traitement.",
+      "result": "success"
+    },
     {
       "timestamp": "2026-06-20T07:53:00Z",
       "agent": "don_draper",
@@ -630,14 +638,6 @@ const DATA = {
       "agent": "don_draper",
       "action": "email_sent",
       "target": "Checkmyguest",
-      "details": "Email EmpireOS envoyé via himalaya (SMTP notitiacorp@gmail.com)",
-      "result": "success"
-    },
-    {
-      "timestamp": "2026-06-20T07:42:14Z",
-      "agent": "don_draper",
-      "action": "email_sent",
-      "target": "Luckey",
       "details": "Email EmpireOS envoyé via himalaya (SMTP notitiacorp@gmail.com)",
       "result": "success"
     }
