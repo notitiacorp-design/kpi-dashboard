@@ -259,30 +259,30 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-21T13:30:00Z",
+  "updated": "2026-06-21T19:00:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
     "mike_ross": 191,
-    "elliott_tools": 38
+    "elliott_tools": 5
   },
   "pipeline": {
     "detected": 191,
-    "contacted": 82,
-    "responded": 3,
+    "contacted": 83,
+    "responded": 1,
     "in_progress": 1,
     "warm": 0,
     "closing_sent": 1,
     "signed": 0,
     "dead": 35,
-    "email_bounce": 12
+    "email_bounce": 14
   },
   "agents": {
     "elliott": {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-21T10:22:00Z",
+      "last_updated": "2026-06-21T09:30:00Z",
       "status": "active"
     },
     "mike_ross": {
@@ -302,7 +302,7 @@ const DATA = {
       "status": "paused"
     },
     "harvey_specter": {
-      "leads_processed": 4,
+      "leads_processed": 6,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
@@ -313,8 +313,8 @@ const DATA = {
       "note": "Systeme suspendu: 402 API + 0 canal actif"
     },
     "louis_litt": {
-      "status": "suspended_api",
-      "note": "Cron FAILED 07h00: 402 Insufficient Balance"
+      "status": "active",
+      "note": "Rapport 19h 21/06 genere. 2 MX invalides supplementaires detectes."
     }
   },
   "alerts": [
@@ -324,11 +324,11 @@ const DATA = {
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT, Email:HALTE (12 bounces SOT), WhatsApp:BLOQUE"
+      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0%), Email:HALTE (14 bounces, ~40 inbox), WhatsApp:BLOQUE (proxy vide)"
     },
     {
-      "level": "warn",
-      "text": "12 EMAIL BOUNCES: Luckey, WeHost, Flatlooker, C. de France, BnB Groom, Check and Visit, Paris Address, Sezam, C. 360, M et Vous, Paris C., R and A Prestige"
+      "level": "crit",
+      "text": "BOUNCE RATE >30% — 14 SOT + 2 MX invalides detectes CE RUN (Mon Gustave, Keylys). Reelle >40. Reputation email BRULEE."
     },
     {
       "level": "warn",
@@ -336,7 +336,11 @@ const DATA = {
     },
     {
       "level": "warn",
-      "text": "DASHBOARD ECOLE: contacted 51->82, dead 1->35, warm 0->0 (Loubna close), mike_ross 188->191."
+      "text": "MON GUSTAVE + KEYLYS: MX INVALIDES. Deja envoyes 20/06, bounces non trackes dans SOT. A marquer mort."
+    },
+    {
+      "level": "warn",
+      "text": "22 Delivery Failures inbox 19-20/06 + 10 Delays 17-21/06. Ecart SOT (12) vs inbox (22+) confirme."
     }
   ],
   "trends": {
