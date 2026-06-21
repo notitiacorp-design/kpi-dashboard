@@ -259,111 +259,84 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-20T20:11:46Z",
+  "updated": "2026-06-21T13:30:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 29,
-    "mike_ross": 188,
-    "elliott_tools": 36
+    "mike_ross": 191,
+    "elliott_tools": 38
   },
   "pipeline": {
-    "detected": 188,
-    "contacted": 51,
-    "responded": 0,
-    "in_progress": 0,
+    "detected": 191,
+    "contacted": 82,
+    "responded": 3,
+    "in_progress": 1,
     "warm": 0,
-    "closing_sent": 0,
+    "closing_sent": 1,
     "signed": 0,
-    "dead": 1
+    "dead": 35,
+    "email_bounce": 12
   },
   "agents": {
     "elliott": {
-      "tools_in_arsenal": 4,
-      "new_this_week": 0,
+      "tools_in_arsenal": 5,
+      "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": null,
-      "status": "idle"
+      "last_updated": "2026-06-21T10:22:00Z",
+      "status": "active"
     },
     "mike_ross": {
-      "discovered_this_week": 0,
-      "discovered_total": 0,
+      "discovered_this_week": 191,
+      "discovered_total": 191,
       "converted_by_don": 0,
       "conversion_rate": 0,
-      "status": "idle"
+      "status": "suspended_api"
     },
     "don_draper": {
-      "sent_this_week": 0,
+      "sent_this_week": 30,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "idle"
+      "status": "paused"
     },
     "harvey_specter": {
-      "leads_processed": 0,
+      "leads_processed": 4,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "idle"
+      "status": "suspended_api"
     },
     "musk": {
       "status": "active",
-      "note": ""
+      "note": "Systeme suspendu: 402 API + 0 canal actif"
+    },
+    "louis_litt": {
+      "status": "suspended_api",
+      "note": "Cron FAILED 07h00: 402 Insufficient Balance"
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "ÉTAT INVALIDE: Loubna L. (Laroussi Touzani Loubna) → 'close_envoye'"
+      "text": "SYSTEME SUSPENDU — 402 API LLM (deepseek-v4-pro). Tous agents sauf Louis+Elliott en pause."
     },
     {
       "level": "crit",
-      "text": "ÉTAT INVALIDE: Luckey → 'email_bounce'"
+      "text": "0 CANAL ACTIF — AV:MORT, Email:HALTE (12 bounces SOT), WhatsApp:BLOQUE"
     },
     {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: WeHost → 'email_bounce'"
+      "level": "warn",
+      "text": "12 EMAIL BOUNCES: Luckey, WeHost, Flatlooker, C. de France, BnB Groom, Check and Visit, Paris Address, Sezam, C. 360, M et Vous, Paris C., R and A Prestige"
     },
     {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Flatlooker → 'email_bounce'"
+      "level": "warn",
+      "text": "LOUBNA L. (close_envoye, deadline mardi 00h): 0 reponse depuis 20/06 16:31. Harvey suspendu — intervention manuelle si reponse."
     },
     {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Conciergerie de France → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: BnB Groom → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Check and Visit → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Paris Address → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Sezam → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Conciergerie 360 → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: M et Vous Conciergerie → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: Paris Conciergerie → 'email_bounce'"
-    },
-    {
-      "level": "crit",
-      "text": "ÉTAT INVALIDE: R and A Prestige → 'email_bounce'"
+      "level": "warn",
+      "text": "DASHBOARD ECOLE: contacted 51->82, dead 1->35, warm 0->0 (Loubna close), mike_ross 188->191."
     }
   ],
   "trends": {
