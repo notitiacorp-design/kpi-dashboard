@@ -259,24 +259,24 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-22T07:00:00Z",
+  "updated": "2026-06-22T17:21:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 28,
-    "mike_ross": 207,
+    "mike_ross": 223,
     "don_draper_cron": 36,
     "harvey_specter": 5,
     "don_draper": 2
   },
   "pipeline": {
-    "detected": 207,
+    "detected": 214,
     "contacted": 80,
     "responded": 1,
     "in_progress": 0,
     "warm": 0,
-    "closing_sent": 2,
+    "closing_sent": 1,
     "signed": 0,
-    "dead": 37,
+    "dead": 38,
     "email_bounce": 12
   },
   "agents": {
@@ -284,9 +284,9 @@ const DATA = {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-22T03:05:00Z",
+      "last_updated": "2026-06-22T09:08:55Z",
       "status": "active",
-      "note": "WhatsApp gateway RUNNING (PID 2935147). Code pret. Blocage: proxy vide (financier)."
+      "note": "WhatsApp gateway RUNNING. Bridge connected queueLength=0. Code 100% pret. proxy_config.env TEMPLATE VIDE 30h+. Blocage 100% financier Quentin."
     },
     "mike_ross": {
       "discovered_this_week": 223,
@@ -294,7 +294,7 @@ const DATA = {
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "22/06 05h10: +16 Google Maps leads (80 scraped, 11 villes). CDP tunnel DOWN."
+      "note": "22/06 05h10: +16 Google Maps leads (11 villes). 22/06 11h05: +7 Lyon+Nice. Total 223 decouverts. Discovery passive uniquement (0 canal actif)."
     },
     "don_draper": {
       "sent_this_week": 40,
@@ -304,33 +304,37 @@ const DATA = {
       "warm_handoffs": 0,
       "leads_found": 0,
       "status": "paused",
-      "note": "Email halte (40+ bounces). En attente templates valides + MX check + bug duplicate corrige."
+      "note": "SUSPENDU. Email halte (40+ bounces). En attente proxy WhatsApp + templates valides + MX check."
     },
     "harvey_specter": {
-      "leads_processed": 8,
+      "leads_processed": 9,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "suspended_api",
-      "note": "2 closes envoyes (Loubna 20/06, Viktoria 22/06 06:51). 0 reponse. Suspendu 402 API."
+      "status": "active",
+      "note": "API OPERATIONAL. Viktória B. MORTE (debut AV 18h15:56). Loubna L. deadline minuit (~4h39). DERNIER LEAD ACTIF."
     },
     "musk": {
       "status": "active",
-      "note": "22/06 05h00: 18h inertie. Elliott code ready, proxy = blocker financier (Quentin)."
+      "note": "22/06 19h21: 11e run. Viktória MORTE. Loubna deadline 00h00. Proxy 30h inertie. BLOCKER UNIQUE. Pipeline en danger de mort totale."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 7h 22/06/2026 genere. 327 leads, 278 conciergerie, 2 close_envoye, 37 morts, 12 bounces SOT. 6 nouveaux Delays inbox."
+      "note": "Rapport 7h 22/06. 327 leads, 278 conciergerie, 2 close_envoye (depuis: Viktória morte 18h15). 37 morts (depuis: 38). 12 bounces SOT. Erreur: Hayet etait bien morte (confirme Musk 23:41)."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "SYSTEME SUSPENDU — 402 API LLM (deepseek-v4-pro). Tous agents sauf Louis+Elliott en pause. 30-70€ a recharger."
+      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0%), Email:HALTE (12 bounces SOT, 40+ inbox), WhatsApp:CODE 100% PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE 30h+."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0%), Email:HALTE (12 bounces SOT, 40+ inbox), WhatsApp:CODE READY MAIS PROXY VIDE."
+      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois. 30h inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois."
+    },
+    {
+      "level": "crit",
+      "text": "VIKTÓRIA B. (Elhost) MORTE — Appel 17h manque, relance 18h15, declin AV 18h15:56. 1ere signature EmpireOS perdue. Lead chaud maximal perdu par defaut logistique."
     },
     {
       "level": "crit",
@@ -338,19 +342,19 @@ const DATA = {
     },
     {
       "level": "warn",
-      "text": "LOUBNA L. (close_envoye, ~67h silence, deadline CE SOIR 00:00). Viktória B. (close_envoye 22/06 06:51, 0 reponse). 0 close possible si pas de reponse."
+      "text": "LOUBNA L. (close_envoye, ~78h silence, deadline CE SOIR 00:00 CEST ~4h39). DERNIER LEAD ACTIF. Si pas de reponse a minuit → morte. Pipeline integralement mort apres ca."
     },
     {
       "level": "warn",
-      "text": "HAYET B. (57184583): INCOHERENCE SOT. Marque 'mort' dans SOT mais Musk rapporte reponse positive 21/06 22:29. Don + Harvey l'ont contactee. A corriger URGENT."
+      "text": "HAYET B. (57184583): CONFIRMEE MORTE par Musk 22/06 09:00 — refus poli 21/06 23:41. Louis Litt 7h avait tort (scan partiel 22:29). SOT correct."
     },
     {
       "level": "warn",
-      "text": "MON GUSTAVE + KEYLYS: MX INVALIDES confirmes CE RUN. Toujours 'message_envoye' dans SOT, pas marques bounce. Elliott doit epurer ces 2 leads."
+      "text": "MON GUSTAVE + KEYLYS: MX INVALIDES confirmes. Toujours 'message_envoye' dans SOT, pas marques bounce. Elliott doit epurer ces 2 leads."
     },
     {
       "level": "info",
-      "text": "WhatsApp gateway RUNNING (Elliott 03:05). Session creds.json vivante. Preflight v4.0 OK. Blocage 100% financier (proxy 10-20€/mois)."
+      "text": "WhatsApp gateway RUNNING. Session creds.json vivante. Preflight v4.0 OK. API LLM deepseek-v4-pro OPERATIONAL (confirme 22/06 19h21). Blocage 100% financier (proxy 10-20€/mois)."
     }
   ],
   "trends": {
