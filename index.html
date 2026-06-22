@@ -259,88 +259,98 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-21T19:00:00Z",
+  "updated": "2026-06-22T07:00:00Z",
   "mrr": 0,
   "source": {
-    "quentin_manual": 29,
-    "mike_ross": 191,
-    "elliott_tools": 5
+    "quentin_manual": 28,
+    "mike_ross": 207,
+    "don_draper_cron": 36,
+    "harvey_specter": 5,
+    "don_draper": 2
   },
   "pipeline": {
-    "detected": 191,
-    "contacted": 83,
+    "detected": 207,
+    "contacted": 80,
     "responded": 1,
-    "in_progress": 1,
+    "in_progress": 0,
     "warm": 0,
-    "closing_sent": 1,
+    "closing_sent": 2,
     "signed": 0,
-    "dead": 35,
-    "email_bounce": 14
+    "dead": 37,
+    "email_bounce": 12
   },
   "agents": {
     "elliott": {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-21T09:30:00Z",
-      "status": "active"
+      "last_updated": "2026-06-22T03:05:00Z",
+      "status": "active",
+      "note": "WhatsApp gateway RUNNING (PID 2935147). Code pret. Blocage: proxy vide (financier)."
     },
     "mike_ross": {
-      "discovered_this_week": 191,
-      "discovered_total": 191,
+      "discovered_this_week": 223,
+      "discovered_total": 223,
       "converted_by_don": 0,
       "conversion_rate": 0,
-      "status": "suspended_api"
+      "status": "active",
+      "note": "22/06 05h10: +16 Google Maps leads (80 scraped, 11 villes). CDP tunnel DOWN."
     },
     "don_draper": {
-      "sent_this_week": 30,
+      "sent_this_week": 40,
       "sent_auto": 0,
       "received": 0,
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "paused"
+      "status": "paused",
+      "note": "Email halte (40+ bounces). En attente templates valides + MX check + bug duplicate corrige."
     },
     "harvey_specter": {
-      "leads_processed": 6,
+      "leads_processed": 8,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
-      "status": "suspended_api"
+      "status": "suspended_api",
+      "note": "2 closes envoyes (Loubna 20/06, Viktoria 22/06 06:51). 0 reponse. Suspendu 402 API."
     },
     "musk": {
       "status": "active",
-      "note": "Systeme suspendu: 402 API + 0 canal actif"
+      "note": "22/06 05h00: 18h inertie. Elliott code ready, proxy = blocker financier (Quentin)."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 19h 21/06 genere. 2 MX invalides supplementaires detectes."
+      "note": "Rapport 7h 22/06/2026 genere. 327 leads, 278 conciergerie, 2 close_envoye, 37 morts, 12 bounces SOT. 6 nouveaux Delays inbox."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "SYSTEME SUSPENDU — 402 API LLM (deepseek-v4-pro). Tous agents sauf Louis+Elliott en pause."
+      "text": "SYSTEME SUSPENDU — 402 API LLM (deepseek-v4-pro). Tous agents sauf Louis+Elliott en pause. 30-70€ a recharger."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0%), Email:HALTE (14 bounces, ~40 inbox), WhatsApp:BLOQUE (proxy vide)"
+      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0%), Email:HALTE (12 bounces SOT, 40+ inbox), WhatsApp:CODE READY MAIS PROXY VIDE."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE >30% — 14 SOT + 2 MX invalides detectes CE RUN (Mon Gustave, Keylys). Reelle >40. Reputation email BRULEE."
+      "text": "BOUNCE RATE 33.3% SOT (12/36), estime reel >40%. 40 Failures + 10 Delays inbox. Reputation email BRULEE. Mon Gustave + Keylys MX INVALIDES non marques SOT."
     },
     {
       "level": "warn",
-      "text": "LOUBNA L. (close_envoye, deadline mardi 00h): 0 reponse depuis 20/06 16:31. Harvey suspendu — intervention manuelle si reponse."
+      "text": "LOUBNA L. (close_envoye, ~67h silence, deadline CE SOIR 00:00). Viktória B. (close_envoye 22/06 06:51, 0 reponse). 0 close possible si pas de reponse."
     },
     {
       "level": "warn",
-      "text": "MON GUSTAVE + KEYLYS: MX INVALIDES. Deja envoyes 20/06, bounces non trackes dans SOT. A marquer mort."
+      "text": "HAYET B. (57184583): INCOHERENCE SOT. Marque 'mort' dans SOT mais Musk rapporte reponse positive 21/06 22:29. Don + Harvey l'ont contactee. A corriger URGENT."
     },
     {
       "level": "warn",
-      "text": "22 Delivery Failures inbox 19-20/06 + 10 Delays 17-21/06. Ecart SOT (12) vs inbox (22+) confirme."
+      "text": "MON GUSTAVE + KEYLYS: MX INVALIDES confirmes CE RUN. Toujours 'message_envoye' dans SOT, pas marques bounce. Elliott doit epurer ces 2 leads."
+    },
+    {
+      "level": "info",
+      "text": "WhatsApp gateway RUNNING (Elliott 03:05). Session creds.json vivante. Preflight v4.0 OK. Blocage 100% financier (proxy 10-20€/mois)."
     }
   ],
   "trends": {
