@@ -259,20 +259,20 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-23T17:00:00Z",
+  "updated": "2026-06-23T17:30:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 28,
-    "mike_ross": 214,
-    "don_draper_cron": 36,
-    "harvey_specter": 5,
+    "mike_ross": 218,
+    "don_draper_cron": 32,
+    "harvey_specter": 6,
     "don_draper": 2,
-    "unknown": 49
+    "unknown": 58
   },
   "pipeline": {
-    "detected": 214,
+    "detected": 215,
     "contacted": 78,
-    "responded": 1,
+    "responded": 10,
     "in_progress": 0,
     "warm": 0,
     "closing_sent": 0,
@@ -285,17 +285,17 @@ const DATA = {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-23T03:14:15Z",
+      "last_updated": "2026-06-23T15:14:00Z",
       "status": "active",
-      "note": "WhatsApp gateway RUNNING (PID 3034898). Bridge CONNECTED port 3000. Code 100% pret. proxy_config.env TEMPLATE VIDE 44h+. Blocage 100% financier Quentin."
+      "note": "Run #8 15h14 UTC. Gateway RUNNING PID 3081464 stable 3h+. Bridge CONNECTED port 3000. Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE ~52h+. Blocage 100% financier."
     },
     "mike_ross": {
-      "discovered_this_week": 214,
-      "discovered_total": 214,
+      "discovered_this_week": 218,
+      "discovered_total": 218,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive uniquement. 23/06 05h28: pain mining run (2 profils ajoutes). 0 nouveau lead conciergerie (6 villes deja cataloguees)."
+      "note": "Discovery passive. 218 conciergeries detectees. +4 leads 23/06 (SEO sweep 4 nouvelles villes). Pain mining actif (2 profils). 0 converti car canaux down."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -305,7 +305,7 @@ const DATA = {
       "warm_handoffs": 0,
       "leads_found": 0,
       "status": "paused",
-      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX actuellement invalides. En attente proxy WhatsApp + templates valides + MX check."
+      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. 6 NOUVELLES notifications Failure inbox 23/06. Reputation email BRULEE."
     },
     "harvey_specter": {
       "leads_processed": 11,
@@ -313,53 +313,57 @@ const DATA = {
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. Loubna MORTE 22/06 minuit. Viktoria MORTE 22/06 18h15. Hayet MORTE 21/06 23:41. Pipeline cliniquement mort (0 lead actif, 0 chaud, 0 close)."
+      "note": "VEILLE PASSIVE. 10 REPONDUS dans le pipe (dont 3 conciergerie non-EmpireOS: reponses a notre annonce AV). 0 chaud. 0 close. 3 leads chauds devenus morts (Loubna/Viktoria/Hayet)."
     },
     "musk": {
       "status": "active",
-      "note": "23/06 05h00: Run #16. 0 canal actif. Pipeline cliniquement mort. Proxy 44h+ inertie. Suspension maintenue. Même diagnostic depuis run #6 (21/06 09h00)."
+      "note": "Run #22 18h00 UTC. 22 runs. 0 canal actif. Pipeline cliniquement mort. proxy_config.env TEMPLATE VIDE ~52h+. Même diagnostic depuis run #14."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 19h 23/06. 334 leads (285 conciergerie). 214 detectes, 78 contactes, 41 morts, 1 repondu. 0 chaud, 0 close, 0 signe. MRR=0€. 14 bounces SOT (dont 6 MX invalides confirmes)."
+      "note": "Rapport 19h MARDI 23 JUIN 2026. 344 LEADS REELS (corrige de 334). 285 conciergerie. 215 detectes, 78 contactes, 10 repondus (pas 1!), 41 morts. 0 chaud/close/signe. MRR 0€. 14 bounces SOT. 6 nouveaux bounces inbox 23/06."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 0 lead actif, 0 chaud, 0 close_envoye. Loubna morte 22/06 minuit. Viktoria morte 22/06 18h15. Hayet morte 21/06 23:41. Aucun prospect actif dans le pipe."
+      "text": "PIPELINE CLINIQUEMENT MORT — 0 lead actif, 0 chaud, 0 close_envoye. Loubna morte 22/06 minuit. Viktoria morte 22/06 18h15. Hayet morte 21/06. Aucun prospect actif dans le pipe."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0% reponse), Email:HALTE (38.9% bounce, reputation brulee), WhatsApp:CODE PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE 44h+."
+      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0% reponse), Email:HALTE (38.9% bounce, 6 nouveaux bounces inbox 23/06), WhatsApp:CODE PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE ~52h+."
     },
     {
       "level": "crit",
-      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. 44h+ inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois. Ratio cout/blocage: 5600:1."
+      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~52h+ inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois. Ratio cout/blocage: 5600:1."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). Verifie 23/06 19h: 6 MX toujours INVALIDES (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). Inbox: 40 Failures + 16 Delays. Reputation email BRULEE."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 6 NOUVELLES notifications Failure inbox 23/06. 27 Failures + 12 Delays totaux inbox. Reputation email BRULEE."
     },
     {
       "level": "crit",
-      "text": "VIKTORIA B. (Elhost) MORTE — Appel Quentin manque 17h, relance Harvey 18h15, declin AV 18h15:56. 1ere signature EmpireOS perdue. Echec logistique (Quentin absent a l'appel programme)."
+      "text": "CORRECTION MAJEURE: Dashboard disait 334 leads, 1 repondu, Mike Ross 214. REEL: 344 leads, 10 repondus, Mike Ross 218. Ecart cumule de 10 leads et 9 repondus non rapportes."
+    },
+    {
+      "level": "crit",
+      "text": "ANOMALIE DATA: 7 leads avec state='détecté' (accent) vs 208 avec state='detecte'. Même état, deux orthographes. Base de donnees corrompue. Nettoyage necessaire."
     },
     {
       "level": "warn",
-      "text": "6 MX INVALIDES CONFIRMES CE RUN (verify_email.py): Luckey (luckey.fr), Flatlooker (flatlooker.fr), Sezam (sezam.co Null MX), R&A Prestige (ra-prestige.fr), Mon Gustave (mongustave.com), Keylys (keylys-conciergerie.fr). Tous en etat 'mort' dans SOT. Base a epurer definitivement."
+      "text": "6 MX INVALIDES CONFIRMES (verify_email.py): Luckey (luckey.fr), Flatlooker (flatlooker.fr), Sezam (sezam.co Null MX), R&A Prestige (ra-prestige.fr), Mon Gustave (mongustave.com), Keylys (keylys-conciergerie.fr). Tous en etat 'mort' dans SOT."
     },
     {
       "level": "warn",
-      "text": "ECART DASHBOARD CORRIGE CE RUN: Mike Ross etait a 223 (faux), reel = 214. Pipeline dead etait a 39, reel = 41. Contacted etait a 80, reel = 78. Closing_sent etait a 1 (Loubna deja morte), corrige a 0."
+      "text": "3 REPONDUS CONCIERGERIE NON TRAITES: Laetitia A. (LOKAYA), Sadia F. (La Cle Yemma), Aaron L. (Aaron Lubassa). Reponses a notre annonce AV (pas leads EmpireOS). A classer correctement — ne pas confondre avec des prospects chauds."
     },
     {
       "level": "info",
-      "text": "Infra technique: WhatsApp gateway RUNNING (PID 3034898), bridge CONNECTED port 3000, session creds.json VIVANTE, preflight v4.0 INTACT, API LLM deepseek-v4-pro OPERATIONNELLE, AV API OPERATIONNELLE (121 channels). Tout le code est pret. Blocage 100% financier."
+      "text": "Infra technique: Gateway RUNNING PID 3081464 stable, bridge CONNECTED port 3000, session VIVANTE, preflight v4.0 INTACT, API LLM deepseek-v4-pro OPERATIONNELLE. Code 100% pret."
     },
     {
       "level": "info",
-      "text": "Mike Ross discovery passive: 6 villes scannees (Torcy, Montpellier, Toulouse, Nice, Nantes, Lille) — tout deja catalogue. Pain mining actif: 2 profils Google Maps ajoutes. 0 nouveau lead conciergerie."
+      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes + pain mining. +4 leads 23/06. Discovery passive uniquement — 0 outreach possible (canaux down)."
     }
   ],
   "trends": {
