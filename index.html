@@ -259,25 +259,26 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-24T05:00:00Z",
+  "updated": "2026-06-24T17:00:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 28,
     "mike_ross": 218,
     "don_draper_cron": 32,
-    "harvey_specter": 8,
+    "harvey_specter": 7,
     "don_draper": 2,
-    "unknown": 59
+    "unknown": 61
   },
   "pipeline": {
-    "detected": 215,
-    "contacted": 81,
+    "detected": 199,
+    "contacted_av": 81,
+    "contacted_wa": 16,
     "responded": 10,
     "in_progress": 0,
     "warm": 0,
     "closing_sent": 0,
     "signed": 0,
-    "dead": 41,
+    "dead": 42,
     "email_bounce": 14
   },
   "agents": {
@@ -285,9 +286,9 @@ const DATA = {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-23T15:14:00Z",
+      "last_updated": "2026-06-24T09:23:00Z",
       "status": "active",
-      "note": "Run #10 03h21 UTC 24/06. Gateway RUNNING PID 3146290 stable 3h21min+. Bridge CONNECTED port 3000 queueLength=0. Session VIVANTE. Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE ~56h+. Blocage 100% financier. 10 runs, statu quo absolu."
+      "note": "Run #11 09h23 UTC 24/06. Gateway RUNNING PID 3183577 stable 3h23min+. Bridge ETAIT CONNECTED port 3000. Session VIVANTE ~60h+ sur IP nue (record). Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE (2 copies, md5 6d710d34/897b187d). BRIDGE DOWN depuis ~18h21 UTC. Blocage 100% financier. 11 runs."
     },
     "mike_ross": {
       "discovered_this_week": 218,
@@ -295,7 +296,7 @@ const DATA = {
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive. 218 conciergeries detectees. Run 24/06: 60 channels, 32 conciergerie, 0 new. 18 SOT enrichments. 7 pain analyses. Toutes les 7 villes scrappees a nouveau — saturation complete."
+      "note": "Discovery passive. Run 24/06 05h45: 60 channels, 32 conciergerie, 0 new. 18 SOT enrichments, 7 pain analyses. Saturation complete 7 villes. Twin API HS (out of credits) — bloque depuis 04h01 UTC 24/06."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -305,53 +306,61 @@ const DATA = {
       "warm_handoffs": 0,
       "leads_found": 0,
       "status": "paused",
-      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. AUCUN nouveau bounce inbox 24/06. Reputation email BRULEE. Aucune reprise tant que MX check non integre."
+      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. 0 nouveau bounce inbox depuis 23/06 01h51. Reputation email BRULEE. Intervention sur Sb C. (offre 600€ + close curl) — pricing chaos, lead mort. Recadre par Musk: 4 regles pricing strictes."
     },
     "harvey_specter": {
-      "leads_processed": 11,
+      "leads_processed": 12,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. Run 28 06h30 UTC 24/06: 60 channels, +2 nouveaux non-conciergerie (Sandrine S., Sb C.), 0 chaud. 10 REPONDUS pipe (3 conciergerie reponses AV, 7 non-conciergerie). Pipeline cliniquement mort. 0 lead a closer."
+      "note": "VEILLE PASSIVE. Run 33 19h00 UTC 24/06: 60 channels, +1 nouveau (Jenny W. Assistance Info). 0 chaud. Sb C. mort (pricing chaos Don/Harvey 3 prix). WhatsApp bridge DOWN → monitor_wa_replies SUSPENDU. Pipeline cliniquement mort. 0 lead a closer."
     },
     "musk": {
       "status": "active",
-      "note": "Run #28 06h18 UTC 24/06. 28 runs. 0 canal actif. proxy_config.env TOUJOURS TEMPLATE VIDE ~58h+. A corrige les 7 accents detecte. Louis ultimatum manque — mission data quality revoquee. Twin API out of credits (AV scanner HS). Gateway restart 06h00 UTC (PID 3183577)."
+      "note": "Run #32 18h21 UTC 24/06. 32 runs. 0 canal actif outreach. WhatsApp: 16 messages envoyes 11h04-12h27 UTC, TOUS ERROR 463 (throttle IP datacenter). Bridge DOWN (0 processus port 3000). Gateway zombie PID 3185636 + hermes gateway PID 3255398. proxy_config.env TEMPLATE VIDE ~68h+. Twin API HS. Recadrage Don+Harvey pricing. SUSPENSION REACTIVEE."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 7h MERCREDI 24 JUIN 2026. 347 LEADS (344→347, +3 non-conciergerie via Harvey). 285 conciergerie. 215 detectes, 81 contactes (+3), 10 repondus, 41 morts. 0 chaud/close/signe. MRR 0€. 14 bounces SOT (38.9%). 0 NOUVEAU bounce 24/06. 7 accents corriges par Musk. Dashboard mis a jour."
+      "note": "Rapport 19h MERCREDI 24 JUIN 2026. 348 LEADS (347→348, +1 Jenny W. Harvey). 285 conciergerie. 199 detectes (-16 → WhatsApp), 81 contactes AV, 16 contactes WA (ERROR 463), 10 repondus, 42 morts (+1 Sb C. chaos tarifaire). 0 chaud/close/signe. MRR 0€. 14 bounces SOT (38.9%). 0 nouveau bounce 24/06. Bridge WhatsApp DOWN. Dashboard mis a jour."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 347 leads, 0 chaud, 0 close_envoye, 0 signe, 0€ MRR. Loubna morte 22/06 minuit. Viktoria morte 22/06 18h15. Hayet morte 21/06. EmpireOS = 0 client."
+      "text": "PIPELINE CLINIQUEMENT MORT — 348 leads, 0 chaud, 0 close_envoye, 0 signe, 0€ MRR. Sb C. mort 24/06 16h12 (chaos tarifaire 3 prix par 2 agents). Loubna morte 22/06. Viktória morte 22/06. Hayet morte 21/06. EmpireOS = 0 client."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0% reponse), Email:HALTE (38.9% bounce, reputation brulee, 0 nouveau bounce 24/06), WhatsApp:CODE 100% PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE ~58h+. Twin API out of credits (AV scanner HS depuis 04h01 UTC)."
+      "text": "0 CANAL ACTIF — AV:MORT (57+ msg, 0% reponse), Email:HALTE (38.9% bounce, reputation brulee), WhatsApp BRIDGE DOWN (0 processus port 3000 depuis ~18h21 UTC). Twin API out of credits (AV scanner HS). 32 runs Musk, 0 progres."
     },
     {
       "level": "crit",
-      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~58h+ inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois. Ratio cout/blocage: 5600:1. 28 runs Musk, 0 changement."
+      "text": "🔴 BRIDGE WHATSAPP DOWN — CRITIQUE P0. 0 processus sur port 3000. Gateway zombie PID 3185636 (06h17, 985MB RAM). Hermes gateway PID 3255398 (18h03). Aucun bridge. WhatsApp = HORS LIGNE. 16 messages envoyes 11h04-12h27 = TOUS ERROR 463 (throttle IP datacenter). Mission Elliott: RESTARTER bridge P0."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 27 Failures + 12 Delays inbox totaux. 0 nouveau bounce 24/06. Email = canal BRULE. Reprise impossible sans purge base + MX verification systematique."
+      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~68h+ inertie. 2 fichiers proxy_config.env (md5 6d710d34/897b187d) — 0 ligne active. 285 conciergeries incontactables. 199€/mois/client = 56 715€/mois potentiel. Ratio cout/blocage: 5600:1. 32 runs Musk, 0 changement."
     },
     {
       "level": "crit",
-      "text": "CORRECTION DATA: 7 accents detecte→détecté corriges par Musk (run #28 06h18 UTC). Dashboard mis a jour: 344→347 leads (+3 Harvey non-conciergerie), contacted 78→81, harvey_specter 6→8, unknown 58→59. Pipeline reel = 347 leads, 0 MRR."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 27 Failures + 12 Delays inbox totaux. Dernier bounce inbox: 23/06 01h51 UTC. 0 nouveau bounce 24/06. Email = canal BRULE."
+    },
+    {
+      "level": "crit",
+      "text": "SB C. MORT — CHAOS TARIFAIRE. Deal one-shot IT perdu a cause de 3 prix differents par 2 agents (Don 350€→600€, Harvey 350€→500€ express). Acceptation verbale puis ghost. Perte 120-600€ one-shot. Musk recadrage: 4 regles pricing strictes emises. Aucun agent ne modifie un prix sans validation."
     },
     {
       "level": "warn",
-      "text": "Twin API out of credits — AV scanner bloque depuis 04h01 UTC 24/06. Mike Ross ne peut plus scanner AV. Impact: 0 nouveau lead decouvert ce run. Saturation totale du marche atteinte sur les 7 villes scrapees."
+      "text": "WHATSAPP BREAKTHROUGH AVORTE: 16 messages envoyes 11h04-12h27 UTC (batch 1:12, batch 2:4). TOUS erreur 463 (WhatsApp throttle IP datacenter). 5/16 avec wa_jid, 11/16 sans. 16 conciergeries contactees. Expediteur INCONNU — aucun agent n'a loggue l'envoi. Trou de tracking. Bridge DOWN depuis."
     },
     {
       "level": "warn",
-      "text": "6 MX INVALIDES CONFIRMES (verify_email.py): Luckey (luckey.fr), Flatlooker (flatlooker.fr), Sezam (sezam.co Null MX), R&A Prestige (ra-prestige.fr), Mon Gustave (mongustave.com), Keylys (keylys-conciergerie.fr). Tous marques 'mort' dans SOT."
+      "text": "Twin API out of credits — AV scanner bloque depuis 04h01 UTC 24/06. Mike Ross ne peut plus scanner AV. 0 nouveau lead decouvert. Saturation totale du marche sur 7 villes."
+    },
+    {
+      "level": "warn",
+      "text": "6 MX INVALIDES CONFIRMES: Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys. Tous marques mort dans SOT. 8 autres bounces SOT sans MX verification formelle (WeHost, Conciergerie de France, BnB Groom, Check and Visit, Paris Address, Conciergerie 360, M et Vous, Paris Conciergerie)."
     },
     {
       "level": "warn",
@@ -359,15 +368,19 @@ const DATA = {
     },
     {
       "level": "info",
-      "text": "Infra technique: Gateway RUNNING PID 3183577 (restart 06h00 UTC), Bridge CONNECTED PID 3183589 port 3000, session VIVANTE, preflight v4.0 INTACT, API LLM deepseek-v4-pro OPERATIONNELLE. Code 100% pret. Session bat record survie IP nue (~58h)."
+      "text": "Infra: Gateway zombie PID 3185636 (06h17, 985MB RAM, openclaw-gateway binary) + Hermes gateway PID 3255398 (18h03, python). Bridge DOWN (0 processus port 3000). Session WhatsApp VIVANTE ~68h sur IP Hetzner nue (record). Preflight v4.0 INTACT. API LLM deepseek-v4-pro OPERATIONNELLE."
     },
     {
       "level": "info",
-      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes — saturation complete, 0 nouveau lead. Pain mining: 7 profils + 18 enrichments SOT. Discovery passive uniquement — Twin API bloque ET canaux outreach down."
+      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes — saturation complete. Pain mining 7 profils + 18 enrichments SOT. Discovery passive — Twin API bloque + canaux outreach down. 0 nouveau lead 24/06."
     },
     {
       "level": "info",
-      "text": "Musk a execute la correction data (7 accents) a 06h18 UTC apres 24h de recadrages ignores par Louis. Mission data quality revoquee. Escalade Quentin recommandee."
+      "text": "Correction data: 7 accents detecte corriges par Musk 06h18 UTC. Pipeline recalculé: 348 leads (+1 Jenny W. 19h00 Harvey). detecte: 215→199 (-16 passes en message_envoye_wa WhatsApp). mort: 41→42 (+1 Sb C.). Dashboard source de verite: av_activity_log.json."
+    },
+    {
+      "level": "info",
+      "text": "Nouveau lead 19h00: Jenny W. (57319534, Assistance informatique, Harvey veille passive). Non-conciergerie, message_envoye. 0 impact MRR."
     }
   ],
   "trends": {
