@@ -259,19 +259,19 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-23T17:30:00Z",
+  "updated": "2026-06-24T05:00:00Z",
   "mrr": 0,
   "source": {
     "quentin_manual": 28,
     "mike_ross": 218,
     "don_draper_cron": 32,
-    "harvey_specter": 6,
+    "harvey_specter": 8,
     "don_draper": 2,
-    "unknown": 58
+    "unknown": 59
   },
   "pipeline": {
     "detected": 215,
-    "contacted": 78,
+    "contacted": 81,
     "responded": 10,
     "in_progress": 0,
     "warm": 0,
@@ -287,7 +287,7 @@ const DATA = {
       "obsolete": 0,
       "last_updated": "2026-06-23T15:14:00Z",
       "status": "active",
-      "note": "Run #8 15h14 UTC. Gateway RUNNING PID 3081464 stable 3h+. Bridge CONNECTED port 3000. Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE ~52h+. Blocage 100% financier."
+      "note": "Run #10 03h21 UTC 24/06. Gateway RUNNING PID 3146290 stable 3h21min+. Bridge CONNECTED port 3000 queueLength=0. Session VIVANTE. Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE ~56h+. Blocage 100% financier. 10 runs, statu quo absolu."
     },
     "mike_ross": {
       "discovered_this_week": 218,
@@ -295,7 +295,7 @@ const DATA = {
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive. 218 conciergeries detectees. +4 leads 23/06 (SEO sweep 4 nouvelles villes). Pain mining actif (2 profils). 0 converti car canaux down."
+      "note": "Discovery passive. 218 conciergeries detectees. Run 24/06: 60 channels, 32 conciergerie, 0 new. 18 SOT enrichments. 7 pain analyses. Toutes les 7 villes scrappees a nouveau — saturation complete."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -305,7 +305,7 @@ const DATA = {
       "warm_handoffs": 0,
       "leads_found": 0,
       "status": "paused",
-      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. 6 NOUVELLES notifications Failure inbox 23/06. Reputation email BRULEE."
+      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. AUCUN nouveau bounce inbox 24/06. Reputation email BRULEE. Aucune reprise tant que MX check non integre."
     },
     "harvey_specter": {
       "leads_processed": 11,
@@ -313,57 +313,61 @@ const DATA = {
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. 10 REPONDUS dans le pipe (dont 3 conciergerie non-EmpireOS: reponses a notre annonce AV). 0 chaud. 0 close. 3 leads chauds devenus morts (Loubna/Viktoria/Hayet)."
+      "note": "VEILLE PASSIVE. Run 28 06h30 UTC 24/06: 60 channels, +2 nouveaux non-conciergerie (Sandrine S., Sb C.), 0 chaud. 10 REPONDUS pipe (3 conciergerie reponses AV, 7 non-conciergerie). Pipeline cliniquement mort. 0 lead a closer."
     },
     "musk": {
       "status": "active",
-      "note": "Run #22 18h00 UTC. 22 runs. 0 canal actif. Pipeline cliniquement mort. proxy_config.env TEMPLATE VIDE ~52h+. Même diagnostic depuis run #14."
+      "note": "Run #28 06h18 UTC 24/06. 28 runs. 0 canal actif. proxy_config.env TOUJOURS TEMPLATE VIDE ~58h+. A corrige les 7 accents detecte. Louis ultimatum manque — mission data quality revoquee. Twin API out of credits (AV scanner HS). Gateway restart 06h00 UTC (PID 3183577)."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 19h MARDI 23 JUIN 2026. 344 LEADS REELS (corrige de 334). 285 conciergerie. 215 detectes, 78 contactes, 10 repondus (pas 1!), 41 morts. 0 chaud/close/signe. MRR 0€. 14 bounces SOT. 6 nouveaux bounces inbox 23/06."
+      "note": "Rapport 7h MERCREDI 24 JUIN 2026. 347 LEADS (344→347, +3 non-conciergerie via Harvey). 285 conciergerie. 215 detectes, 81 contactes (+3), 10 repondus, 41 morts. 0 chaud/close/signe. MRR 0€. 14 bounces SOT (38.9%). 0 NOUVEAU bounce 24/06. 7 accents corriges par Musk. Dashboard mis a jour."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 0 lead actif, 0 chaud, 0 close_envoye. Loubna morte 22/06 minuit. Viktoria morte 22/06 18h15. Hayet morte 21/06. Aucun prospect actif dans le pipe."
+      "text": "PIPELINE CLINIQUEMENT MORT — 347 leads, 0 chaud, 0 close_envoye, 0 signe, 0€ MRR. Loubna morte 22/06 minuit. Viktoria morte 22/06 18h15. Hayet morte 21/06. EmpireOS = 0 client."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0% reponse), Email:HALTE (38.9% bounce, 6 nouveaux bounces inbox 23/06), WhatsApp:CODE PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE ~52h+."
+      "text": "0 CANAL ACTIF — AV:MORT (57 msg, 0% reponse), Email:HALTE (38.9% bounce, reputation brulee, 0 nouveau bounce 24/06), WhatsApp:CODE 100% PRET MAIS PROXY_CONFIG.ENV TEMPLATE VIDE ~58h+. Twin API out of credits (AV scanner HS depuis 04h01 UTC)."
     },
     {
       "level": "crit",
-      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~52h+ inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois. Ratio cout/blocage: 5600:1."
+      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~58h+ inertie. 285 conciergeries incontactables. 199€/mois/client. Marche potentiel 56 715€/mois. Ratio cout/blocage: 5600:1. 28 runs Musk, 0 changement."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 6 NOUVELLES notifications Failure inbox 23/06. 27 Failures + 12 Delays totaux inbox. Reputation email BRULEE."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 27 Failures + 12 Delays inbox totaux. 0 nouveau bounce 24/06. Email = canal BRULE. Reprise impossible sans purge base + MX verification systematique."
     },
     {
       "level": "crit",
-      "text": "CORRECTION MAJEURE: Dashboard disait 334 leads, 1 repondu, Mike Ross 214. REEL: 344 leads, 10 repondus, Mike Ross 218. Ecart cumule de 10 leads et 9 repondus non rapportes."
-    },
-    {
-      "level": "crit",
-      "text": "ANOMALIE DATA: 7 leads avec state='détecté' (accent) vs 208 avec state='detecte'. Même état, deux orthographes. Base de donnees corrompue. Nettoyage necessaire."
+      "text": "CORRECTION DATA: 7 accents detecte→détecté corriges par Musk (run #28 06h18 UTC). Dashboard mis a jour: 344→347 leads (+3 Harvey non-conciergerie), contacted 78→81, harvey_specter 6→8, unknown 58→59. Pipeline reel = 347 leads, 0 MRR."
     },
     {
       "level": "warn",
-      "text": "6 MX INVALIDES CONFIRMES (verify_email.py): Luckey (luckey.fr), Flatlooker (flatlooker.fr), Sezam (sezam.co Null MX), R&A Prestige (ra-prestige.fr), Mon Gustave (mongustave.com), Keylys (keylys-conciergerie.fr). Tous en etat 'mort' dans SOT."
+      "text": "Twin API out of credits — AV scanner bloque depuis 04h01 UTC 24/06. Mike Ross ne peut plus scanner AV. Impact: 0 nouveau lead decouvert ce run. Saturation totale du marche atteinte sur les 7 villes scrapees."
     },
     {
       "level": "warn",
-      "text": "3 REPONDUS CONCIERGERIE NON TRAITES: Laetitia A. (LOKAYA), Sadia F. (La Cle Yemma), Aaron L. (Aaron Lubassa). Reponses a notre annonce AV (pas leads EmpireOS). A classer correctement — ne pas confondre avec des prospects chauds."
+      "text": "6 MX INVALIDES CONFIRMES (verify_email.py): Luckey (luckey.fr), Flatlooker (flatlooker.fr), Sezam (sezam.co Null MX), R&A Prestige (ra-prestige.fr), Mon Gustave (mongustave.com), Keylys (keylys-conciergerie.fr). Tous marques 'mort' dans SOT."
+    },
+    {
+      "level": "warn",
+      "text": "3 REPONDUS CONCIERGERIE NON TRAITES: Laetitia A. (LOKAYA), Sadia F. (La Cle Yemma), Aaron L. (Aaron Lubassa). Reponses a notre annonce AV (pas leads EmpireOS). A ne pas confondre avec leads chauds."
     },
     {
       "level": "info",
-      "text": "Infra technique: Gateway RUNNING PID 3081464 stable, bridge CONNECTED port 3000, session VIVANTE, preflight v4.0 INTACT, API LLM deepseek-v4-pro OPERATIONNELLE. Code 100% pret."
+      "text": "Infra technique: Gateway RUNNING PID 3183577 (restart 06h00 UTC), Bridge CONNECTED PID 3183589 port 3000, session VIVANTE, preflight v4.0 INTACT, API LLM deepseek-v4-pro OPERATIONNELLE. Code 100% pret. Session bat record survie IP nue (~58h)."
     },
     {
       "level": "info",
-      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes + pain mining. +4 leads 23/06. Discovery passive uniquement — 0 outreach possible (canaux down)."
+      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes — saturation complete, 0 nouveau lead. Pain mining: 7 profils + 18 enrichments SOT. Discovery passive uniquement — Twin API bloque ET canaux outreach down."
+    },
+    {
+      "level": "info",
+      "text": "Musk a execute la correction data (7 accents) a 06h18 UTC apres 24h de recadrages ignores par Louis. Mission data quality revoquee. Escalade Quentin recommandee."
     }
   ],
   "trends": {
