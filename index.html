@@ -259,7 +259,7 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-25T06:45:00Z",
+  "updated": "2026-06-25T07:10:00Z",
   "mrr": 0,
   "total": 357,
   "conciergerie": 292,
@@ -325,7 +325,7 @@ const DATA = {
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 19h MERCREDI 24 JUIN 2026. 348 leads. 285 conciergerie. 199 detectes. 81 AV + 16 WA contactes. 10 repondus. 42 morts. 0 chaud/signe. MRR 0€. 14 bounces SOT (38.9%). Bridge diagnostique DOWN (depuis corrige: session revoquee Meta). Rapport 7h JEUDI en attente."
+      "note": "Rapport 7h JEUDI 25 JUIN 2026 — AUDIT COMPLET. 357 leads, 292 conciergerie. Pipeline: 206 detecte, 82 msg AV, 16 msg WA, 10 repondu, 1 close_envoye (Camille R.), 42 mort, 0 chaud, 0 signe. MRR: 0EUR. Potentiel: 58 108EUR. Don contact rate: 62/206 = 30.1%. Harvey repondu->chaud: 0/10 = 0.0%. Emails: 36 envoyes, 14 bounces SOT (38.9%). DECOUVERTE CRITIQUE: 10 nouveaux MX invalides (Oikia Conciergerie, Stay and Care, Naps Immo, VnV, Altesse, L Agence Cocooning, Guest Adom, Caliloc, Cles de Prestige, Chez Maison Prestige) — tous en etat detecte, non marques bounce. Sans purge, bounce rate potentiel: 66.7%. verify_email.py: 60 emails testes, 16 invalides (6 connus + 10 nouveaux). 0 nouveau bounce inbox 24-25/06. Dashboard conforme live."
     }
   },
   "alerts": [
@@ -347,7 +347,7 @@ const DATA = {
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes. Dernier bounce inbox: 23/06 01h51 UTC. Email = canal BRULE irremediablement. Purge base + verification MX obligatoire avant tout nouvel envoi."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes + 10 NOUVEAUX MX INVALIDES DECOUVERTS 25/06 par Louis (Oikia Conciergerie, Stay and Care, Naps Immo, VnV, Altesse, L Agence Cocooning, Guest Adom, Caliloc, Cles de Prestige, Chez Maison Prestige) — tous en etat detecte, non marques bounce. Sans purge immediate: bounce rate potentiel 24/36 = 66.7%. Dernier bounce inbox: 23/06 07h35 PDT. 0 nouveau bounce 24-25/06. Email = canal BRULE. Purge base + verification MX obligatoire avant reactivation Don."
     },
     {
       "level": "crit",
