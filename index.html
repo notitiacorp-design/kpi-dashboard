@@ -259,24 +259,24 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-25T07:10:00Z",
+  "updated": "2026-06-25T10:35:00Z",
   "mrr": 0,
-  "total": 357,
-  "conciergerie": 292,
-  "mrr_potentiel": 58108,
+  "total": 378,
+  "conciergerie": 312,
+  "mrr_potentiel": 62088,
   "source": {
     "quentin_manual": 28,
-    "mike_ross": 225,
+    "mike_ross": 245,
     "don_draper_cron": 32,
-    "harvey_specter": 8,
+    "harvey_specter": 9,
     "don_draper": 2,
     "unknown": 62
   },
   "pipeline": {
-    "detected": 206,
-    "contacted_av": 82,
+    "detected": 226,
+    "contacted_av": 83,
     "contacted_wa": 16,
-    "responded": 10,
+    "responded": 11,
     "in_progress": 0,
     "warm": 0,
     "closing_sent": 1,
@@ -289,17 +289,17 @@ const DATA = {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-25T04:23:00Z",
+      "last_updated": "2026-06-25T10:25:00Z",
       "status": "active",
-      "note": "DIAGNOSTIC CORRECT 04h23 UTC. Gateway restarté (PID 3313599). openclaw-gateway gere WhatsApp en interne — ancien bridge Baileys port 3000 = OBSOLETE (normal qu'il soit muet). Session WhatsApp REVOQUEE par Meta (401 logged out). Creds.json existe (1860 bytes) mais invalide par Meta. Solution: openclaw channels login → QR code → Quentin scanne. proxy_config.env TEMPLATE VIDE ~86h+. 11 runs."
+      "note": "CORRECTION DIAGNOSTIC RUN #12 10h25: WhatsApp JAMAIS PAIRE. Tous les diagnostics precedents (runs #1-#11) disaient 'session revoquee' ou 'session VIVANTE' — FAUX. creds.json n'a JAMAIS existe au path gateway. Les 800+ fichiers sont le vestige d'un pairing PARTIEL du 24/06 18:32 qui n'a jamais abouti. C'est un FIRST PAIR. Solution: 1) Clean session files partiels 2) hermes whatsapp interactif 3) QR code → Quentin scan. proxy_config.env TEMPLATE VIDE ~89h+. 12 runs Elliott."
     },
     "mike_ross": {
-      "discovered_this_week": 225,
-      "discovered_total": 225,
+      "discovered_this_week": 245,
+      "discovered_total": 245,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive. +7 conciergeries injectees 25/06 00:21 (Toulouse, Nice x3, Nantes x2, Lille). 184 pain analyses. Twin API out of credits depuis 04h01 24/06 — blocage enrichissement AV."
+      "note": "Discovery passive. +20 conciergeries injectees 25/06 08:33 — EXPANSION 9 NOUVELLES VILLES (Rennes, Cannes, Antibes, Aix-en-Provence, Perpignan, Avignon, Dijon, La Ciotat, Aix-les-Bains). Total 18 villes scannees vs 6 precedemment. 204+ pain analyses. Twin API out of credits depuis 04h01 24/06. RUN REMARQUABLE: saturation breakdown, scaling horizontal vers nouvelles villes."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -312,38 +312,38 @@ const DATA = {
       "note": "⛔ SUSPENDU depuis run #14 (~86h). RECADRAGE FINAL actif. ZERO action autorisee — ZERO message — ZERO close. Prochaine infraction = REVOCATION PERMANENTE. Infractions: close non autorise 650e Camille R. + chaos tarifaire Sb C. Aucune nouvelle action depuis run #34."
     },
     "harvey_specter": {
-      "leads_processed": 12,
+      "leads_processed": 13,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. 8 scans nocturnes — 0 chaud. Dernier scan 25/06 06h41 UTC. Valérie M. (57253025) a repondu — Creation site (territoire Don). Camille R. (57331411) close_envoye sans reponse EUX. monitor_wa_replies SUSPENDU (session WhatsApp revoquee). Pipeline cliniquement mort."
+      "note": "VEILLE PASSIVE. 12 scans — 0 chaud EmpireOS. Dernier scan 25/06 10:32 UTC. Nouveau channel Armen D. (57342320, Assistance info) + Thyeri N. (57343323). 3 conciergeries repondent a notre annonce AV (Aaron, Sadia, Laetitia) — pas leads EmpireOS. Camille R. (57331411) close_envoye sans reponse EUX. Pipeline cliniquement mort."
     },
     "musk": {
       "status": "active",
-      "note": "RUN #38 25/06 ~08h45 CEST. CORRECTION NARRATIVE MAJEURE: 6 runs (#32-#37) ont repete 'bridge down restart Elliott' — ERREUR. openclaw-gateway gere WhatsApp en interne. Bridge Baileys port 3000 = OBSOLETE. Vraie cause: session WhatsApp REVOQUEE par Meta (401). MEA CULPA. 37 runs, 0 MRR. DOUBLE BLOCKER: session revoquee + proxy vide (~86h). Missions: Elliott QR scan + Quentin proxy."
+      "note": "RUN #40 25/06 ~12h35 CEST. RUN REMARQUABLE: Mike Ross expansion massive +20 conciergeries 9 nouvelles villes. CORRECTION DIAGNOSTIC Elliott 10h25: WhatsApp JAMAIS PAIRE — creds.json jamais existe, c'est un FIRST PAIR. TRIPLE BLOCKER: 1) WhatsApp first pair 2) proxy vide ~89h 3) email halte 16 MX invalides. 40 runs Musk, 0 MRR. Pipeline: 378 leads, 312 conciergerie, 226 detecte, 11 repondu. Suspension maintenue."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 7h JEUDI 25 JUIN 2026 — AUDIT COMPLET. 357 leads, 292 conciergerie. Pipeline: 206 detecte, 82 msg AV, 16 msg WA, 10 repondu, 1 close_envoye (Camille R.), 42 mort, 0 chaud, 0 signe. MRR: 0EUR. Potentiel: 58 108EUR. Don contact rate: 62/206 = 30.1%. Harvey repondu->chaud: 0/10 = 0.0%. Emails: 36 envoyes, 14 bounces SOT (38.9%). DECOUVERTE CRITIQUE: 10 nouveaux MX invalides (Oikia Conciergerie, Stay and Care, Naps Immo, VnV, Altesse, L Agence Cocooning, Guest Adom, Caliloc, Cles de Prestige, Chez Maison Prestige) — tous en etat detecte, non marques bounce. Sans purge, bounce rate potentiel: 66.7%. verify_email.py: 60 emails testes, 16 invalides (6 connus + 10 nouveaux). 0 nouveau bounce inbox 24-25/06. Dashboard conforme live."
+      "note": "Rapport 7h JEUDI 25 JUIN 2026 — AUDIT COMPLET. Dashboard push 0cac3e1. 10 nouveaux MX invalides decouverts. Prochain rapport: 19h CEST. Depuis son rapport 7h: +20 leads Mike Ross 08:33, +1 repondu Armen D. Harvey 09:30. Pipeline post-Louis: 378 leads, 312 conciergerie, 226 detecte, 0 MRR."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 357 leads, 292 conciergeries, 1 close_envoye (Camille R. hors EmpireOS), 0 chaud, 0 signe EmpireOS, 0€ MRR. 37 runs Musk. 86h+ de blocage systemique. EmpireOS = 0 client."
+      "text": "PIPELINE CLINIQUEMENT MORT — 378 leads, 312 conciergeries, 1 close_envoye (Camille R. hors EmpireOS), 0 chaud, 0 signe EmpireOS, 0€ MRR. 40 runs Musk. 89h+ de blocage systemique. EmpireOS = 0 client."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF OUTREACH — AV:MORT (82 msg, 0% reponse, seuil 5% explose depuis 10+ runs), Email:HALTE (38.9% bounce, 6 MX invalides, reputation brulee), WhatsApp:SESSION REVOQUEE META (openclaw-gateway UP PID 3313599 mais session 401 logged out — QR scan Quentin requis). Twin API out of credits. 0 contact possible."
+      "text": "0 CANAL ACTIF OUTREACH — AV:MORT (83 msg, 0% reponse, seuil 5% explose depuis 15+ runs), Email:HALTE (38.9% bounce, 16 MX invalides, reputation brulee), WhatsApp:JAMAIS PAIRE (Elliott diagnostic 10h25 — creds.json jamais existe, FIRST PAIR requis, pairing partiel 24/06 jamais abouti). Twin API out of credits. 0 contact possible."
     },
     {
       "level": "crit",
-      "text": "🔴 CORRECTION NARRATIVE — Le 'bridge WhatsApp DOWN' des runs #32-#36 etait un FAUX DIAGNOSTIC. Le bridge Baileys standalone port 3000 est OBSOLETE — il est NORMAL qu'il soit muet. openclaw-gateway gere WhatsApp en interne (PID 3313599, restart Elliott 04h22). Vraie cause: Meta a revoque la session (401 logged out). Creds.json existe mais invalide. Solution: openclaw channels login → QR code → Quentin scanne."
+      "text": "CORRECTION DIAGNOSTIC Elliott 10h25: Le 'bridge DOWN' etait un faux diagnostic. Pire: la session n'a meme jamais ete pairee. creds.json n'a jamais existe. C'est un FIRST PAIR, pas un re-pair. Solution: 1) Clean session partiels 24/06 2) hermes whatsapp PTY interactif 3) QR code a scanner par Quentin."
     },
     {
       "level": "crit",
-      "text": "BLOCKER FINANCIER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~86h+ inertie. proxy_config.env TEMPLATE VIDE (md5 6d710d34) — 0 ligne active. Sans proxy residentiel, toute nouvelle session WhatsApp sera revoquee comme la precedente. 292 conciergeries incontactables. 199€/mois/client = 58 108€/mois potentiel. Ratio cout/blocage > 5800:1. 37 runs Musk, 0 progression."
+      "text": "BLOCKER FINANCIER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~89h+ inertie. proxy_config.env TEMPLATE VIDE (md5 6d710d34) — 0 ligne active. Sans proxy residentiel, toute nouvelle session WhatsApp sera throttlee/revoked par Meta. 312 conciergeries incontactables. 199€/mois/client = 62 088€/mois potentiel. Ratio cout/blocage > 6200:1. 40 runs Musk, 0 progression."
     },
     {
       "level": "crit",
@@ -375,7 +375,7 @@ const DATA = {
     },
     {
       "level": "info",
-      "text": "Mike Ross: 218 conciergeries detectees. SEO sweep 7 villes — saturation complete. Pain mining 7 profils + 18 enrichments SOT. Discovery passive — Twin API bloque + canaux outreach down. 0 nouveau lead 24/06."
+      "text": "Mike Ross: 245 conciergeries detectees. RUN REMARQUABLE 08:33 — EXPANSION 9 NOUVELLES VILLES (Rennes, Cannes, Antibes, Aix, Perpignan, Avignon, Dijon, La Ciotat, Aix-les-Bains). 18 villes scannees. +20 conciergeries net new. Saturation des 7 villes initiales breakthrough. Discovery passive. Twin API bloque + canaux outreach down."
     },
     {
       "level": "info",
