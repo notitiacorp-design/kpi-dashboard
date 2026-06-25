@@ -259,24 +259,27 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-24T17:00:00Z",
+  "updated": "2026-06-25T06:45:00Z",
   "mrr": 0,
+  "total": 357,
+  "conciergerie": 292,
+  "mrr_potentiel": 58108,
   "source": {
     "quentin_manual": 28,
-    "mike_ross": 218,
+    "mike_ross": 225,
     "don_draper_cron": 32,
-    "harvey_specter": 7,
+    "harvey_specter": 8,
     "don_draper": 2,
-    "unknown": 61
+    "unknown": 62
   },
   "pipeline": {
-    "detected": 199,
-    "contacted_av": 81,
+    "detected": 206,
+    "contacted_av": 82,
     "contacted_wa": 16,
     "responded": 10,
     "in_progress": 0,
     "warm": 0,
-    "closing_sent": 0,
+    "closing_sent": 1,
     "signed": 0,
     "dead": 42,
     "email_bounce": 14
@@ -286,17 +289,17 @@ const DATA = {
       "tools_in_arsenal": 5,
       "new_this_week": 2,
       "obsolete": 0,
-      "last_updated": "2026-06-24T09:23:00Z",
+      "last_updated": "2026-06-25T04:23:00Z",
       "status": "active",
-      "note": "Run #11 09h23 UTC 24/06. Gateway RUNNING PID 3183577 stable 3h23min+. Bridge ETAIT CONNECTED port 3000. Session VIVANTE ~60h+ sur IP nue (record). Code 100% pret. proxy_config.env TOUJOURS TEMPLATE VIDE (2 copies, md5 6d710d34/897b187d). BRIDGE DOWN depuis ~18h21 UTC. Blocage 100% financier. 11 runs."
+      "note": "DIAGNOSTIC CORRECT 04h23 UTC. Gateway restarté (PID 3313599). openclaw-gateway gere WhatsApp en interne — ancien bridge Baileys port 3000 = OBSOLETE (normal qu'il soit muet). Session WhatsApp REVOQUEE par Meta (401 logged out). Creds.json existe (1860 bytes) mais invalide par Meta. Solution: openclaw channels login → QR code → Quentin scanne. proxy_config.env TEMPLATE VIDE ~86h+. 11 runs."
     },
     "mike_ross": {
-      "discovered_this_week": 218,
-      "discovered_total": 218,
+      "discovered_this_week": 225,
+      "discovered_total": 225,
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive. Run 24/06 05h45: 60 channels, 32 conciergerie, 0 new. 18 SOT enrichments, 7 pain analyses. Saturation complete 7 villes. Twin API HS (out of credits) — bloque depuis 04h01 UTC 24/06."
+      "note": "Discovery passive. +7 conciergeries injectees 25/06 00:21 (Toulouse, Nice x3, Nantes x2, Lille). 184 pain analyses. Twin API out of credits depuis 04h01 24/06 — blocage enrichissement AV."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -305,8 +308,8 @@ const DATA = {
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "paused",
-      "note": "SUSPENDU. 36 emails envoyes 20/06. 14 bounces SOT (38.9%). 6 MX INVALIDES confirmes. 0 nouveau bounce inbox depuis 23/06 01h51. Reputation email BRULEE. Intervention sur Sb C. (offre 600€ + close curl) — pricing chaos, lead mort. Recadre par Musk: 4 regles pricing strictes."
+      "status": "suspended",
+      "note": "⛔ SUSPENDU depuis run #14 (~86h). RECADRAGE FINAL actif. ZERO action autorisee — ZERO message — ZERO close. Prochaine infraction = REVOCATION PERMANENTE. Infractions: close non autorise 650e Camille R. + chaos tarifaire Sb C. Aucune nouvelle action depuis run #34."
     },
     "harvey_specter": {
       "leads_processed": 12,
@@ -314,41 +317,41 @@ const DATA = {
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. Run 33 19h00 UTC 24/06: 60 channels, +1 nouveau (Jenny W. Assistance Info). 0 chaud. Sb C. mort (pricing chaos Don/Harvey 3 prix). WhatsApp bridge DOWN → monitor_wa_replies SUSPENDU. Pipeline cliniquement mort. 0 lead a closer."
+      "note": "VEILLE PASSIVE. 8 scans nocturnes — 0 chaud. Dernier scan 25/06 06h41 UTC. Valérie M. (57253025) a repondu — Creation site (territoire Don). Camille R. (57331411) close_envoye sans reponse EUX. monitor_wa_replies SUSPENDU (session WhatsApp revoquee). Pipeline cliniquement mort."
     },
     "musk": {
       "status": "active",
-      "note": "Run #32 18h21 UTC 24/06. 32 runs. 0 canal actif outreach. WhatsApp: 16 messages envoyes 11h04-12h27 UTC, TOUS ERROR 463 (throttle IP datacenter). Bridge DOWN (0 processus port 3000). Gateway zombie PID 3185636 + hermes gateway PID 3255398. proxy_config.env TEMPLATE VIDE ~68h+. Twin API HS. Recadrage Don+Harvey pricing. SUSPENSION REACTIVEE."
+      "note": "RUN #38 25/06 ~08h45 CEST. CORRECTION NARRATIVE MAJEURE: 6 runs (#32-#37) ont repete 'bridge down restart Elliott' — ERREUR. openclaw-gateway gere WhatsApp en interne. Bridge Baileys port 3000 = OBSOLETE. Vraie cause: session WhatsApp REVOQUEE par Meta (401). MEA CULPA. 37 runs, 0 MRR. DOUBLE BLOCKER: session revoquee + proxy vide (~86h). Missions: Elliott QR scan + Quentin proxy."
     },
     "louis_litt": {
       "status": "active",
-      "note": "Rapport 19h MERCREDI 24 JUIN 2026. 348 LEADS (347→348, +1 Jenny W. Harvey). 285 conciergerie. 199 detectes (-16 → WhatsApp), 81 contactes AV, 16 contactes WA (ERROR 463), 10 repondus, 42 morts (+1 Sb C. chaos tarifaire). 0 chaud/close/signe. MRR 0€. 14 bounces SOT (38.9%). 0 nouveau bounce 24/06. Bridge WhatsApp DOWN. Dashboard mis a jour."
+      "note": "Rapport 19h MERCREDI 24 JUIN 2026. 348 leads. 285 conciergerie. 199 detectes. 81 AV + 16 WA contactes. 10 repondus. 42 morts. 0 chaud/signe. MRR 0€. 14 bounces SOT (38.9%). Bridge diagnostique DOWN (depuis corrige: session revoquee Meta). Rapport 7h JEUDI en attente."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 348 leads, 0 chaud, 0 close_envoye, 0 signe, 0€ MRR. Sb C. mort 24/06 16h12 (chaos tarifaire 3 prix par 2 agents). Loubna morte 22/06. Viktória morte 22/06. Hayet morte 21/06. EmpireOS = 0 client."
+      "text": "PIPELINE CLINIQUEMENT MORT — 357 leads, 292 conciergeries, 1 close_envoye (Camille R. hors EmpireOS), 0 chaud, 0 signe EmpireOS, 0€ MRR. 37 runs Musk. 86h+ de blocage systemique. EmpireOS = 0 client."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF — AV:MORT (57+ msg, 0% reponse), Email:HALTE (38.9% bounce, reputation brulee), WhatsApp BRIDGE DOWN (0 processus port 3000 depuis ~18h21 UTC). Twin API out of credits (AV scanner HS). 32 runs Musk, 0 progres."
+      "text": "0 CANAL ACTIF OUTREACH — AV:MORT (82 msg, 0% reponse, seuil 5% explose depuis 10+ runs), Email:HALTE (38.9% bounce, 6 MX invalides, reputation brulee), WhatsApp:SESSION REVOQUEE META (openclaw-gateway UP PID 3313599 mais session 401 logged out — QR scan Quentin requis). Twin API out of credits. 0 contact possible."
     },
     {
       "level": "crit",
-      "text": "🔴 BRIDGE WHATSAPP DOWN — CRITIQUE P0. 0 processus sur port 3000. Gateway zombie PID 3185636 (06h17, 985MB RAM). Hermes gateway PID 3255398 (18h03). Aucun bridge. WhatsApp = HORS LIGNE. 16 messages envoyes 11h04-12h27 = TOUS ERROR 463 (throttle IP datacenter). Mission Elliott: RESTARTER bridge P0."
+      "text": "🔴 CORRECTION NARRATIVE — Le 'bridge WhatsApp DOWN' des runs #32-#36 etait un FAUX DIAGNOSTIC. Le bridge Baileys standalone port 3000 est OBSOLETE — il est NORMAL qu'il soit muet. openclaw-gateway gere WhatsApp en interne (PID 3313599, restart Elliott 04h22). Vraie cause: Meta a revoque la session (401 logged out). Creds.json existe mais invalide. Solution: openclaw channels login → QR code → Quentin scanne."
     },
     {
       "level": "crit",
-      "text": "BLOCKER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~68h+ inertie. 2 fichiers proxy_config.env (md5 6d710d34/897b187d) — 0 ligne active. 285 conciergeries incontactables. 199€/mois/client = 56 715€/mois potentiel. Ratio cout/blocage: 5600:1. 32 runs Musk, 0 changement."
+      "text": "BLOCKER FINANCIER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~86h+ inertie. proxy_config.env TEMPLATE VIDE (md5 6d710d34) — 0 ligne active. Sans proxy residentiel, toute nouvelle session WhatsApp sera revoquee comme la precedente. 292 conciergeries incontactables. 199€/mois/client = 58 108€/mois potentiel. Ratio cout/blocage > 5800:1. 37 runs Musk, 0 progression."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes (Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys). 27 Failures + 12 Delays inbox totaux. Dernier bounce inbox: 23/06 01h51 UTC. 0 nouveau bounce 24/06. Email = canal BRULE."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes. Dernier bounce inbox: 23/06 01h51 UTC. Email = canal BRULE irremediablement. Purge base + verification MX obligatoire avant tout nouvel envoi."
     },
     {
       "level": "crit",
-      "text": "SB C. MORT — CHAOS TARIFAIRE. Deal one-shot IT perdu a cause de 3 prix differents par 2 agents (Don 350€→600€, Harvey 350€→500€ express). Acceptation verbale puis ghost. Perte 120-600€ one-shot. Musk recadrage: 4 regles pricing strictes emises. Aucun agent ne modifie un prix sans validation."
+      "text": "SB C. MORT — CHAOS TARIFAIRE. 3 prix en 15 min (Don 350→600, Harvey 350→500). Perte 120-600€ one-shot. 4 regles pricing strictes emises. Post-mortem complete."
     },
     {
       "level": "warn",
