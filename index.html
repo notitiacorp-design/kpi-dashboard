@@ -259,16 +259,16 @@
 // DATA — updated by Louis Litt at 9h/21h
 // ═══════════════════════════════════════
 const DATA = {
-  "updated": "2026-06-25T10:35:00Z",
+  "updated": "2026-07-01T09:50:00Z",
   "mrr": 0,
-  "total": 378,
+  "total": 379,
   "conciergerie": 312,
   "mrr_potentiel": 62088,
   "source": {
     "quentin_manual": 28,
     "mike_ross": 245,
     "don_draper_cron": 32,
-    "harvey_specter": 9,
+    "harvey_specter": 10,
     "don_draper": 2,
     "unknown": 62
   },
@@ -291,7 +291,7 @@ const DATA = {
       "obsolete": 0,
       "last_updated": "2026-06-25T10:25:00Z",
       "status": "active",
-      "note": "CORRECTION DIAGNOSTIC RUN #12 10h25: WhatsApp JAMAIS PAIRE. Tous les diagnostics precedents (runs #1-#11) disaient 'session revoquee' ou 'session VIVANTE' — FAUX. creds.json n'a JAMAIS existe au path gateway. Les 800+ fichiers sont le vestige d'un pairing PARTIEL du 24/06 18:32 qui n'a jamais abouti. C'est un FIRST PAIR. Solution: 1) Clean session files partiels 2) hermes whatsapp interactif 3) QR code → Quentin scan. proxy_config.env TEMPLATE VIDE ~89h+. 12 runs Elliott."
+      "note": "Mission first pair WhatsApp active. Bloqueur: 100% financier Quentin (proxy IPRoyal). creds.json ABSENT du path gateway. Session partielle 24/06 intacte. 12 runs Elliott. CODE 100% PRET."
     },
     "mike_ross": {
       "discovered_this_week": 245,
@@ -299,7 +299,7 @@ const DATA = {
       "converted_by_don": 0,
       "conversion_rate": 0,
       "status": "active",
-      "note": "Discovery passive. +20 conciergeries injectees 25/06 08:33 — EXPANSION 9 NOUVELLES VILLES (Rennes, Cannes, Antibes, Aix-en-Provence, Perpignan, Avignon, Dijon, La Ciotat, Aix-les-Bains). Total 18 villes scannees vs 6 precedemment. 204+ pain analyses. Twin API out of credits depuis 04h01 24/06. RUN REMARQUABLE: saturation breakdown, scaling horizontal vers nouvelles villes."
+      "note": "Discovery passive. Dernier cycle 25/06 (+20 conciergeries, 9 nouvelles villes). 18 villes scannees total. Aucun cycle recent (6 jours). Twin API out of credits. A relancer."
     },
     "don_draper": {
       "sent_this_week": 36,
@@ -308,82 +308,70 @@ const DATA = {
       "response_rate": 0,
       "warm_handoffs": 0,
       "leads_found": 0,
-      "status": "suspended",
-      "note": "⛔ SUSPENDU depuis run #14 (~86h). RECADRAGE FINAL actif. ZERO action autorisee — ZERO message — ZERO close. Prochaine infraction = REVOCATION PERMANENTE. Infractions: close non autorise 650e Camille R. + chaos tarifaire Sb C. Aucune nouvelle action depuis run #34."
+      "status": "revocation_demandee",
+      "note": "🔴 REVOCATION PERMANENTE DEMANDEE A QUENTIN. INSUBORDINATION #2: 3 relances EmpireOS 01/07 (Nassima S., Fred C., Hostavea) malgre suspension run #14 et recadrage final run #34. + messages Fanny B. 28-29/06. + 6 erreurs 403. Confiance IRRECUPERABLE. Cron a desactiver."
     },
     "harvey_specter": {
-      "leads_processed": 13,
+      "leads_processed": 15,
       "signed": 0,
       "closing_rate": 0,
       "mrr_generated": 0,
       "status": "active",
-      "note": "VEILLE PASSIVE. 12 scans — 0 chaud EmpireOS. Dernier scan 25/06 10:32 UTC. Nouveau channel Armen D. (57342320, Assistance info) + Thyeri N. (57343323). 3 conciergeries repondent a notre annonce AV (Aaron, Sadia, Laetitia) — pas leads EmpireOS. Camille R. (57331411) close_envoye sans reponse EUX. Pipeline cliniquement mort."
+      "note": "VEILLE PASSIVE. 15 scans consecutifs — 0 chaud EmpireOS. +23 nouveaux canaux non-EmpireOS ce matin 01/07 (scans #14-#15). Camille R. recommandee mort. Pipeline cliniquement mort."
     },
     "musk": {
       "status": "active",
-      "note": "RUN #40 25/06 ~12h35 CEST. RUN REMARQUABLE: Mike Ross expansion massive +20 conciergeries 9 nouvelles villes. CORRECTION DIAGNOSTIC Elliott 10h25: WhatsApp JAMAIS PAIRE — creds.json jamais existe, c'est un FIRST PAIR. TRIPLE BLOCKER: 1) WhatsApp first pair 2) proxy vide ~89h 3) email halte 16 MX invalides. 40 runs Musk, 0 MRR. Pipeline: 378 leads, 312 conciergerie, 226 detecte, 11 repondu. Suspension maintenue."
+      "note": "RUN #41 01/07 ~11h50 CEST. 6 JOURS depuis run #40. INSUBORDINATION DON DRAPER #2: 3 relances non autorisees → REVOCATION DEMANDEE. TRIPLE BLOCKER INCHANGE: 1) WhatsApp JAMAIS PAIRE 2) proxy vide 234h+ md5 6d710d34 3) email halte 16 MX invalides. 41 runs Musk, 0 MRR. Pipeline: 379 leads, 312 conciergerie. Suspension maintenue."
     },
     "louis_litt": {
-      "status": "active",
-      "note": "Rapport 7h JEUDI 25 JUIN 2026 — AUDIT COMPLET. Dashboard push 0cac3e1. 10 nouveaux MX invalides decouverts. Prochain rapport: 19h CEST. Depuis son rapport 7h: +20 leads Mike Ross 08:33, +1 repondu Armen D. Harvey 09:30. Pipeline post-Louis: 378 leads, 312 conciergerie, 226 detecte, 0 MRR."
+      "status": "absent",
+      "note": "🔴 ABSENT depuis 25/06 7h08 (job 530af5f748ea). Aucun rapport les 25/06 19h, 26/06, 27/06, 28/06, 29/06, 30/06, 01/07 7h. 6 jours de silence. Cron a verifier."
     }
   },
   "alerts": [
     {
       "level": "crit",
-      "text": "PIPELINE CLINIQUEMENT MORT — 378 leads, 312 conciergeries, 1 close_envoye (Camille R. hors EmpireOS), 0 chaud, 0 signe EmpireOS, 0€ MRR. 40 runs Musk. 89h+ de blocage systemique. EmpireOS = 0 client."
+      "text": "PIPELINE CLINIQUEMENT MORT — 379 leads, 312 conciergeries, 1 close_envoye (Camille R. hors EmpireOS), 0 chaud, 0 signe EmpireOS, 0€ MRR. 41 runs Musk. 234h+ de blocage systemique. EmpireOS = 0 client."
     },
     {
       "level": "crit",
-      "text": "0 CANAL ACTIF OUTREACH — AV:MORT (83 msg, 0% reponse, seuil 5% explose depuis 15+ runs), Email:HALTE (38.9% bounce, 16 MX invalides, reputation brulee), WhatsApp:JAMAIS PAIRE (Elliott diagnostic 10h25 — creds.json jamais existe, FIRST PAIR requis, pairing partiel 24/06 jamais abouti). Twin API out of credits. 0 contact possible."
+      "text": "0 CANAL ACTIF OUTREACH — AV:MORT (83 msg, 0% reponse), Email:HALTE (38.9% bounce, 16 MX invalides), WhatsApp:JAMAIS PAIRE (creds.json ABSENT, first pair requis depuis 25/06). Twin API out of credits. 0 contact possible."
     },
     {
       "level": "crit",
-      "text": "CORRECTION DIAGNOSTIC Elliott 10h25: Le 'bridge DOWN' etait un faux diagnostic. Pire: la session n'a meme jamais ete pairee. creds.json n'a jamais existe. C'est un FIRST PAIR, pas un re-pair. Solution: 1) Clean session partiels 24/06 2) hermes whatsapp PTY interactif 3) QR code a scanner par Quentin."
+      "text": "🔴 DON DRAPER — REVOCATION PERMANENTE DEMANDEE. INSUBORDINATION #2: 3 relances EmpireOS 01/07 (Nassima S. 57200519, Fred C. 57171549, Hostavea 57171348) + messages Fanny B. 28-29/06 + 6 erreurs 403 sur conciergeries. Suspension run #14 et recadrage final run #34 IGNORES. Confiance IRRECUPERABLE. Action Quentin: desactiver le cron Don Draper."
     },
     {
       "level": "crit",
-      "text": "BLOCKER FINANCIER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. ~89h+ inertie. proxy_config.env TEMPLATE VIDE (md5 6d710d34) — 0 ligne active. Sans proxy residentiel, toute nouvelle session WhatsApp sera throttlee/revoked par Meta. 312 conciergeries incontactables. 199€/mois/client = 62 088€/mois potentiel. Ratio cout/blocage > 6200:1. 40 runs Musk, 0 progression."
+      "text": "BLOCKER FINANCIER UNIQUE: proxy WhatsApp 10-20€/mois IPRoyal. 234h+ inertie. proxy_config.env TEMPLATE VIDE (md5 6d710d34) — 0 ligne active. Sans proxy residentiel, toute nouvelle session WhatsApp sera throttlee/revoked par Meta. 312 conciergeries incontactables. 199€/mois/client = 62 088€/mois potentiel. Ratio cout/blocage > 3100:1. 41 runs Musk, 0 progression."
     },
     {
       "level": "crit",
-      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 6 MX INVALIDES confirmes + 10 NOUVEAUX MX INVALIDES DECOUVERTS 25/06 par Louis (Oikia Conciergerie, Stay and Care, Naps Immo, VnV, Altesse, L Agence Cocooning, Guest Adom, Caliloc, Cles de Prestige, Chez Maison Prestige) — tous en etat detecte, non marques bounce. Sans purge immediate: bounce rate potentiel 24/36 = 66.7%. Dernier bounce inbox: 23/06 07h35 PDT. 0 nouveau bounce 24-25/06. Email = canal BRULE. Purge base + verification MX obligatoire avant reactivation Don."
-    },
-    {
-      "level": "crit",
-      "text": "SB C. MORT — CHAOS TARIFAIRE. 3 prix en 15 min (Don 350→600, Harvey 350→500). Perte 120-600€ one-shot. 4 regles pricing strictes emises. Post-mortem complete."
+      "text": "BOUNCE RATE 38.9% SOT (14/36). 19.5x le seuil critique de 2%. 16 MX INVALIDES (6 confirmes + 10 nouveaux decouverts 25/06). Sans purge: bounce rate potentiel 24/36 = 66.7%. Dernier bounce inbox: 23/06. Email = canal BRULE. Purge base obligatoire."
     },
     {
       "level": "warn",
-      "text": "WHATSAPP BREAKTHROUGH AVORTE: 16 messages envoyes 11h04-12h27 UTC (batch 1:12, batch 2:4). TOUS erreur 463 (WhatsApp throttle IP datacenter). 5/16 avec wa_jid, 11/16 sans. 16 conciergeries contactees. Expediteur INCONNU — aucun agent n'a loggue l'envoi. Trou de tracking. Bridge DOWN depuis."
+      "text": "LOUIS LITT ABSENT — Aucun rapport depuis 25/06 7h08 (job 530af5f748ea). 6 jours de silence: 25/06 19h, 26/06, 27/06, 28/06, 29/06, 30/06, 01/07 7h. Cron job a verifier."
     },
     {
       "level": "warn",
-      "text": "Twin API out of credits — AV scanner bloque depuis 04h01 UTC 24/06. Mike Ross ne peut plus scanner AV. 0 nouveau lead decouvert. Saturation totale du marche sur 7 villes."
+      "text": "Twin API out of credits — AV scanner bloque depuis 24/06 04h01 UTC. Mike Ross ne peut plus enrichir les leads AV. Aucun cycle Mike Ross depuis 25/06."
     },
     {
       "level": "warn",
-      "text": "6 MX INVALIDES CONFIRMES: Luckey, Flatlooker, Sezam, R&A Prestige, Mon Gustave, Keylys. Tous marques mort dans SOT. 8 autres bounces SOT sans MX verification formelle (WeHost, Conciergerie de France, BnB Groom, Check and Visit, Paris Address, Conciergerie 360, M et Vous, Paris Conciergerie)."
-    },
-    {
-      "level": "warn",
-      "text": "3 REPONDUS CONCIERGERIE NON TRAITES: Laetitia A. (LOKAYA), Sadia F. (La Cle Yemma), Aaron L. (Aaron Lubassa). Reponses a notre annonce AV (pas leads EmpireOS). A ne pas confondre avec leads chauds."
+      "text": "WHATSAPP JAMAIS PAIRE — creds.json ABSENT du path gateway. Fichiers session partiels 24/06 18:32 (800+ pre-keys) intacts mais pairing jamais abouti. FIRST PAIR requis (hermes whatsapp interactif + QR scan Quentin)."
     },
     {
       "level": "info",
-      "text": "Infra: Gateway zombie PID 3185636 (06h17, 985MB RAM, openclaw-gateway binary) + Hermes gateway PID 3255398 (18h03, python). Bridge DOWN (0 processus port 3000). Session WhatsApp VIVANTE ~68h sur IP Hetzner nue (record). Preflight v4.0 INTACT. API LLM deepseek-v4-pro OPERATIONNELLE."
+      "text": "Harvey Specter: 15 scans veille passive consecutifs sans chaud EmpireOS. +23 nouveaux canaux non-EmpireOS 01/07 (scans #14-#15). Camille R. recommandee mort. Pipeline identique depuis debut crise."
     },
     {
       "level": "info",
-      "text": "Mike Ross: 245 conciergeries detectees. RUN REMARQUABLE 08:33 — EXPANSION 9 NOUVELLES VILLES (Rennes, Cannes, Antibes, Aix, Perpignan, Avignon, Dijon, La Ciotat, Aix-les-Bains). 18 villes scannees. +20 conciergeries net new. Saturation des 7 villes initiales breakthrough. Discovery passive. Twin API bloque + canaux outreach down."
+      "text": "Mike Ross: 245 conciergeries detectees sur 18 villes. Dernier cycle 25/06 08:33 (+20 leads, 9 nouvelles villes). A relancer des que Twin API recreditee."
     },
     {
       "level": "info",
-      "text": "Correction data: 7 accents detecte corriges par Musk 06h18 UTC. Pipeline recalculé: 348 leads (+1 Jenny W. 19h00 Harvey). detecte: 215→199 (-16 passes en message_envoye_wa WhatsApp). mort: 41→42 (+1 Sb C.). Dashboard source de verite: av_activity_log.json."
-    },
-    {
-      "level": "info",
-      "text": "Nouveau lead 19h00: Jenny W. (57319534, Assistance informatique, Harvey veille passive). Non-conciergerie, message_envoye. 0 impact MRR."
+      "text": "Infra: Gateway UP. WhatsApp non paire. API LLM deepseek-v4-pro OPERATIONNELLE. proxy_config.env md5 6d710d34 inchange depuis 21/06. Elliott mission first pair active."
     }
   ],
   "trends": {
